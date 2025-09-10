@@ -638,16 +638,41 @@ const Products = () => {
             )}
             
             {/* Todo: fix this scroll bar */}
-            {sortedProducts.length > productsPerPage && (
-              <div className="flex justify-center mt-8">
-                <button onClick={prevPage} disabled={currentPage === 1} className="px-4 py-2 bg-gray-200 rounded-l disabled:opacity-50">Previous</button>
-                {[...Array(totalPages)].map((_, i) => (
-                  <button key={i} onClick={() => paginate(i + 1)} className={`px-4 py-2 ${currentPage === i + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}>{i + 1}</button>
-                ))}
-                <button onClick={nextPage} disabled={currentPage === totalPages} className="px-4 py-2 bg-gray-200 rounded-r disabled:opacity-50">Next</button>
-              </div>
-            )}
+ {sortedProducts.length > productsPerPage && (
+  <div className="flex justify-center mt-8 space-x-2">
+    {/* Previous Button */}
+    <button 
+      onClick={prevPage} 
+      disabled={currentPage === 1} 
+      className="px-3 py-1 rounded-lg border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition"
+    >
+      Previous
+    </button>
 
+    {/* Page Numbers */}
+    {[...Array(totalPages)].map((_, i) => (
+      <button 
+        key={i} 
+        onClick={() => paginate(i + 1)} 
+        className={`px-3 py-1 rounded-lg border transition 
+          ${currentPage === i + 1 
+            ? 'bg-blue-600 text-white border-blue-600 shadow-md' 
+            : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
+      >
+        {i + 1}
+      </button>
+    ))}
+
+    {/* Next Button */}
+    <button 
+      onClick={nextPage} 
+      disabled={currentPage === totalPages} 
+      className="px-3 py-1 rounded-lg border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition"
+    >
+      Next
+    </button>
+  </div>
+)}
             <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Enquiry Form</h2>
               <p className="text-gray-600 mb-6">Get in touch with our sales team and partners for more details.</p>
