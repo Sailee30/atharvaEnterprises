@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import productsData from '../components/Products.json';
+import ProductDetail from "./ProductsDetail"; // Make sure this path is correct
 
 // Import all 270 images with their correct file extensions
 import img1 from '../assets/1.jpg';
@@ -437,8 +438,8 @@ const ProductCategoryDetail = () => {
   
   // Navigate to product detail page
   const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`);
-  };
+  navigate(`/product/${productId}/specifications`);
+};
 
   // Get related categories
   const getRelatedCategories = () => {

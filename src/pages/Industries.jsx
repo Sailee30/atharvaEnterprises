@@ -1,5 +1,20 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import tataGroupLogo from "../assets/tata-group.jpg";
+import mahindraLogo from "../assets/mahindra.png";
+import danaLogo from "../assets/dana-india.jpg";
+import tacoLogo from "../assets/taco.png";
+import bharatforgeLogo from "../assets/bharat-forge.png";
+import faithLogo from "../assets/faith-automation.jpg";
+import horibaLogo from "../assets/horiba.jpg";
+import hyundaiLogo from "../assets/hyundai.jpg";
+import kalyaniTechLogo from "../assets/kalyani_technoforge.jpg";
+import kalyaniLogo from "../assets/kalyani.jpg";
+import magnaCosmaLogo from "../assets/magna-cosma.png";
+import tataAAutoCompLogo from "../assets/tata-autocomp.png";
+import venusLogo from "../assets/venus_automation.jpg";
+import tataLogo from "../assets/tata.jpg";
+
 
 // Import your existing components - adjust paths as needed
 // import Navbar from '../components/Navbar';
@@ -10,50 +25,84 @@ const Industries = () => {
   const industries = [
     {
       id: 1,
-      title: "Manufacturing & Production",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "TATA Group ",
+      image: tataGroupLogo,
       description: "Industrial assembly tools, hydraulic torque wrenches, and precision equipment for manufacturing lines, ensuring optimal production efficiency and quality control."
     },
     {
       id: 2,
-      title: "Automotive Industry",
-      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Mahindra and Mahindra ",
+      image: mahindraLogo,
       description: "Specialized automotive assembly tools, torque wrenches, air impact tools, and precision fastening equipment for vehicle manufacturing and service centers."
     },
     {
       id: 3,
-      title: "Heavy Engineering",
-      image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Dana India ",
+      image: danaLogo,
       description: "Heavy-duty hydraulic tools, industrial-grade cleaning equipment, and material handling solutions for large-scale engineering projects."
     },
     {
       id: 4,
-      title: "Construction & Infrastructure",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Horiba",
+      image: horibaLogo,
       description: "Construction machinery, cleaning solutions for equipment maintenance, and material handling tools for infrastructure development projects."
     },
     {
       id: 5,
-      title: "Oil, Gas & Petrochemicals",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Hyundai",
+      image: hyundaiLogo,
       description: "Explosion-proof cleaning equipment, high-pressure washers, and specialized maintenance tools for petrochemical and oil refining facilities."
     },
     {
       id: 6,
-      title: "Food & Beverage Processing",
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Magna Cosmo",
+      image: magnaCosmaLogo,
       description: "Food-grade cleaning equipment, vacuum cleaners, and specialized maintenance tools ensuring hygiene standards in food processing facilities."
     },
+   
     {
       id: 7,
-      title: "Textile & Garment",
-      image: "https://images.unsplash.com/photo-1520637836862-4d197d17c0a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      description: "Industrial cleaning solutions for textile machinery, cutting tools for fabric processing, and maintenance equipment for garment manufacturing."
+      title: "TATA Toyo radiator",
+      image: tataLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
     },
     {
       id: 8,
-      title: "Steel & Metal Processing",
-      image: "https://images.unsplash.com/photo-1565888815-7e4f0d7d1c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Taco Punch Powetrain",
+      image: tacoLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },{
+      id: 9,
+      title: "TATA Autocomp Gotion",
+      image: tataAAutoCompLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },{
+      id: 10,
+      title: "Faith Automation ",
+      image: faithLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },
+    {
+      id: 11,
+      title: "Vinus Automation",
+      image: venusLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },
+    {
+      id: 12,
+      title: "Bharat Forge",
+      image: bharatforgeLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },
+    {
+      id: 13,
+      title: "Kalyani Technoforge",
+      image: kalyaniTechLogo,
+      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
+    },{
+      id: 14,
+      title: "Kalyani strategic",
+      image: kalyaniLogo,
       description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
     }
   ];

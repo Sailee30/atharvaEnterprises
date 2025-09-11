@@ -13,27 +13,27 @@ const AboutUs = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Rajesh Sharma',
+      name: 'Rakesh varane',
       position: 'Founder & CEO',
-      bio: 'With over 25 years of experience in industrial equipment, Rajesh founded Atharva Enterprises with a vision to provide quality solutions to businesses across India.',
+      bio: 'With over 25 years of experience in industrial equipment, Rakesh founded Atharva Enterprises with a vision to provide quality solutions to businesses across India.',
     },
     {
       id: 2,
-      name: 'Priya Patel',
+      name: 'Ketaki Varane',
       position: 'Technical Director',
-      bio: 'Priya brings 15+ years of technical expertise, ensuring our clients receive the most suitable equipment solutions tailored to their specific requirements.',
+      bio: 'Ketaki brings 15+ years of technical expertise, ensuring our clients receive the most suitable equipment solutions tailored to their specific requirements.',
     },
     {
       id: 3,
-      name: 'Vikram Singh',
+      name: 'Vijay Chorghe',
       position: 'Sales Manager',
-      bio: 'Vikram leads our sales team with a customer-first approach, focusing on building long-term relationships rather than just closing deals.',
+      bio: 'Vijay leads our sales team with a customer-first approach, focusing on building long-term relationships rather than just closing deals.',
     },
     {
       id: 4,
-      name: 'Ananya Desai',
+      name: 'Mahadev Chorghe',
       position: 'Customer Support Lead',
-      bio: 'Ananya ensures our clients receive prompt and effective support, heading our dedicated after-sales service department.',
+      bio: 'Mahadev ensures our clients receive prompt and effective support, heading our dedicated after-sales service department.',
     }
   ];
 
@@ -135,7 +135,11 @@ const AboutUs = () => {
             <div className="md:w-1/2">
               <h2 className="text-2xl font-medium mb-4">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2001, Atharva Enterprises started as a small dealership for industrial cleaning equipment. Over the years, we have grown to become a comprehensive solution provider for businesses seeking quality machinery and equipment.
+                Founded in 2001, Atharva Enterprises has grown from a small trading company into a trusted provider of industrial solutions across India.
+
+Partnering with leading global brands, we deliver a wide range of products including industrial cleaning machines, assembly tools, material handling equipment, automation systems, fluid management, and calibration services.
+
+Guided by our focus on Quality, Cost, and Delivery, we continue to support industries such as automotive, engineering, and manufacturing, helping businesses achieve efficiency and long-term success.
               </p>
               <p className="text-gray-600 mb-4">
                 Today, we are proud to represent leading global manufacturers, offering a wide range of industrial equipment including cleaning machines, material handling equipment, construction machinery, and more.

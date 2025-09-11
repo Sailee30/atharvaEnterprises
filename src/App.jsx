@@ -12,6 +12,7 @@ import SearchResults from './pages/SearchResults';
 // Add these new imports
 import Industries from './pages/Industries';
 import Services from './pages/Services';
+import ProductSpecifications from './pages/ProductSpecifications';
 
 // Custom hook for page transitions
 const usePageTransition = () => {
@@ -81,6 +82,7 @@ function App() {
           
           <Route path="/category/:categoryType/:categorySlug" element={<ProductCategoryDetail />} />
           <Route path="/product/:productSlug" element={<ProductDetail />} />
+          <Route path="/product/:productId/specifications" element={<ProductSpecifications />} />
           
           <Route path="*" element={
             <div className="container mx-auto px-4 py-24 text-center">
