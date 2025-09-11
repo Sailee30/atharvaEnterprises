@@ -85,7 +85,7 @@ const CTA = () => {
                 </div>
                 <h3 className="text-xl md:text-2xl font-medium mb-2">
                   <span className="opacity-90">Flat </span>
-                  <span className="text-yellow-400">40% off</span>
+                  <span className="text-yellow-400">5% off</span>
                   <span className="opacity-90"> on the first order</span>
                 </h3>
                 <h2 className="text-2xl md:text-3xl font-medium text-white"><span className="text-yellow-400">Atharva EnterprisesO</span> bars tool</h2>

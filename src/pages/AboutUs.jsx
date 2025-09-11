@@ -71,21 +71,88 @@ const AboutUs = () => {
     {
       id: 1,
       content: 'Atharva Enterprises has been our trusted partner for over a decade. Their equipment recommendations have significantly improved our operational efficiency.',
-      author: 'Sanjay Malhotra',
-      company: 'Malhotra Manufacturing Ltd.'
+      author: 'TATA Group',
+      company: 'TATA Group Ltd.'
     },
     {
       id: 2,
       content: "The technical expertise and after-sales support provided by the Atharva team is exceptional. They don't just sell equipment; they provide complete solutions.",
-      author: 'Meera Reddy',
-      company: 'Reddy Industrial Solutions'
+      author: 'Mahindra and Mahindra',
+      company: 'Mahindra and Mahindra'
     },
     {
       id: 3,
       content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
-      author: 'Ajay Kapoor',
-      company: 'Kapoor Logistics'
-    }
+      author: 'Dana India',
+      company: 'Dana India'
+    },
+     {
+      id: 4,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Horiba',
+      company: 'Horiba'
+    },
+      {
+      id: 5,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Hyundai',
+      company: 'Hyundai'
+    },
+      {
+      id: 6,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'TATA Toyo radiator',
+      company: 'TATA Toyo radiator'
+    },
+      {
+      id: 7,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Magna Cosmo',
+      company: 'Magna Cosmo'
+    },
+      {
+      id: 8,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Taco Punch Powetrain',
+      company: 'Taco Punch Powetrain'
+    },
+      {
+      id: 9,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'TATA Autocomp Gotion',
+      company: 'TATA Autocomp Gotion'
+    },
+      {
+      id: 10,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Faith Automation',
+      company: 'Faith Automation'
+    },
+      {
+      id: 11,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Vinus Automation',
+      company: 'Vinus Automation'
+    },
+      {
+      id: 12,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Bharat Forge',
+      company: 'Bharat Forge'
+    },
+      {
+      id: 13,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Kalyani Technoforge',
+      company: 'Kalyani Technoforge'
+    },
+      {
+      id: 14,
+      content: 'Working with Atharva Enterprises has streamlined our procurement process. They understand our needs and consistently deliver quality equipment on time.',
+      author: 'Kalyani strategic',
+      company: 'Kalyani strategic'
+    } 
+
   ];
 
   return (
@@ -303,7 +370,7 @@ Guided by our focus on Quality, Cost, and Delivery, we continue to support indus
         </div>
       </section>
       
-      {/* Testimonials Section */}
+      {/* Testimonials Section - UPDATED TO HORIZONTAL SCROLL */}
       <section className="py-16 relative z-10">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -313,43 +380,88 @@ Guided by our focus on Quality, Cost, and Delivery, we continue to support indus
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow relative">
-                {/* Quote mark decoration */}
-                <div className="absolute top-4 right-4 opacity-10">
-                  <svg className="w-16 h-16" style={{ color: themeColors.primary }} fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                </div>
-                
-                <div className="mb-4">
-                  {/* 5 star rating */}
-                  <div className="flex mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5" style={{ color: themeColors.accent }} fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          {/* Horizontal Scrolling Container */}
+          <div className="relative">
+            {/* Scroll Container */}
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <div className="flex gap-6 w-max">
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 relative w-80 flex-shrink-0">
+                    {/* Quote mark decoration */}
+                    <div className="absolute top-4 right-4 opacity-10">
+                      <svg className="w-16 h-16" style={{ color: themeColors.primary }} fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                       </svg>
-                    ))}
+                    </div>
+                    
+                    <div className="mb-4">
+                      {/* 5 star rating */}
+                      <div className="flex mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-5 h-5" style={{ color: themeColors.accent }} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      
+                      <p className="text-gray-600 italic mb-6 leading-relaxed">"{testimonial.content}"</p>
+                    </div>
+                    
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                        <span className="text-gray-700 font-medium text-lg">{testimonial.author.charAt(0)}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium">{testimonial.author}</h4>
+                        <p className="text-sm text-gray-500">{testimonial.company}</p>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <p className="text-gray-600 italic mb-6">"{testimonial.content}"</p>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
-                    <span className="text-gray-700 font-medium text-lg">{testimonial.author.charAt(0)}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium">{testimonial.author}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.company}</p>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="flex justify-center mt-4">
+              <p className="text-sm text-gray-500">← Scroll horizontally to see more testimonials →</p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Custom Scrollbar Styles */}
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Custom scrollbar for better UX on desktop */
+        @media (min-width: 768px) {
+          .scrollbar-hide {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f8fafc;
+          }
+          .scrollbar-hide::-webkit-scrollbar {
+            display: block;
+            height: 8px;
+          }
+          .scrollbar-hide::-webkit-scrollbar-track {
+            background: #f8fafc;
+            border-radius: 4px;
+          }
+          .scrollbar-hide::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+          }
+          .scrollbar-hide::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+          }
+        }
+      `}</style>
     </div>
   );
 };

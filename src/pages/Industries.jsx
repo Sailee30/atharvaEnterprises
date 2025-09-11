@@ -1,162 +1,103 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import tataGroupLogo from "../assets/tata-group.jpg";
-import mahindraLogo from "../assets/mahindra.png";
-import danaLogo from "../assets/dana-india.jpg";
-import tacoLogo from "../assets/taco.png";
-import bharatforgeLogo from "../assets/bharat-forge.png";
-import faithLogo from "../assets/faith-automation.jpg";
-import horibaLogo from "../assets/horiba.jpg";
-import hyundaiLogo from "../assets/hyundai.jpg";
-import kalyaniTechLogo from "../assets/kalyani_technoforge.jpg";
-import kalyaniLogo from "../assets/kalyani.jpg";
-import magnaCosmaLogo from "../assets/magna-cosma.png";
-import tataAAutoCompLogo from "../assets/tata-autocomp.png";
-import venusLogo from "../assets/venus_automation.jpg";
-import tataLogo from "../assets/tata.jpg";
-
-
-// Import your existing components - adjust paths as needed
-// import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import nilfisklogo from "../assets/nilfisk.png";
+import ingersollogo from "../assets/ingersoll.png"
+import arologo from "../assets/download.jpg"
+import stanlylogo from "../assets/stanly.png"
+import tristarlogo from "../assets/tristar.jpg"
 
 const Industries = () => {
-  // Industries data based on Atharva Enterprises' focus
   const industries = [
     {
       id: 1,
-      title: "TATA Group ",
-      image: tataGroupLogo,
-      description: "Industrial assembly tools, hydraulic torque wrenches, and precision equipment for manufacturing lines, ensuring optimal production efficiency and quality control."
+      title: "NILFISK",
+      image:
+       nilfisklogo,
+      description:
+        "Nilfisk is a global leader in professional and consumer cleaning equipment, founded in Denmark in 1906, offering a broad range of products including floor care, vacuum cleaners, and high-pressure washers. The company serves a professional market across various industries and also provides cleaning solutions for domestic consumers. With a focus on innovation and sustainability, Nilfisk operates in over 100 countries, providing a trusted network of products and after-sales services. ",
     },
     {
       id: 2,
-      title: "Mahindra and Mahindra ",
-      image: mahindraLogo,
-      description: "Specialized automotive assembly tools, torque wrenches, air impact tools, and precision fastening equipment for vehicle manufacturing and service centers."
+      title: "INGERSOLL RAND",
+      image:
+       ingersollogo,
+      description:
+        "Ingersoll Rand is a global industrial products company formed in 2020 that provides mission-critical air, fluid, and energy solutions, including compressors, power tools, and lifting equipment. The company offers a broad range of products under more than 40 brands and serves diverse industries such as manufacturing, construction, and food and beverage. With a focus on sustainability and efficiency, Ingersoll Rand aims to enhance industrial productivity worldwide. ",
     },
     {
       id: 3,
-      title: "Dana India ",
-      image: danaLogo,
-      description: "Heavy-duty hydraulic tools, industrial-grade cleaning equipment, and material handling solutions for large-scale engineering projects."
+      title: "ARO",
+      image:
+       arologo,
+      description:
+        "ARO stands for Adaptable, Reliable, Outstanding quality and performance. This world-renowned brand is a part of the bigger Ingersoll Rand industrial manufacturing company that has been around for over a century now. ARO is backed by a 90-year legacy of designing and engineering pumps that boast reliable performance, long operating life, and service excellence. Their fluid management products for different industries are expertly crafted from their AODD pumps, piston pumps, peristaltic pumps, pneumatic valves and cylinders, regulators, and lubricators among others .",
     },
     {
       id: 4,
-      title: "Horiba",
-      image: horibaLogo,
-      description: "Construction machinery, cleaning solutions for equipment maintenance, and material handling tools for infrastructure development projects."
+      title: "STANLY",
+      image:
+        stanlylogo,
+      description:
+        "Stanley Black & Decker is a global manufacturer and innovator in tools, outdoor equipment, and engineered fasteners, known for brands like DeWalt and Stanley. The company was formed in 2010 from the merger of The Stanley Works and Black & Decker, and is headquartered in New Britain, Connecticut. Beyond its core business, the company is also involved in security products and infrastructure development. ",
     },
     {
       id: 5,
-      title: "Hyundai",
-      image: hyundaiLogo,
-      description: "Explosion-proof cleaning equipment, high-pressure washers, and specialized maintenance tools for petrochemical and oil refining facilities."
+      title: "TRISTAR",
+      image:
+        tristarlogo,
+      description:
+        "Explosion-proof cleaning equipment, high-pressure washers, and specialized maintenance tools for petrochemical and oil refining facilities.",
     },
-    {
-      id: 6,
-      title: "Magna Cosmo",
-      image: magnaCosmaLogo,
-      description: "Food-grade cleaning equipment, vacuum cleaners, and specialized maintenance tools ensuring hygiene standards in food processing facilities."
-    },
-   
-    {
-      id: 7,
-      title: "TATA Toyo radiator",
-      image: tataLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },
-    {
-      id: 8,
-      title: "Taco Punch Powetrain",
-      image: tacoLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },{
-      id: 9,
-      title: "TATA Autocomp Gotion",
-      image: tataAAutoCompLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },{
-      id: 10,
-      title: "Faith Automation ",
-      image: faithLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },
-    {
-      id: 11,
-      title: "Vinus Automation",
-      image: venusLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },
-    {
-      id: 12,
-      title: "Bharat Forge",
-      image: bharatforgeLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },
-    {
-      id: 13,
-      title: "Kalyani Technoforge",
-      image: kalyaniTechLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    },{
-      id: 14,
-      title: "Kalyani strategic",
-      image: kalyaniLogo,
-      description: "Heavy-duty hydraulic tools, cutting equipment, industrial assembly tools, and cleaning solutions for steel mills and metal fabrication units."
-    }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Uncomment and adjust import paths when integrating */}
-      {/* <Navbar /> */}
-      
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <div className="bg-gradient-to-b from-blue-600 to-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Industries We Serve
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              We provide specialized industrial tools and equipment across various industries, helping businesses enhance efficiency, productivity, and operational excellence.
+              We provide specialized industrial tools and equipment across
+              various industries, helping businesses enhance efficiency,
+              productivity, and operational excellence.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Industries Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Small neat gap */}
+      <div className="h-12"></div>
+
+      {/* Cards Section - 2 per row */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {industries.map((industry) => (
             <div
               key={industry.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+              className="overflow-hidden rounded-2xl shadow-2xl bg-white group transition-transform duration-500 hover:scale-[1.02]"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              {/* Image on top */}
+              <div className="overflow-hidden h-64">
                 <img
                   src={industry.image}
                   alt={industry.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+              {/* Content below */}
+              <div className="p-8">
+                <h3 className="font-[Courgette] text-2xl lg:text-3xl font-bold text-gray-900 mb-4 transition-colors duration-500 group-hover:text-[#A9DFBF]">
                   {industry.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                   {industry.description}
                 </p>
-                
-                {/* Learn More Button */}
-                <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-lg transition-all duration-400 group">
+                  
                 </button>
               </div>
             </div>
@@ -165,14 +106,15 @@ const Industries = () => {
       </div>
 
       {/* Call to Action Section */}
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 relative z-20 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Don't See Your Industry?
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              We work with businesses across many sectors. Contact us to discuss how Atharva Enterprises can support your specific industry needs.
+              We work with businesses across many sectors. Contact us to discuss
+              how Atharva Enterprises can support your specific industry needs.
             </p>
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300 transform hover:scale-105">
               Contact Us Today
@@ -180,9 +122,6 @@ const Industries = () => {
           </div>
         </div>
       </div>
-
-      {/* Uncomment when integrating */}
-      {/* <Footer /> */}
     </div>
   );
 };
