@@ -1,4 +1,5 @@
 import React from 'react';
+import LogosCarousel from '../components/LogosCarousel';
 
 // Theme colors to match other components
 const themeColors = {
@@ -370,18 +371,18 @@ Guided by our focus on Quality, Cost, and Delivery, we continue to support indus
         </div>
       </section>
       
-      {/* Testimonials Section - UPDATED TO HORIZONTAL SCROLL */}
-      <section className="py-16 relative z-10">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+            {/* Testimonials Section - UPDATED TO HORIZONTAL SCROLL */}
+            <section className="py-16 relative z-10">
+           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-12">
             <h2 className="text-3xl font-medium mb-3">What Our Clients Say</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Don't just take our word for it. Hear from the businesses that have partnered with Atharva Enterprises.
             </p>
-          </div>
+           </div>
           
-          {/* Horizontal Scrolling Container */}
-          <div className="relative">
+           {/* Horizontal Scrolling Container */}
+           <div className="relative">
             {/* Scroll Container */}
             <div className="overflow-x-auto pb-4 scrollbar-hide">
               <div className="flex gap-6 w-max">
@@ -416,7 +417,9 @@ Guided by our focus on Quality, Cost, and Delivery, we continue to support indus
                         <p className="text-sm text-gray-500">{testimonial.company}</p>
                       </div>
                     </div>
+                    
                   </div>
+                  
                 ))}
               </div>
             </div>
@@ -426,21 +429,22 @@ Guided by our focus on Quality, Cost, and Delivery, we continue to support indus
               <p className="text-sm text-gray-500">← Scroll horizontally to see more testimonials →</p>
             </div>
           </div>
-        </div>
-      </section>
+         </div>
+          </section>
+          <LogosCarousel />
 
-      {/* Custom Scrollbar Styles */}
-      <style jsx>{`
-        .scrollbar-hide {
+           {/* Custom Scrollbar Styles */}
+           <style jsx>{`
+          .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
+          }
+          .scrollbar-hide::-webkit-scrollbar {
           display: none;
-        }
+         }
         
-        /* Custom scrollbar for better UX on desktop */
-        @media (min-width: 768px) {
+         /* Custom scrollbar for better UX on desktop */
+         @media (min-width: 768px) {
           .scrollbar-hide {
             scrollbar-width: thin;
             scrollbar-color: #cbd5e1 #f8fafc;

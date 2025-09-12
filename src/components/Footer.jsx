@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
           
           {/* Contact Information */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
             {/* Location */}
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center mb-4">
@@ -40,9 +40,8 @@ const Footer = () => {
                 <h3 className="text-white text-lg font-semibold">Our location</h3>
               </div>
               <div className="text-gray-400 text-sm leading-relaxed text-center md:text-left">
-                1421 Coburn Hollow Road<br />
-                Metamora, Center Point,<br />
-                IL 61548.
+                OFFICE ADD : SR. NO 46/1/2/2, HOUSE NO.A20, SARJA BUILDING,<br />
+                LANE NO.1, VIDYA NAGAR, PIMPLE GURAV, PUNE. 411061
               </div>
             </div>
             
@@ -59,13 +58,13 @@ const Footer = () => {
                 <h3 className="text-white text-lg font-semibold">Email address</h3>
               </div>
               <a 
-                href="mailto:hello@gmail.com" 
-                className="text-gray-400 text-sm hover:text-yellow-400 transition-colors duration-300"
+                href="mailto:atharvaenterprises9999@gmail.com" 
+                className="text-gray-400 text-sm hover:text-yellow-400 transition-colors duration-300 break-all"
               >
-                info@atharvaenterprises.com
+                atharvaenterprises9999@gmail.com
               </a>
             </div>
-            
+
             {/* Phone */}
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center mb-4">
@@ -79,8 +78,10 @@ const Footer = () => {
                 <h3 className="text-white text-lg font-semibold">Contact number</h3>
               </div>
               <div className="flex flex-col text-sm">
-                <a href="tel:+124555666" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+124 555 666</a>
-                <a href="tel:+99548666" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+99 548 666</a>
+                <a href="tel:+9175930939" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+91 9175930939</a>
+                <a href="tel:+918669660939" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+91 8669660939</a>
+                <a href="tel:+919175964828" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+91 9175964828</a>
+                <a href="tel:+918600380939" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">+91 8600380939</a>
               </div>
             </div>
           </div>
@@ -95,54 +96,26 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <h3 className="text-white text-lg font-semibold mb-6">Follow us on</h3>
             <div className="flex space-x-6">
-              <a 
-                href="https://www.facebook.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-yellow-400 flex items-center justify-center transition-colors duration-300"
-              >
-                <img 
-                  src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65b9fcfbf3805ab420ff71d9_facebook.svg" 
-                  alt="Facebook" 
-                  className="w-5 h-5" 
-                />
-              </a>
-              <a 
-                href="https://www.instagram.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-yellow-400 flex items-center justify-center transition-colors duration-300"
-              >
-                <img 
-                  src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65b9fcfbaceb6d42c018174b_instagram.svg" 
-                  alt="Instagram" 
-                  className="w-5 h-5" 
-                />
-              </a>
-              <a 
-                href="https://twitter.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-yellow-400 flex items-center justify-center transition-colors duration-300"
-              >
-                <img 
-                  src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65b9fcfba0964771cf9a8444_twitter-x.svg" 
-                  alt="Twitter" 
-                  className="w-5 h-5" 
-                />
-              </a>
-              <a 
-                href="https://www.linkedin.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-yellow-400 flex items-center justify-center transition-colors duration-300"
-              >
-                <img 
-                  src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65b9fcfba29cfef6210b8048_linkedin.svg" 
-                  alt="LinkedIn" 
-                  className="w-5 h-5" 
-                />
-              </a>
+              {[
+                { href: "https://www.facebook.com/", icon: "facebook.svg", alt: "Facebook" },
+                { href: "https://www.instagram.com/", icon: "instagram.svg", alt: "Instagram" },
+                { href: "https://twitter.com/", icon: "twitter-x.svg", alt: "Twitter" },
+                { href: "https://www.linkedin.com/", icon: "linkedin.svg", alt: "LinkedIn" }
+              ].map(({ href, icon, alt }) => (
+                <a 
+                  key={alt}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-yellow-400 flex items-center justify-center transition-colors duration-300"
+                >
+                  <img 
+                    src={`https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65b9fcfbf3805ab420ff71d9_${icon}`} 
+                    alt={alt} 
+                    className="w-5 h-5" 
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </div>
