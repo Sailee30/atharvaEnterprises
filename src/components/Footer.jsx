@@ -1,4 +1,5 @@
 import React from 'react';
+import atharva from '../assets/atharvaa.png';
 
 const Footer = () => {
   return (
@@ -13,17 +14,25 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-8 mb-14">
           {/* Logo and About Section */}
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
-            <a href="/" className="mb-6 transform hover:scale-105 transition-transform duration-300">
-              <img 
-                src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65bc9d1bf0d88e12d9cc0fe5_Atharva Enterpriseso-light-logo.svg" 
-                alt="Atharva Enterprises" 
-                className="h-12" 
-              />
-            </a>
-            <p className="text-gray-400 text-sm leading-relaxed text-center lg:text-left">
-              At Atharva Enterpriseso, we embark on a relentless pursuit of excellence, driven by a passion for craftsmanship and innovation. Our story is woven with a commitment to providing artisans.
-            </p>
-          </div>
+  {/* Logo + Text beside it */}
+  <a 
+    href="/" 
+    className="mb-6 flex items-center space-x-3 transform hover:scale-105 transition-transform duration-300"
+  >
+    <img 
+      src={atharva} 
+      alt="Atharva Enterprises" 
+      className="h-12" 
+    />
+    <span className="text-xl font-semibold text-white">Atharva Enterprises</span>
+  </a>
+
+  {/* Description */}
+  <p className="text-gray-400 text-sm leading-relaxed text-center lg:text-left">
+    At Atharva Enterprises, we embark on a relentless pursuit of excellence, driven by a passion for craftsmanship and innovation. Our story is woven with a commitment to providing artisans.
+  </p>
+</div>
+
           
           {/* Contact Information */}
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">

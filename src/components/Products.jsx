@@ -787,40 +787,7 @@ const Products = () => {
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h3 className="font-medium text-gray-700 mb-3">Price Range</h3>
-                <div className="flex space-x-2 items-center">
-                  <input
-                    type="number"
-                    min={priceRange.min}
-                    max={filters.priceRange.max}
-                    value={filters.priceRange.min}
-                    onChange={(e) =>
-                      updatePriceRange(
-                        Number(e.target.value),
-                        filters.priceRange.max
-                      )
-                    }
-                    className="w-full p-2 border border-gray-200 rounded text-sm"
-                    placeholder="Min"
-                  />
-                  <span className="text-gray-500">to</span>
-                  <input
-                    type="number"
-                    min={filters.priceRange.min}
-                    max={priceRange.max}
-                    value={filters.priceRange.max}
-                    onChange={(e) =>
-                      updatePriceRange(
-                        filters.priceRange.min,
-                        Number(e.target.value)
-                      )
-                    }
-                    className="w-full p-2 border border-gray-200 rounded text-sm"
-                    placeholder="Max"
-                  />
-                </div>
-              </div>
+              
             </div>
           </div>
 
@@ -985,124 +952,176 @@ const Products = () => {
                   const category = getBrandCategory(product);
 
                   return (
-                    <div
-                      key={product.id}
-                      className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={getProductImage(product.id)}
-                          alt={product.name}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-2 left-2 bg-blue-700 text-white text-xs px-2 py-1 rounded">
-                          {brand}
-                        </div>
-                        <div className="absolute top-2 right-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                          {category}
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                          {product.name}
-                        </h3>
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                          {product.description}
-                        </p>
-                        <div className="flex justify-between items-center">
-                          <a
-                            href={brochureUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-blue-600 hover:underline hover:text-blue-800 transition-colors"
-                          >
-                            View Brochure
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                   <div
+  key={product.id}
+  className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
+>
+  <div className="relative h-48 overflow-hidden">
+    <img
+      src={getProductImage(product.id)}
+      alt={product.name}
+      className="w-full h-full object-cover"
+    />
+    {/* Removed both brand and category labels */}
+  </div>
+  <div className="p-4">
+    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+      {product.name}
+    </h3>
+    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+      {product.description}
+    </p>
+    <div className="flex justify-between items-center">
+      <a
+        href={brochureUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-blue-600 hover:underline hover:text-blue-800 transition-colors"
+      >
+        View Brochure
+      </a>
+    </div>
+  </div>
+</div>
                   );
                 })}
               </div>
             )}
 
-{/* Professional Pagination */}
+{/* Enhanced Professional Pagination */}
 {sortedProducts.length > productsPerPage && (
-  <div className="flex justify-center mt-10">
-    <div className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md shadow-md border border-white/20">
-      
-      {/* Previous Button */}
-      <button
-        onClick={prevPage}
-        disabled={currentPage === 1}
-        className="px-4 py-2 rounded-lg text-sm font-medium 
-        bg-gray-800/70 text-gray-300 
-        hover:bg-yellow-600 hover:text-white 
-        transition-all duration-300
-        disabled:opacity-40 disabled:cursor-not-allowed"
-      >
-        Prev
-      </button>
-
-      {/* Page Numbers with Ellipsis */}
-      <div className="flex items-center gap-2">
-        {(() => {
-          let pages = [];
-          for (let i = 1; i <= totalPages; i++) {
-            if (
-              i === 1 || // always show first
-              i === totalPages || // always show last
-              (i >= currentPage - 2 && i <= currentPage + 2) // show near current
-            ) {
-              pages.push(i);
-            }
-          }
-
-          let display = [];
-          for (let i = 0; i < pages.length; i++) {
-            if (i > 0 && pages[i] - pages[i - 1] > 1) {
-              display.push("ellipsis-" + i); // placeholder for ...
-            }
-            display.push(pages[i]);
-          }
-
-          return display.map((item, index) =>
-            typeof item === "string" ? (
-              <span key={item} className="px-2 text-gray-400">
-                ...
-              </span>
-            ) : (
-              <button
-                key={item}
-                onClick={() => paginate(item)}
-                className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-300
-                  ${
-                    currentPage === item
-                      ? "bg-yellow-600 text-white shadow-md scale-105"
-                      : "bg-gray-800/70 text-gray-300 hover:bg-yellow-500 hover:text-white"
-                  }
-                `}
-              >
-                {item}
-              </button>
-            )
-          );
-        })()}
-      </div>
-
-      {/* Next Button */}
-      <button
-        onClick={nextPage}
-        disabled={currentPage === totalPages}
-        className="px-4 py-2 rounded-lg text-sm font-medium 
-        bg-gray-800/70 text-gray-300 
-        hover:bg-yellow-600 hover:text-white 
-        transition-all duration-300
-        disabled:opacity-40 disabled:cursor-not-allowed"
-      >
-        Next
-      </button>
+  <div className="flex flex-col items-center mt-16 mb-8">
+    {/* Pagination Info */}
+    <div className="text-sm text-gray-600 mb-6">
+      Showing <span className="font-semibold text-gray-900">{(currentPage - 1) * productsPerPage + 1}</span> to{' '}
+      <span className="font-semibold text-gray-900">
+        {Math.min(currentPage * productsPerPage, sortedProducts.length)}
+      </span>{' '}
+      of <span className="font-semibold text-gray-900">{sortedProducts.length}</span> products
     </div>
+
+    {/* Main Pagination Container */}
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
+      <div className="flex items-center gap-1">
+        
+        {/* Previous Button */}
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className={`
+            flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
+            ${currentPage === 1 
+              ? 'text-gray-400 cursor-not-allowed bg-gray-50' 
+              : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
+            }
+          `}
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="hidden sm:inline">Previous</span>
+        </button>
+
+        {/* Page Numbers */}
+        <div className="flex items-center gap-1 mx-2">
+          {(() => {
+            let pages = [];
+            const maxVisiblePages = 7;
+            
+            if (totalPages <= maxVisiblePages) {
+              // Show all pages if total is small
+              for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+              }
+            } else {
+              // Smart pagination logic
+              if (currentPage <= 4) {
+                pages = [1, 2, 3, 4, 5, '...', totalPages];
+              } else if (currentPage >= totalPages - 3) {
+                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+              } else {
+                pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+              }
+            }
+
+            return pages.map((page, index) => {
+              if (page === '...') {
+                return (
+                  <span key={`ellipsis-${index}`} className="px-3 py-2 text-gray-400 text-sm">
+                    ⋯
+                  </span>
+                );
+              }
+
+              const isActive = currentPage === page;
+              return (
+                <button
+                  key={page}
+                  onClick={() => paginate(page)}
+                  className={`
+                    min-w-[40px] h-10 flex items-center justify-center rounded-xl text-sm font-semibold
+                    transition-all duration-300 relative overflow-hidden group
+                    ${isActive
+                      ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 shadow-lg shadow-yellow-200'
+                      : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
+                    }
+                  `}
+                >
+                  {isActive && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-20 rounded-xl"></div>
+                  )}
+                  <span className="relative z-10">{page}</span>
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                  )}
+                </button>
+              );
+            });
+          })()}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className={`
+            flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
+            ${currentPage === totalPages 
+              ? 'text-gray-400 cursor-not-allowed bg-gray-50' 
+              : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
+            }
+          `}
+        >
+          <span className="hidden sm:inline">Next</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {/* Quick Jump (Optional - shows for large datasets) */}
+    {totalPages > 10 && (
+      <div className="flex items-center gap-3 mt-4 text-sm text-gray-600">
+        <span>Go to page:</span>
+        <div className="flex items-center gap-2">
+          <input
+            type="number"
+            min="1"
+            max={totalPages}
+            value={currentPage}
+            onChange={(e) => {
+              const page = parseInt(e.target.value);
+              if (page >= 1 && page <= totalPages) {
+                paginate(page);
+              }
+            }}
+            className="w-16 px-2 py-1 text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+          />
+          <span className="text-gray-400">of {totalPages}</span>
+        </div>
+      </div>
+    )}
   </div>
 )}
 
