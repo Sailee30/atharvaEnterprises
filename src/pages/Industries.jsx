@@ -43,7 +43,7 @@ const Industries = () => {
       founded: "1906",
       countries: "100+",
       highlight: "Danish Innovation",
-      color: "emerald"
+      color: "golden"
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ const Industries = () => {
       founded: "2020",
       brands: "40+",
       highlight: "Multi-Brand Excellence",
-      color: "blue"
+      color: "amber"
     },
     {
       id: 3,
@@ -75,7 +75,7 @@ const Industries = () => {
       founded: "90+ Years",
       specialty: "Fluid Management",
       highlight: "Proven Reliability",
-      color: "violet"
+      color: "orange"
     },
     {
       id: 4,
@@ -91,7 +91,7 @@ const Industries = () => {
       founded: "2010",
       location: "Connecticut, USA",
       highlight: "Innovation Leader",
-      color: "amber"
+      color: "yellow"
     },
     {
       id: 5,
@@ -107,42 +107,42 @@ const Industries = () => {
       founded: "Established Leader",
       specialty: "Petrochemical Solutions",
       highlight: "Safety & Reliability",
-      color: "rose"
+      color: "warm"
     }
   ];
 
   const getColorClasses = (color) => {
     const colors = {
-      emerald: {
-        gradient: "from-yellow-500 to-amber-500",
+      golden: {
+        gradient: "from-yellow-500 to-orange-400",
         bg: "bg-yellow-50",
         text: "text-yellow-700",
         border: "border-yellow-200",
         glow: "shadow-yellow-200/50"
       },
-      blue: {
+      amber: {
         gradient: "from-amber-500 to-yellow-500",
         bg: "bg-amber-50",
         text: "text-amber-700",
         border: "border-amber-200",
         glow: "shadow-amber-200/50"
       },
-      violet: {
-        gradient: "from-yellow-600 to-orange-500",
-        bg: "bg-yellow-50",
+      orange: {
+        gradient: "from-orange-500 to-amber-500",
+        bg: "bg-orange-50",
         text: "text-orange-700",
+        border: "border-orange-200",
+        glow: "shadow-orange-200/50"
+      },
+      yellow: {
+        gradient: "from-yellow-600 to-orange-400",
+        bg: "bg-yellow-50",
+        text: "text-yellow-700",
         border: "border-yellow-200",
         glow: "shadow-yellow-200/50"
       },
-      amber: {
-        gradient: "from-amber-600 to-yellow-500",
-        bg: "bg-amber-50",
-        text: "text-amber-700",
-        border: "border-amber-200",
-        glow: "shadow-amber-200/50"
-      },
-      rose: {
-        gradient: "from-orange-500 to-amber-500",
+      warm: {
+        gradient: "from-orange-600 to-yellow-500",
         bg: "bg-orange-50",
         text: "text-orange-700",
         border: "border-orange-200",
@@ -153,12 +153,12 @@ const Industries = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-yellow-50/30">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,191,36,0.1),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(245,158,11,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,191,36,0.15),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,140,0,0.1),transparent_50%)]"></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -170,7 +170,7 @@ const Industries = () => {
 
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Industries We
-              <span className="block bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                 Empower
               </span>
             </h1>
@@ -202,7 +202,7 @@ const Industries = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-3">Our Trusted Partners</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mx-auto"></div>
           </div>
 
           <div className="space-y-8">
@@ -210,47 +210,48 @@ const Industries = () => {
               <div
                 key={industry.id}
                 id={`card-${industry.id}`}
-                className={`industry-card group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-100 ${
+                className={`industry-card group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-orange-100/50 hover:border-yellow-200/60 ${
                   isVisible[`card-${industry.id}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="grid md:grid-cols-5 gap-0">
-                  {/* Image Section - Clean with no overlays */}
+                  {/* Image Section - Clean with subtle golden overlay on hover */}
                   <div className="md:col-span-2 relative h-64 md:h-auto overflow-hidden">
                     <img
                       src={industry.image}
                       alt={industry.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-orange-500/0 group-hover:from-yellow-500/5 group-hover:to-orange-500/5 transition-all duration-500"></div>
                   </div>
 
                   {/* Content Section */}
                   <div className="md:col-span-3 p-6">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-800 transition-colors duration-300">
                       {industry.title}
                     </h3>
 
                     <div className="flex flex-wrap gap-4 mb-4">
                       <div className="flex items-center text-slate-600">
-                        <Calendar className="w-4 h-4 mr-1" />
+                        <Calendar className="w-4 h-4 mr-1 text-orange-500" />
                         <span className="text-sm">Est. {industry.founded}</span>
                       </div>
                       {industry.location && (
                         <div className="flex items-center text-slate-600">
-                          <MapPin className="w-4 h-4 mr-1" />
+                          <MapPin className="w-4 h-4 mr-1 text-orange-500" />
                           <span className="text-sm">{industry.location}</span>
                         </div>
                       )}
                       {industry.countries && (
                         <div className="flex items-center text-slate-600">
-                          <Globe className="w-4 h-4 mr-1" />
+                          <Globe className="w-4 h-4 mr-1 text-orange-500" />
                           <span className="text-sm">{industry.countries} Countries</span>
                         </div>
                       )}
                       {industry.brands && (
                         <div className="flex items-center text-slate-600">
-                          <Building2 className="w-4 h-4 mr-1" />
+                          <Building2 className="w-4 h-4 mr-1 text-orange-500" />
                           <span className="text-sm">{industry.brands} Brands</span>
                         </div>
                       )}
@@ -264,6 +265,9 @@ const Industries = () => {
                         </div>
                       ))}
                     </div>
+
+                    {/* Subtle accent bar at bottom */}
+                    <div className={`mt-4 h-1 rounded-full bg-gradient-to-r ${getColorClasses(industry.color).gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
                 </div>
               </div>
@@ -275,7 +279,8 @@ const Industries = () => {
       {/* CTA Section */}
       <div className="relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,191,36,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,191,36,0.12),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,140,0,0.08),transparent_50%)]"></div>
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -293,14 +298,14 @@ const Industries = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group px-8 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button className="group px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25">
                 <span className="flex items-center justify-center">
                   Get Started Today
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </button>
               
-              <button className="px-8 py-3 border border-white/30 text-white hover:bg-white/10 font-semibold rounded-lg transition-all duration-300 backdrop-blur-sm">
+              <button className="px-8 py-3 border border-white/30 text-white hover:bg-white/10 hover:border-yellow-400/50 font-semibold rounded-lg transition-all duration-300 backdrop-blur-sm">
                 View Our Portfolio
               </button>
             </div>

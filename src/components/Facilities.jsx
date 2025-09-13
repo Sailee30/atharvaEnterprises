@@ -20,8 +20,6 @@ const Facilities = () => {
                 <div className="whitespace-nowrap animate-marquee flex">
                   {[...Array(7)].map((_, index) => (
                     <div key={index} className="inline-block mx-4">
-                      <span className="text-white text-sm">Free shipping on orders over </span>
-                      <span className="text-yellow-500 font-medium text-sm">$150</span>
                     </div>
                   ))}
                 </div>
@@ -30,7 +28,7 @@ const Facilities = () => {
             
             {/* Right Column */}
             <div className="py-6">
-              <h2 className="text-2xl font-medium mb-3">Our craftsmanship journey</h2>
+              <h2 className="text-2xl font-medium mb-3">Our Journey</h2>
               <p className="text-gray-300 text-sm mb-4">
                 At Atharva Enterpriseso, we embark on a relentless pursuit of excellence, driven by a passion for craftsmanship and innovation. Our story is woven with a commitment to providing artisans.
               </p>
@@ -42,7 +40,9 @@ const Facilities = () => {
               </a>
               <div className="grid grid-cols-2 gap-4 mt-2">
                 <div>
-                  <h3 className="text-2xl font-medium mb-1">30</h3>
+                    <h3 className="text-2xl font-medium mb-1">
+                    800<span className="text-yellow-500">+</span>
+                  </h3>
                   <p className="text-gray-300 text-xs">Total tools</p>
                 </div>
                 <div>

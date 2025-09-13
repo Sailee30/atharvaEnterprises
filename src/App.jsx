@@ -13,6 +13,7 @@ import SearchResults from './pages/SearchResults';
 import Industries from './pages/Industries';
 import Services from './pages/Services';
 import ProductSpecifications from './pages/ProductSpecifications';
+import ContactForm from './components/ContactForm';
 
 // Custom hook for page transitions
 const usePageTransition = () => {
@@ -77,7 +78,7 @@ function App() {
           {/* Updated routes to use actual components */}
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/contact-us" element={<div className="container mx-auto px-4 py-24"><h1 className="text-3xl font-medium">Contact Us</h1></div>} />
+         <Route path="/contact-us" element={<ContactForm />} />
           <Route path="/catalog" element={<div className="container mx-auto px-4 py-24"><h1 className="text-3xl font-medium">Product Catalog</h1><p className="mt-4">Download our latest product catalog.</p></div>} />
           
           <Route path="/category/:categoryType/:categorySlug" element={<ProductCategoryDetail />} />

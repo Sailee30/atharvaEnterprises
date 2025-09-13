@@ -205,7 +205,7 @@
     "price": "4000.00",
     "comparePrice": "4500.00",
     "description": "The Ingersoll Rand QX Series™ is a cordless hydraulic torque multiplier system. The 40V QX tools provide high torque with precise control (torque range 5–135 ft-lbs for models shown).",
-    "specification": "Example model (QXBD5PT500PM12) delivers 5–500 ft-lb (7–678 Nm) torque. Speed ~83 RPM (with 2\" tool). Weight ~6.3 kg. Uses 40V lithium battery. Reaction arm length ~15\". Onboard data and wireless (Bluetooth) options available.",
+    "specification": "Example model (QXBD5PT500PM12) delivers 5–500 ft-lb (7–678 Nm) torque. Speed ~83 RPM (with 2\" tool). Weight ~6.3 kg. Uses 40V lithium battery. Reaction arm length ~15\". Onboard data and wireless (yellowtooth) options available.",
     "image": "/assets/19.jpg"
   },
   {
@@ -688,8 +688,8 @@
     "name": "QXBN Series",
     "price": "3100.00",
     "comparePrice": "3400.00",
-    "description": "Cordless fastening tool with 32 tightening configurations and Bluetooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface for enhanced flexibility.",
-    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, Bluetooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
+    "description": "Cordless fastening tool with 32 tightening configurations and yellowtooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface for enhanced flexibility.",
+    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, yellowtooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
     "image": ""
   },
   {
@@ -699,8 +699,8 @@
     "name": "QXBD Series",
     "price": "3200.00",
     "comparePrice": "3500.00",
-    "description": "Cordless fastening tool with 32 tightening configurations and Bluetooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface. Designed for high precision and operator feedback.",
-    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, Bluetooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
+    "description": "Cordless fastening tool with 32 tightening configurations and yellowtooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface. Designed for high precision and operator feedback.",
+    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, yellowtooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
     "image": ""
   },
   {

@@ -98,7 +98,7 @@ const Testimonials = () => {
               <div key={testimonial.id} className="w-full flex-shrink-0 p-12">
                 <div className="max-w-4xl mx-auto text-center">
                   {/* Quote Icon */}
-                  <div className="text-6xl text-blue-200 mb-6">"</div>
+                  <div className="text-6xl text-yellow-200 mb-6">"</div>
                   
                   {/* Testimonial Text */}
                   <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
@@ -125,7 +125,7 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-blue-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-yellow-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -133,7 +133,7 @@ const Testimonials = () => {
           
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-blue-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-yellow-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />

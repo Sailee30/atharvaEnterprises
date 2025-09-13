@@ -73,17 +73,17 @@ const Services = () => {
       {/* <Navbar /> */}
       
       {/* Hero Section with Gradient Background */}
-      <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white relative overflow-hidden">
+      <div className="bg-gradient-to-br from-yellow-600 via-purple-600 to-yellow-800 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-transparent"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-yellow-100 bg-clip-text text-transparent">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-yellow-100 max-w-3xl mx-auto leading-relaxed">
               From industrial equipment supply to comprehensive maintenance, we offer end-to-end solutions for manufacturing and industrial businesses.
             </p>
           </div>
@@ -98,23 +98,23 @@ const Services = () => {
             return (
               <div
                 key={service.id}
-                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-blue-200 relative overflow-hidden"
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-yellow-200 relative overflow-hidden"
                 style={{
                   animationDelay: `${index * 0.1}s`
                 }}
               >
                 {/* Gradient Background Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="h-8 w-8 text-white" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
                     {service.title}
                   </h3>
 
@@ -125,7 +125,7 @@ const Services = () => {
                 </div>
 
                 {/* Hover Effect Border */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-200 rounded-2xl transition-colors duration-300"></div>
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-yellow-200 rounded-2xl transition-colors duration-300"></div>
               </div>
             );
           })}
@@ -152,7 +152,7 @@ const Services = () => {
               { step: "04", title: "Ongoing Support", desc: "Maintenance, training & technical support" }
             ].map((process, index) => (
               <div key={index} className="text-center relative">
-                <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">
+                <div className="bg-gradient-to-br from-yellow-500 to-purple-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">
                   {process.step}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{process.title}</h3>
@@ -160,7 +160,7 @@ const Services = () => {
                 
                 {/* Connector Line */}
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform translate-x-10"></div>
+                  <div className="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-yellow-300 to-purple-300 transform translate-x-10"></div>
                 )}
               </div>
             ))}
@@ -169,20 +169,20 @@ const Services = () => {
       </div>
 
       {/* Call to Action Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <div className="bg-gradient-to-r from-yellow-600 to-purple-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Enhance Your Industrial Operations?
             </h2>
-            <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-yellow-100 mb-10 max-w-2xl mx-auto">
               Partner with Atharva Enterprises for reliable industrial equipment and expert technical solutions that drive operational excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button className="bg-white text-yellow-600 hover:bg-yellow-50 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Get Quote
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
+              <button className="border-2 border-white text-white hover:bg-white hover:text-yellow-600 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
                 Schedule Consultation
               </button>
             </div>

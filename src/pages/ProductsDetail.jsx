@@ -697,7 +697,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <div className="container max-w-6xl mx-auto px-4 py-24 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-900"></div>
       </div>
     );
   }
@@ -757,7 +757,7 @@ const ProductDetail = () => {
               <li className="inline-flex items-center">
                 <a
                   href="/"
-                  className="text-sm text-gray-500 hover:text-blue-500"
+                  className="text-sm text-gray-500 hover:text-yellow-500"
                 >
                   Home
                 </a>
@@ -777,7 +777,7 @@ const ProductDetail = () => {
                   </svg>
                   <a
                     href="/products"
-                    className="text-sm text-gray-500 hover:text-blue-500 ml-1 md:ml-2"
+                    className="text-sm text-gray-500 hover:text-yellow-500 ml-1 md:ml-2"
                   >
                     Products
                   </a>
@@ -800,7 +800,7 @@ const ProductDetail = () => {
                     onClick={() =>
                       handleMainCategoryClick(product.mainCategory)
                     }
-                    className="text-sm text-gray-500 hover:text-blue-500 ml-1 md:ml-2"
+                    className="text-sm text-gray-500 hover:text-yellow-500 ml-1 md:ml-2"
                   >
                     {product.mainCategory}
                   </button>
@@ -821,7 +821,7 @@ const ProductDetail = () => {
                   </svg>
                   <button
                     onClick={() => handleSubCategoryClick(product.subCategory)}
-                    className="text-sm text-gray-500 hover:text-blue-500 ml-1 md:ml-2"
+                    className="text-sm text-gray-500 hover:text-yellow-500 ml-1 md:ml-2"
                   >
                     {product.subCategory}
                   </button>
@@ -879,8 +879,8 @@ const ProductDetail = () => {
                   onClick={() => setActiveImageIndex(index)}
                   className={`aspect-square rounded-md overflow-hidden transition-all duration-300 ${
                     activeImageIndex === index
-                      ? "ring-2 ring-blue-500"
-                      : "ring-1 ring-gray-200 hover:ring-blue-300"
+                      ? "ring-2 ring-yellow-500"
+                      : "ring-1 ring-gray-200 hover:ring-yellow-300"
                   }`}
                 >
                   <img
@@ -898,7 +898,7 @@ const ProductDetail = () => {
               <div className="flex flex-wrap gap-3 mb-4">
                 <button
                   onClick={() => handleMainCategoryClick(product.mainCategory)}
-                  className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full hover:bg-blue-100 hover:text-blue-900 transition-colors"
+                  className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full hover:bg-yellow-100 hover:text-yellow-900 transition-colors"
                   style={{
                     backgroundColor: themeColors.secondary,
                     color: themeColors.accent,
@@ -947,7 +947,7 @@ const ProductDetail = () => {
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <svg
-                    className="w-5 h-5 mr-2 text-blue-500 mt-0.5"
+                    className="w-5 h-5 mr-2 text-yellow-500 mt-0.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -961,7 +961,7 @@ const ProductDetail = () => {
                 </li>
                 <li className="flex items-start">
                   <svg
-                    className="w-5 h-5 mr-2 text-blue-500 mt-0.5"
+                    className="w-5 h-5 mr-2 text-yellow-500 mt-0.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -975,7 +975,7 @@ const ProductDetail = () => {
                 </li>
                 <li className="flex items-start">
                   <svg
-                    className="w-5 h-5 mr-2 text-blue-500 mt-0.5"
+                    className="w-5 h-5 mr-2 text-yellow-500 mt-0.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -989,7 +989,7 @@ const ProductDetail = () => {
                 </li>
                 <li className="flex items-start">
                   <svg
-                    className="w-5 h-5 mr-2 text-blue-500 mt-0.5"
+                    className="w-5 h-5 mr-2 text-yellow-500 mt-0.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1020,7 +1020,7 @@ const ProductDetail = () => {
                         value={addOn}
                         checked={selectedAddOn === addOn}
                         onChange={(e) => setSelectedAddOn(e.target.value)}
-                        className="form-radio text-blue-500 focus:ring-blue-500"
+                        className="form-radio text-yellow-500 focus:ring-yellow-500"
                       />
                       <span className="text-gray-700">{addOn}</span>
                     </label>

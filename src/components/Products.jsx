@@ -554,9 +554,9 @@ const getProductImage = (productId) => {
 
 // Theme colors for professional brochure look
 const themeColors = {
-  primary: "#1E3A8A", // Blue-800 for professional tone
-  secondary: "#93C5FD", // Blue-300 for accents
-  accent: "#1D4ED8", // Blue-700 for highlights
+  primary: "#1E3A8A", // yellow-800 for professional tone
+  secondary: "#93C5FD", // yellow-300 for accents
+  accent: "#1D4ED8", // yellow-700 for highlights
   dark: "#111827", // Gray-900
 };
 
@@ -728,7 +728,7 @@ const Products = () => {
           <nav className="flex" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-2 text-gray-600">
               <li>
-                <Link to="/" className="hover:text-blue-700">
+                <Link to="/" className="hover:text-yellow-700">
                   Home
                 </Link>
               </li>
@@ -736,7 +736,7 @@ const Products = () => {
                 <span className="mx-2">/</span>
               </li>
               <li>
-                <span className="text-blue-700">Catalog</span>
+                <span className="text-yellow-700">Catalog</span>
               </li>
             </ol>
           </nav>
@@ -759,7 +759,7 @@ const Products = () => {
               </h2>
               <button
                 onClick={clearFilters}
-                className="text-sm text-blue-600 hover:text-blue-800 mb-4"
+                className="text-sm text-yellow-600 hover:text-yellow-800 mb-4"
               >
                 Clear All
               </button>
@@ -774,7 +774,7 @@ const Products = () => {
                         id={`brand-${index}`}
                         checked={filters.brand.includes(brand)}
                         onChange={() => toggleBrandFilter(brand)}
-                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 rounded"
+                        className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 rounded"
                       />
                       <label
                         htmlFor={`brand-${index}`}
@@ -844,7 +844,7 @@ const Products = () => {
                           id={`mobile-brand-${index}`}
                           checked={filters.brand.includes(brand)}
                           onChange={() => toggleBrandFilter(brand)}
-                          className="h-4 w-4 text-blue-600 focus:ring-blue-500 rounded"
+                          className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 rounded"
                         />
                         <label
                           htmlFor={`mobile-brand-${index}`}
@@ -900,7 +900,7 @@ const Products = () => {
                 </button>
                 <button
                   onClick={toggleFilters}
-                  className="w-full py-2 bg-blue-600 text-white rounded mt-2"
+                  className="w-full py-2 bg-yellow-600 text-white rounded mt-2"
                 >
                   Apply
                 </button>
@@ -935,7 +935,7 @@ const Products = () => {
                 </p>
                 <button
                   onClick={clearFilters}
-                  className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+                  className="mt-4 px-4 py-2 bg-yellow-600 text-white rounded"
                 >
                   Clear Filters
                 </button>
@@ -976,7 +976,7 @@ const Products = () => {
         href={brochureUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-blue-600 hover:underline hover:text-blue-800 transition-colors"
+        className="text-sm text-yellow-600 hover:underline hover:text-yellow-800 transition-colors"
       >
         View Brochure
       </a>
@@ -1157,7 +1157,7 @@ const Products = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
                   <div className="form-group">
@@ -1174,7 +1174,7 @@ const Products = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
                 </div>
@@ -1193,7 +1193,7 @@ const Products = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
                   <div className="form-group">
@@ -1209,7 +1209,7 @@ const Products = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
                 </div>
@@ -1226,7 +1226,7 @@ const Products = () => {
                     value={formData.country}
                     onChange={handleInputChange}
                     required
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                   >
                     <option value="">Select Country</option>
                     <option value="US">United States</option>
@@ -1256,13 +1256,13 @@ const Products = () => {
                     onChange={handleInputChange}
                     required
                     rows="3"
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                     placeholder="Tell us about your requirements, questions, or how we can help you..."
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="w-full py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
                 >
                   Send Enquiry
                 </button>

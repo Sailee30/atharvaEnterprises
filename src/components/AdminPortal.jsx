@@ -316,7 +316,7 @@ const AdminPortal = () => {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
             >
               {editingProduct ? 'Update' : 'Add'} Product
             </button>
@@ -400,7 +400,7 @@ const AdminPortal = () => {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
             >
               {editingAdmin ? 'Update' : 'Add'} Admin
             </button>
@@ -442,7 +442,7 @@ const AdminPortal = () => {
             <button
               onClick={processBulkUpload}
               disabled={!bulkUploadFile}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-400"
+              className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 disabled:bg-gray-400"
             >
               Process Upload
             </button>
@@ -462,27 +462,27 @@ const AdminPortal = () => {
               <span className="text-sm text-gray-600">
                 {currentUser.username} ({currentUser.role.replace('_', ' ')})
               </span>
-              <button className="text-blue-600 hover:text-blue-800">Logout</button>
+              <button className="text-yellow-600 hover:text-yellow-800">Logout</button>
             </div>
           </div>
           
           <div className="flex space-x-6 border-b">
             <button
               onClick={() => setActiveTab('products')}
-              className={`py-2 px-4 font-medium ${activeTab === 'products' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
+              className={`py-2 px-4 font-medium ${activeTab === 'products' ? 'border-b-2 border-yellow-500 text-yellow-600' : 'text-gray-600'}`}
             >
               Products
             </button>
             <button
               onClick={() => setActiveTab('quotations')}
-              className={`py-2 px-4 font-medium ${activeTab === 'quotations' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
+              className={`py-2 px-4 font-medium ${activeTab === 'quotations' ? 'border-b-2 border-yellow-500 text-yellow-600' : 'text-gray-600'}`}
             >
               Quotations
             </button>
             {currentUser.role === 'super_admin' && (
               <button
                 onClick={() => setActiveTab('admins')}
-                className={`py-2 px-4 font-medium ${activeTab === 'admins' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
+                className={`py-2 px-4 font-medium ${activeTab === 'admins' ? 'border-b-2 border-yellow-500 text-yellow-600' : 'text-gray-600'}`}
               >
                 Admins
               </button>
@@ -506,7 +506,7 @@ const AdminPortal = () => {
                 </button>
                 <button
                   onClick={() => setShowProductForm(true)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="flex items-center space-x-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Product</span>
@@ -573,7 +573,7 @@ const AdminPortal = () => {
                         <div className="flex space-x-2">
                           <button
                             onClick={() => handleEditProduct(product)}
-                            className="text-blue-600 hover:text-blue-900"
+                            className="text-yellow-600 hover:text-yellow-900"
                           >
                             <Edit className="w-4 h-4" />
                           </button>
@@ -654,7 +654,7 @@ const AdminPortal = () => {
                         <div className="flex space-x-2">
                           <button
                             onClick={() => setSelectedQuotation(quotation)}
-                            className="text-blue-600 hover:text-blue-900"
+                            className="text-yellow-600 hover:text-yellow-900"
                           >
                             <Mail className="w-4 h-4" />
                           </button>
@@ -698,7 +698,7 @@ const AdminPortal = () => {
                       </button>
                       <button
                         onClick={handleSendQuoteEmail}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
                       >
                         Send Email
                       </button>
@@ -716,7 +716,7 @@ const AdminPortal = () => {
               <h2 className="text-xl font-semibold">Admin Management</h2>
               <button
                 onClick={() => setShowAdminForm(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="flex items-center space-x-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Admin</span>
@@ -757,7 +757,7 @@ const AdminPortal = () => {
                         <div className="flex space-x-2">
                           <button
                             onClick={() => handleEditAdmin(admin)}
-                            className="text-blue-600 hover:text-blue-900"
+                            className="text-yellow-600 hover:text-yellow-900"
                           >
                             <Edit className="w-4 h-4" />
                           </button>

@@ -1,21 +1,21 @@
 import React from "react";
-import tristarlogo from "../assets/tristarr.png"
+
+// Mock logo imports for demo - replace with your actual imports
 import nilfisklogo from "../assets/nilfisk.png";
 import ingersollogo from "../assets/ingersol.jpeg"
 import arologo from "../assets/download.jpg"
 import stanlylogo from "../assets/stanly.png"
-import leisterlogo from "../assets/leister.jpg"
-import weldylogo from "../assets/weldy.png"
+import tristarlogo from "../assets/tristar.jpg"
+import leisterlogo from "../assets/tristar.jpg"
+import weldylogo from "../assets/tristar.jpg"
 
 const LogosCarousel = () => {
   const logos = [
     tristarlogo,
-   nilfisklogo,
+    nilfisklogo,
     ingersollogo,
-     arologo,
+    arologo,
     stanlylogo,
-    leisterlogo,
-    weldylogo,
   ];
 
   return (
@@ -26,18 +26,32 @@ const LogosCarousel = () => {
           Trusted by Leading Industries
         </h2>
 
-        {/* Carousel */}
-        <div className="relative w-full overflow-hidden">
-          <div className="flex space-x-8 animate-scroll-slow">
-            {logos.concat(logos).map((logo, i) => (
+        {/* Carousel Container */}
+        <div className="relative w-full overflow-hidden mask-gradient">
+          <div className="carousel-track">
+            {/* First set of logos */}
+            {logos.map((logo, i) => (
               <div
-                key={i}
-                className="backdrop-blur-md bg-white/30 border border-gray-200 rounded-xl p-6 h-24 w-52 flex items-center justify-center transform transition-all duration-500 hover:scale-110 hover:shadow-[0_0_25px_rgba(0,0,0,0.1)]"
+                key={`first-${i}`}
+                className="carousel-item"
               >
                 <img
                   src={logo}
-                  alt={`logo-${i}`}
-                  className="max-h-12 max-w-40 object-contain transition-all duration-500 hover:scale-125"
+                  alt={`Partner logo ${i + 1}`}
+                  className="max-h-20 max-w-40 object-contain transition-all duration-500 hover:scale-125"
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {logos.map((logo, i) => (
+              <div
+                key={`second-${i}`}
+                className="carousel-item"
+              >
+                <img
+                  src={logo}
+                  alt={`Partner logo ${i + 1}`}
+                  className="max-h-20 max-w-40 object-contain transition-all duration-500 hover:scale-125"
                 />
               </div>
             ))}
@@ -45,9 +59,54 @@ const LogosCarousel = () => {
         </div>
       </div>
 
-      {/* Scrolling Animation */}
-      <style jsx>{`
-        @keyframes scroll-slow {
+      {/* Internal Styles */}
+      <style jsx global>{`
+        .carousel-track {
+          display: flex;
+          width: fit-content;
+          animation: scroll-infinite 30s linear infinite;
+          gap: 2rem;
+        }
+        
+        .carousel-item {
+          flex: none;
+          backdrop-filter: blur(12px);
+          background: rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(229, 231, 235, 1);
+          border-radius: 0.75rem;
+          padding: 1.5rem;
+          height: 10rem; /* Increased from 6rem */
+          width: 14rem; /* Slightly wider for balance */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s ease;
+        }
+        
+        .carousel-item:hover {
+          transform: scale(1.1);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+          animation-play-state: paused;
+        }
+        
+        .mask-gradient {
+          mask: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+          );
+          -webkit-mask: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+          );
+        }
+        
+        @keyframes scroll-infinite {
           0% {
             transform: translateX(0);
           }
@@ -55,10 +114,10 @@ const LogosCarousel = () => {
             transform: translateX(-50%);
           }
         }
-        .animate-scroll-slow {
-          display: flex;
-          width: max-content;
-          animation: scroll-slow 25s linear infinite;
+        
+        /* Pause animation on hover over the entire section */
+        .carousel-track:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

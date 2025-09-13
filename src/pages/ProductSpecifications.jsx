@@ -277,7 +277,7 @@ const ProductSpecifications = () => {
                     <span className="inline-block px-3 py-1 bg-yellow-400 text-gray-900 text-sm font-medium rounded">
                       {product.mainCategory || 'Category'}
                     </span>
-                    <span className="inline-block px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded">
+                    <span className="inline-block px-3 py-1 bg-yellow-500 text-white text-sm font-medium rounded">
                       {product.subCategory || 'Subcategory'}
                     </span>
                   </div>
@@ -380,7 +380,7 @@ const ProductSpecifications = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {product.applications && product.applications.length > 0 ? (
                     product.applications.map((application, index) => (
-                      <div key={index} className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                      <div key={index} className="bg-yellow-50 rounded-lg p-4 text-center border border-yellow-100">
                         <span className="text-gray-700 font-medium">{application}</span>
                       </div>
                     ))
