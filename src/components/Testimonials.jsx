@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
   const testimonials = [
@@ -46,38 +47,123 @@ const Testimonials = () => {
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlay) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAutoPlay, testimonials.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <section className="py-16 bg-white">
-      {/* Added max-w-5xl to limit width and add space on sides */}
-      <div className="container max-w-5xl mx-auto px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-medium">What Our Customers Say</h2>
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <div className="container max-w-6xl mx-auto px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+          <p className="text-gray-600 text-lg">Don't just take our word for it - hear from our satisfied customers</p>
         </div>
         
-        {/* Adjusted grid layout with more space between cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div 
-              key={testimonial.id} 
-              className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              <div className="flex items-center mb-3">
-                {/* Made avatar slightly smaller */}
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div className="ml-3">
-                  {/* Reduced font size */}
-                  <h3 className="font-medium text-base">{testimonial.name}</h3>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+        {/* Carousel Container */}
+        <div 
+          className="relative overflow-hidden rounded-2xl bg-white shadow-lg"
+          onMouseEnter={() => setIsAutoPlay(false)}
+          onMouseLeave={() => setIsAutoPlay(true)}
+        >
+          {/* Testimonials Slider */}
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="w-full flex-shrink-0 p-12">
+                <div className="max-w-4xl mx-auto text-center">
+                  {/* Quote Icon */}
+                  <div className="text-6xl text-yellow-200 mb-6">"</div>
+                  
+                  {/* Testimonial Text */}
+                  <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    {testimonial.testimonial}
+                  </blockquote>
+                  
+                  {/* Customer Info */}
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name} 
+                      className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-md"
+                    />
+                    <div className="ml-4 text-left">
+                      <h3 className="font-semibold text-lg text-gray-800">{testimonial.name}</h3>
+                      <p className="text-yellow-600 font-medium">{testimonial.role}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              {/* Limited testimonial height with line clamp */}
-              <p className="text-gray-700 text-sm line-clamp-4">{testimonial.testimonial}</p>
-            </div>
+            ))}
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-yellow-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-yellow-600 rounded-full p-3 shadow-lg transition-all duration-200 hover:shadow-xl group"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+        
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                index === currentIndex 
+                  ? 'bg-yellow-600 scale-125' 
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
           ))}
+        </div>
+        
+        {/* Auto-play Toggle */}
+        <div className="text-center mt-6">
+          <button
+            onClick={() => setIsAutoPlay(!isAutoPlay)}
+            className="text-sm text-yellow-600 hover:text-yellow-800 transition-colors"
+          >
+            {isAutoPlay ? 'Pause' : 'Resume'} Auto-play
+          </button>
         </div>
       </div>
     </section>

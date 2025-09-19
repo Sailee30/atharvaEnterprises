@@ -356,9 +356,9 @@ const getProductImage = (productId) => {
 
 // Theme colors to match styling
 const themeColors = {
-  primary: '#FBBF24', // Yellow-400
-  secondary: '#FEF3C7', // Yellow-100
-  accent: '#F59E0B', // Yellow-500
+  primary: '#FBBF24', // yellow-400
+  secondary: '#FEF3C7', // yellow-100
+  accent: '#F59E0B', // yellow-500
   dark: '#111827' // Gray-900
 };
 
@@ -703,7 +703,7 @@ const ProductCategoryDetail = () => {
               );
             })}
           </div>
-        ) : (
+         ) : (
           <div className="space-y-4 mb-12">
             {currentProducts.map((product) => {
               const brand = product.brand || (product.mainCategory === "Industrial Cleaning Solutions" && product.name.startsWith("VP") ? "Nilfisk" : null) || product.mainCategory;

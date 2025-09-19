@@ -1,8 +1,10 @@
 [
+  
   {
     "id": 1,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "VP100",
     "price": "397.00",
     "comparePrice": "450.00",
@@ -14,6 +16,7 @@
     "id": 2,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "VP300 Series",
     "price": "397.00",
     "comparePrice": "450.00",
@@ -25,6 +28,7 @@
     "id": 3,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "VP930 / GD930",
     "price": "801.00",
     "comparePrice": "899.00",
@@ -36,6 +40,7 @@
     "id": 4,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "VU500",
     "price": "400.00",
     "comparePrice": "450.00",
@@ -47,6 +52,7 @@
     "id": 5,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "GD 5 Battery",
     "price": "500.00",
     "comparePrice": "550.00",
@@ -58,6 +64,7 @@
     "id": 6,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "ATTIX 44-2L IC",
     "price": "1000.00",
     "comparePrice": "1200.00",
@@ -69,6 +76,7 @@
     "id": 7,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "T40W",
     "price": "800.00",
     "comparePrice": "900.00",
@@ -80,6 +88,7 @@
     "id": 8,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Vacuum Cleaner",
+    "subSubCategory": "test",
     "name": "VHB436",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -91,6 +100,7 @@
     "id": 9,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Scrubber Dryers",
+    "subSubCategory": "test",
     "name": "SC100",
     "price": "2000.00",
     "comparePrice": "2200.00",
@@ -102,6 +112,7 @@
     "id": 10,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Scrubber Dryers",
+    "subSubCategory": "test",
     "name": "SC250",
     "price": "3400.00",
     "comparePrice": "3800.00",
@@ -113,6 +124,7 @@
     "id": 11,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Scrubber Dryers",
+    "subSubCategory": "rest",
     "name": "SC8000",
     "price": "25000.00",
     "comparePrice": "28000.00",
@@ -124,6 +136,7 @@
     "id": 12,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Sweepers",
+    "subSubCategory": "rest",
     "name": "SW750",
     "price": "3000.00",
     "comparePrice": "3500.00",
@@ -135,6 +148,7 @@
     "id": 13,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Sweepers",
+    "subSubCategory": "rest",
     "name": "SW8000",
     "price": "12500.00",
     "comparePrice": "14000.00",
@@ -146,6 +160,7 @@
     "id": 14,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "High-Pressure Washers",
+    "subSubCategory": "rest",
     "name": "MC 2C Series",
     "price": "1500.00",
     "comparePrice": "1800.00",
@@ -157,6 +172,7 @@
     "id": 15,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "High-Pressure Washers",
+    "subSubCategory": "rest",
     "name": "MH 5M Series",
     "price": "4000.00",
     "comparePrice": "4500.00",
@@ -168,6 +184,7 @@
     "id": 16,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Robotic Floorcare",
+    "subSubCategory": "rest",
     "name": "Nilfisk Liberty SC50",
     "price": "75000.00",
     "comparePrice": "80000.00",
@@ -177,8 +194,9 @@
   },
   {
     "id": 17,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Material Handling Systems",
+    "subSubCategory": "rest",
     "name": "Overhead Rails",
     "price": "4000.00",
     "comparePrice": "4500.00",
@@ -188,8 +206,9 @@
   },
   {
     "id": 18,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Air Balancers",
+    "subSubCategory": "rest",
     "name": "Air Balancers",
     "price": "5000.00",
     "comparePrice": "5500.00",
@@ -199,19 +218,21 @@
   },
   {
     "id": 19,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Assembly Tools",
+    "subSubCategory": "rest",
     "name": "QX Series Cordless Torque Multiplier",
     "price": "4000.00",
     "comparePrice": "4500.00",
     "description": "The Ingersoll Rand QX Series™ is a cordless hydraulic torque multiplier system. The 40V QX tools provide high torque with precise control (torque range 5–135 ft-lbs for models shown).",
-    "specification": "Example model (QXBD5PT500PM12) delivers 5–500 ft-lb (7–678 Nm) torque. Speed ~83 RPM (with 2\" tool). Weight ~6.3 kg. Uses 40V lithium battery. Reaction arm length ~15\". Onboard data and wireless (Bluetooth) options available.",
+    "specification": "Example model (QXBD5PT500PM12) delivers 5–500 ft-lb (7–678 Nm) torque. Speed ~83 RPM (with 2\" tool). Weight ~6.3 kg. Uses 40V lithium battery. Reaction arm length ~15\". Onboard data and wireless (yellowtooth) options available.",
     "image": "/assets/19.jpg"
   },
   {
     "id": 20,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Assembly Tools",
+    "subSubCategory": "",
     "name": "URYU UAAMC Series (Angle-Tracking Air Torque Tools)",
     "price": "1500.00",
     "comparePrice": "1800.00",
@@ -221,8 +242,9 @@
   },
   {
     "id": 21,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "PP9002",
     "price": "1800.00",
     "comparePrice": "2000.00",
@@ -232,8 +254,9 @@
   },
   {
     "id": 22,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "PP9002-NP",
     "price": "1600.00",
     "comparePrice": "1800.00",
@@ -243,8 +266,9 @@
   },
   {
     "id": 23,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-2P10",
     "price": "1400.00",
     "comparePrice": "1600.00",
@@ -254,8 +278,9 @@
   },
   {
     "id": 24,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-2P20",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -265,8 +290,9 @@
   },
   {
     "id": 25,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QX Series Cordless Precision Screwdriver",
     "price": "3500.00",
     "comparePrice": "3900.00",
@@ -276,8 +302,9 @@
   },
   {
     "id": 26,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXQ2PT04PQ4",
     "price": "2800.00",
     "comparePrice": "3200.00",
@@ -287,8 +314,9 @@
   },
   {
     "id": 27,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Process Communication Module",
+    "subSubCategory": "",
     "name": "QX Series PCM",
     "price": "2500.00",
     "comparePrice": "2800.00",
@@ -298,8 +326,9 @@
   },
   {
     "id": 28,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Torque Wrench",
+    "subSubCategory": "",
     "name": "Tohnichi DB/DBE/DBR",
     "price": "800.00",
     "comparePrice": "900.00",
@@ -309,8 +338,9 @@
   },
   {
     "id": 29,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Torque Wrench Tester",
+    "subSubCategory": "",
     "name": "Tohnichi DOTE3-G",
     "price": "2000.00",
     "comparePrice": "2200.00",
@@ -320,8 +350,9 @@
   },
   {
     "id": 30,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Air Chain Hoist",
+    "subSubCategory": "",
     "name": "CL125K",
     "price": "3500.00",
     "comparePrice": "3900.00",
@@ -331,8 +362,9 @@
   },
   {
     "id": 31,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Air Chain Hoist",
+    "subSubCategory": "",
     "name": "CL250K",
     "price": "4000.00",
     "comparePrice": "4400.00",
@@ -342,8 +374,9 @@
   },
   {
     "id": 32,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXFN Series",
     "price": "2800.00",
     "comparePrice": "3100.00",
@@ -353,19 +386,20 @@
   },
   {
     "id": 33,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Torque Multiplier",
+    "subSubCategory": "",
     "name": "QX Series 40V Cordless Torque Multiplier",
     "price": "4800.00",
     "comparePrice": "5300.00",
-    "description": "A powerful 40V cordless torque multiplier designed for high precision and productivity. Features dual-axis 360-degree handle, closed-loop transducer control, and integration with INSIGHTqcx Controller and INSIGHT Connect app for data capture and tool programming. Includes a cooling fan for extended runtime and a durable, drop-resistant steel-reinforced motor housing.",
-    "specification": "40V lithium-ion battery, dual-axis 360-degree handle, closed-loop transducer control, torque range up to 295 ft-lbs (400 Nm), 120V/230V charger options, tethering ring for safety, independent cooling fan, USB programming via INSIGHT Connect app, 1200 cycles data storage, programmable maintenance alarms.",
-    "image": ""
+    "description": "A powerful 40V cordless torque multiplier designed for high precision and productivity. Features dual-axis 360-degree handle, closed-loop transducer control, and integration with INSIGHTqcx Controller and INSIGHT Connect app for data capture and tool programming. Includes a cooling fan for extended runtime and a durable, drop-resistant steel-reinforced motor housing",
+    "image":""
   },
   {
     "id": 34,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Ergonomic Handling Systems",
+    "subSubCategory": "",
     "name": "Zimmerman Series Rail Systems",
     "price": "7500.00",
     "comparePrice": "8500.00",
@@ -375,8 +409,9 @@
   },
   {
     "id": 35,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Wireless Controller",
+    "subSubCategory": "",
     "name": "INSIGHTqcx-MTC",
     "price": "3500.00",
     "comparePrice": "3900.00",
@@ -386,8 +421,9 @@
   },
   {
     "id": 36,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
+    "subSubCategory": "",
     "name": "2115QTIMAX",
     "price": "800.00",
     "comparePrice": "900.00",
@@ -397,8 +433,9 @@
   },
   {
     "id": 37,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
+    "subSubCategory": "",
     "name": "2235QTIMAX",
     "price": "1000.00",
     "comparePrice": "1150.00",
@@ -408,8 +445,9 @@
   },
   {
     "id": 38,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
+    "subSubCategory": "",
     "name": "5108MAX",
     "price": "500.00",
     "comparePrice": "580.00",
@@ -419,8 +457,9 @@
   },
   {
     "id": 39,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
+    "subSubCategory": "",
     "name": "345MAX-WI",
     "price": "900.00",
     "comparePrice": "1050.00",
@@ -430,8 +469,9 @@
   },
   {
     "id": 40,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Ratchet Wrenches",
+    "subSubCategory": "",
     "name": "1207MAX-D4",
     "price": "600.00",
     "comparePrice": "700.00",
@@ -441,8 +481,9 @@
   },
   {
     "id": 41,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Hammers",
+    "subSubCategory": "",
     "name": "118MAX",
     "price": "550.00",
     "comparePrice": "650.00",
@@ -452,8 +493,9 @@
   },
   {
     "id": 42,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Air Filters, Regulators & Lubricators",
+    "subSubCategory": "",
     "name": "C381B1-821",
     "price": "300.00",
     "comparePrice": "350.00",
@@ -465,6 +507,7 @@
     "id": 43,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Single Discs & Burnishers",
+    "subSubCategory": "",
     "name": "FM400 D",
     "price": "1800.00",
     "comparePrice": "2000.00",
@@ -476,6 +519,7 @@
     "id": 44,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Single Discs & Burnishers",
+    "subSubCategory": "",
     "name": "LS160",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -487,6 +531,7 @@
     "id": 45,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Industrial Vacuum Cleaners",
+    "subSubCategory": "",
     "name": "VHS 120",
     "price": "2500.00",
     "comparePrice": "2800.00",
@@ -498,6 +543,7 @@
     "id": 46,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Industrial Vacuum Cleaners",
+    "subSubCategory": "",
     "name": "VHS120CB CC GV",
     "price": "3000.00",
     "comparePrice": "3300.00",
@@ -509,6 +555,7 @@
     "id": 47,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Industrial Vacuum Solutions",
+    "subSubCategory": "",
     "name": "Electrical & Battery Operated Wet & Dry",
     "price": "2200.00",
     "comparePrice": "2500.00",
@@ -520,6 +567,7 @@
     "id": 48,
     "mainCategory": "Industrial Cleaning Solutions",
     "subCategory": "Industrial Vacuum Solutions",
+    "subSubCategory": "",
     "name": "Dust Collector for Food & Pharma",
     "price": "4000.00",
     "comparePrice": "4500.00",
@@ -528,31 +576,10 @@
     "image": ""
   },
   {
-    "id": 49,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Torque Tools",
-    "name": "Square Drive Torque Wrench",
-    "price": "1200.00",
-    "comparePrice": "1400.00",
-    "description": "High-precision torque wrench designed for heavy-duty bolting applications with square drive compatibility.",
-    "specification": "Available in various torque ranges with robust Atharva Enterprises design for industrial use.",
-    "image": ""
-  },
-  {
-    "id": 50,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Flange Spreaders",
-    "price": "3000.00",
-    "comparePrice": "3500.00",
-    "description": "Designed for separating flanges in industrial applications, ensuring safe and efficient maintenance.",
-    "specification": "Hydraulic operation for high force and precision.",
-    "image": ""
-  },
-  {
     "id": 51,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "PP9002-NM",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -562,8 +589,9 @@
   },
   {
     "id": 52,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-2P50",
     "price": "1600.00",
     "comparePrice": "1800.00",
@@ -573,8 +601,9 @@
   },
   {
     "id": 53,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-2P220",
     "price": "1800.00",
     "comparePrice": "2000.00",
@@ -584,8 +613,9 @@
   },
   {
     "id": 54,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-3P10",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -595,8 +625,9 @@
   },
   {
     "id": 55,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-3P20",
     "price": "1600.00",
     "comparePrice": "1800.00",
@@ -606,8 +637,9 @@
   },
   {
     "id": 56,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "GP-3P50",
     "price": "1700.00",
     "comparePrice": "1900.00",
@@ -617,8 +649,9 @@
   },
   {
     "id": 57,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "FH1036",
     "price": "2200.00",
     "comparePrice": "2500.00",
@@ -628,8 +661,9 @@
   },
   {
     "id": 58,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
+    "subSubCategory": "",
     "name": "FH1117",
     "price": "800.00",
     "comparePrice": "900.00",
@@ -639,8 +673,9 @@
   },
   {
     "id": 59,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXQ2PT08PQ4",
     "price": "3000.00",
     "comparePrice": "3300.00",
@@ -650,8 +685,9 @@
   },
   {
     "id": 60,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Torque Wrench Tester",
+    "subSubCategory": "",
     "name": "Tohnichi DOT",
     "price": "1500.00",
     "comparePrice": "1700.00",
@@ -661,8 +697,9 @@
   },
   {
     "id": 61,
-    "mainCategory": "Material Handling Solutions",
+    "mainCategory": "Industrial Material Handling System",
     "subCategory": "Air Chain Hoist",
+    "subSubCategory": "",
     "name": "CL500K",
     "price": "4500.00",
     "comparePrice": "5000.00",
@@ -672,8 +709,9 @@
   },
   {
     "id": 62,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXFD Series",
     "price": "3000.00",
     "comparePrice": "3300.00",
@@ -683,30 +721,33 @@
   },
   {
     "id": 63,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXBN Series",
     "price": "3100.00",
     "comparePrice": "3400.00",
-    "description": "Cordless fastening tool with 32 tightening configurations and Bluetooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface for enhanced flexibility.",
-    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, Bluetooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
+    "description": "Cordless fastening tool with 32 tightening configurations and yellowtooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface for enhanced flexibility.",
+    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, yellowtooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
     "image": ""
   },
   {
     "id": 64,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXBD Series",
     "price": "3200.00",
     "comparePrice": "3500.00",
-    "description": "Cordless fastening tool with 32 tightening configurations and Bluetooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface. Designed for high precision and operator feedback.",
-    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, Bluetooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
+    "description": "Cordless fastening tool with 32 tightening configurations and yellowtooth connectivity. Features transducerized control, visual torque validation, and programming via the INSIGHT Connect app or back-of-tool interface. Designed for high precision and operator feedback.",
+    "specification": "32 PSET configurations, transducerized control, closed-loop torque/speed/angle control, yellowtooth connectivity, visual torque validation, INSIGHT Connect app or back-of-tool programming, visual feedback (green/yellow/red lights), 1200 cycles data storage, programmable maintenance alarms.",
     "image": ""
   },
   {
     "id": 65,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXXD Series",
     "price": "3500.00",
     "comparePrice": "3800.00",
@@ -716,8 +757,9 @@
   },
   {
     "id": 66,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXXN Series",
     "price": "3400.00",
     "comparePrice": "3700.00",
@@ -727,8 +769,9 @@
   },
   {
     "id": 67,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QX ETS",
     "price": "3800.00",
     "comparePrice": "4200.00",
@@ -738,8 +781,9 @@
   },
   {
     "id": 68,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QXM Series",
     "price": "4000.00",
     "comparePrice": "4400.00",
@@ -749,8 +793,9 @@
   },
   {
     "id": 69,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "QX Pistol Special Head Adapter",
     "price": "800.00",
     "comparePrice": "900.00",
@@ -760,8 +805,9 @@
   },
   {
     "id": 70,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
+    "subSubCategory": "",
     "name": "INSIGHTqcx Controller",
     "price": "3000.00",
     "comparePrice": "3300.00",
@@ -771,7 +817,7 @@
   },
   {
     "id": 71,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2115XP",
     "price": "750.00",
@@ -782,7 +828,7 @@
   },
   {
     "id": 72,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "212",
     "price": "650.00",
@@ -793,7 +839,7 @@
   },
   {
     "id": 73,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2130XP",
     "price": "850.00",
@@ -804,7 +850,7 @@
   },
   {
     "id": 74,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2145QiMAX",
     "price": "1200.00",
@@ -815,7 +861,7 @@
   },
   {
     "id": 75,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "5102MAX",
     "price": "550.00",
@@ -826,7 +872,7 @@
   },
   {
     "id": 76,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "3445MAX-WI",
     "price": "880.00",
@@ -837,7 +883,7 @@
   },
   {
     "id": 77,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Hammers",
     "name": "122MAX",
     "price": "500.00",
@@ -848,7 +894,7 @@
   },
   {
     "id": 78,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Hammers",
     "name": "121/Q-EU",
     "price": "480.00",
@@ -859,7 +905,7 @@
   },
   {
     "id": 79,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Needle Scaler",
     "name": "125-EU",
     "price": "700.00",
@@ -870,7 +916,7 @@
   },
   {
     "id": 80,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Striking Tools",
     "name": "Riveting Hammer AA-1/2A(R,H)",
     "price": "650.00",
@@ -1013,7 +1059,7 @@
   },
   {
     "id": 93,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Torque Multiplier",
     "price": "1500.00",
@@ -1024,7 +1070,7 @@
   },
   {
     "id": 94,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Slugging/Striking Wrench",
     "price": "250.00",
@@ -1035,7 +1081,7 @@
   },
   {
     "id": 95,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Impact Sockets",
     "price": "200.00",
@@ -1044,31 +1090,11 @@
     "specification": "Heat-treated alloy steel for enhanced strength and longevity.",
     "image": ""
   },
-  {
-    "id": 96,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Pullers",
-    "price": "1800.00",
-    "comparePrice": "2000.00",
-    "description": "Used for removing Atharva Enterprisess, bearings, and other components from shafts with minimal effort.",
-    "specification": "Available in various sizes for different pulling capacities.",
-    "image": ""
-  },
-  {
-    "id": 97,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Jacks/Cylinders",
-    "price": "1200.00",
-    "comparePrice": "1400.00",
-    "description": "Heavy-duty lifting equipment for industrial and automotive applications.",
-    "specification": "High load capacity with hydraulic power for reliable lifting.",
-    "image": ""
-  },
+  
+  
   {
     "id": 98,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Torque Tools",
     "name": "Digital Torque Wrenches",
     "price": "900.00",
@@ -1079,7 +1105,7 @@
   },
   {
     "id": 99,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Striking Tools",
     "name": "Riveting Hammer AA-3/4A(R,H)",
     "price": "750.00",
@@ -1090,7 +1116,7 @@
   },
   {
     "id": 100,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Striking Tools",
     "name": "Impact Cutter UP-15",
     "price": "600.00",
@@ -1101,7 +1127,7 @@
   },
   {
     "id": 101,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Striking Tools",
     "name": "Flux Chipper UP-2508",
     "price": "550.00",
@@ -1112,7 +1138,7 @@
   },
   {
     "id": 102,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Striking Tools",
     "name": "Chipping Hammer AA-0(R,H)",
     "price": "600.00",
@@ -1123,7 +1149,7 @@
   },
   {
     "id": 103,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "LA158",
     "price": "550.00",
@@ -1134,7 +1160,7 @@
   },
   {
     "id": 104,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "216B",
     "price": "600.00",
@@ -1145,7 +1171,7 @@
   },
   {
     "id": 105,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2102XP",
     "price": "480.00",
@@ -1156,7 +1182,7 @@
   },
   {
     "id": 106,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2101XP",
     "price": "470.00",
@@ -1167,7 +1193,7 @@
   },
   {
     "id": 107,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "211",
     "price": "550.00",
@@ -1178,7 +1204,7 @@
   },
   {
     "id": 108,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "236",
     "price": "700.00",
@@ -1189,7 +1215,7 @@
   },
   {
     "id": 109,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2135QXPA",
     "price": "950.00",
@@ -1200,7 +1226,7 @@
   },
   {
     "id": 110,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "131S-EA",
     "price": "650.00",
@@ -1211,7 +1237,7 @@
   },
   {
     "id": 111,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2125QTIMAX",
     "price": "800.00",
@@ -1222,7 +1248,7 @@
   },
   {
     "id": 112,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2125XP",
     "price": "750.00",
@@ -1233,7 +1259,7 @@
   },
   {
     "id": 113,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2025MAX",
     "price": "600.00",
@@ -1244,7 +1270,7 @@
   },
   {
     "id": 114,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "2161XP",
     "price": "1100.00",
@@ -1255,7 +1281,7 @@
   },
   {
     "id": 115,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Impactools",
     "name": "261",
     "price": "1000.00",
@@ -1266,7 +1292,7 @@
   },
   {
     "id": 116,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Ratchet Wrenches",
     "name": "1207MAX-D3",
     "price": "580.00",
@@ -1277,7 +1303,7 @@
   },
   {
     "id": 117,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Ratchet Wrenches",
     "name": "1099XPA",
     "price": "550.00",
@@ -1288,7 +1314,7 @@
   },
   {
     "id": 118,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Ratchet Wrenches",
     "name": "109XPA",
     "price": "520.00",
@@ -1299,7 +1325,7 @@
   },
   {
     "id": 119,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "308B",
     "price": "480.00",
@@ -1310,7 +1336,7 @@
   },
   {
     "id": 120,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "302B",
     "price": "470.00",
@@ -1321,7 +1347,7 @@
   },
   {
     "id": 121,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "301B",
     "price": "460.00",
@@ -1332,7 +1358,7 @@
   },
   {
     "id": 122,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "325XC",
     "price": "520.00",
@@ -1343,7 +1369,7 @@
   },
   {
     "id": 123,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Die Grinders",
     "name": "3355C4A",
     "price": "580.00",
@@ -1354,7 +1380,7 @@
   },
   {
     "id": 124,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "335MAX",
     "price": "700.00",
@@ -1365,7 +1391,7 @@
   },
   {
     "id": 125,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "355MAX",
     "price": "750.00",
@@ -1376,7 +1402,7 @@
   },
   {
     "id": 126,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "425XC",
     "price": "820.00",
@@ -1387,7 +1413,7 @@
   },
   {
     "id": 127,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "435SA",
     "price": "850.00",
@@ -1398,7 +1424,7 @@
   },
   {
     "id": 128,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Wheel Grinders and Cutting Tools",
     "name": "7802SA",
     "price": "900.00",
@@ -1409,7 +1435,7 @@
   },
   {
     "id": 129,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Screwdrivers",
     "name": "2101XP-QC",
     "price": "450.00",
@@ -1420,7 +1446,7 @@
   },
   {
     "id": 130,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Screwdrivers",
     "name": "2107XP",
     "price": "480.00",
@@ -1431,7 +1457,7 @@
   },
   {
     "id": 131,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Screwdrivers",
     "name": "41SA",
     "price": "420.00",
@@ -1442,7 +1468,7 @@
   },
   {
     "id": 132,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Air Screwdrivers",
     "name": "LA413-EU",
     "price": "430.00",
@@ -1453,7 +1479,7 @@
   },
   {
     "id": 133,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Clamps",
     "name": "C-Clamp",
     "price": "35.00",
@@ -1486,7 +1512,7 @@
   },
   {
     "id": 136,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cutting Tools",
     "name": "Bolt Cutters",
     "price": "120.00",
@@ -1497,7 +1523,7 @@
   },
   {
     "id": 137,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cutting Tools",
     "name": "Hacksaw",
     "price": "45.00",
@@ -1508,7 +1534,7 @@
   },
   {
     "id": 138,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Drilling Tools",
     "name": "Masonry Drill Bit",
     "price": "15.00",
@@ -1519,7 +1545,7 @@
   },
   {
     "id": 139,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Hammers",
     "name": "Ball Peen Hammer",
     "price": "35.00",
@@ -1530,7 +1556,7 @@
   },
   {
     "id": 140,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Hand Saws",
     "name": "Coping Saw",
     "price": "30.00",
@@ -1541,7 +1567,7 @@
   },
   {
     "id": 141,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Breaker Bar",
     "price": "80.00",
@@ -1552,7 +1578,7 @@
   },
   {
     "id": 142,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Pry Bar Set",
     "price": "75.00",
@@ -1563,7 +1589,7 @@
   },
   {
     "id": 143,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Heavy Duty Hand Tools",
     "name": "Sledge Hammer",
     "price": "65.00",
@@ -1638,53 +1664,13 @@
     "specification": "2320 PSI, 4.5 GPM, 400V, 85kg weight, 12 m hose, 90°C max temp.",
     "image": ""
   },
-  {
-    "id": 150,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Cylinder",
-    "price": "1200.00",
-    "comparePrice": "1400.00",
-    "description": "Hydraulic cylinder for lifting and pressing tasks.",
-    "specification": "20-ton capacity, 150 mm stroke, 25 kg weight, steel body.",
-    "image": ""
-  },
-  {
-    "id": 151,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Flange Spreader",
-    "price": "2800.00",
-    "comparePrice": "3200.00",
-    "description": "Hydraulic tool for separating flanges in maintenance tasks.",
-    "specification": "10-ton capacity, 6 mm spreading distance, 15 kg weight, steel jaws.",
-    "image": ""
-  },
-  {
-    "id": 152,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Jack Pump",
-    "price": "950.00",
-    "comparePrice": "1100.00",
-    "description": "Hydraulic pump for powering jacks and tools.",
-    "specification": "700 bar pressure, 2L oil capacity, 10kg weight, manual operation.",
-    "image": ""
-  },
-  {
-    "id": 153,
-    "mainCategory": "Hydraulic Torque Wrenches",
-    "subCategory": "Hydraulic Tools",
-    "name": "Hydraulic Nut Splitter",
-    "price": "1800.00",
-    "comparePrice": "2100.00",
-    "description": "Hydraulic tool for cutting seized nuts.",
-    "specification": "15-ton capacity, 10-50 mm nut size, 20 kg weight, steel blade.",
-    "image": ""
-  },
+ 
+
+  
+ 
   {
     "id": 154,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Impact Tools",
     "name": "Impact Hex Bit Sockets",
     "price": "85.00",
@@ -1695,7 +1681,7 @@
   },
   {
     "id": 155,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Impact Tools",
     "name": "Impact Sockets",
     "price": "120.00",
@@ -1805,7 +1791,7 @@
   },
   {
     "id": 165,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Leatherworking Tools",
     "name": "Edge Creaser",
     "price": "45.00",
@@ -1816,7 +1802,7 @@
   },
   {
     "id": 166,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Leatherworking Tools",
     "name": "Leather Paring Knife",
     "price": "55.00",
@@ -1827,7 +1813,7 @@
   },
   {
     "id": 167,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Leatherworking Tools",
     "name": "Leather Skiving Knife",
     "price": "60.00",
@@ -1838,7 +1824,7 @@
   },
   {
     "id": 168,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Leatherworking Tools",
     "name": "Rotary Punch",
     "price": "65.00",
@@ -1849,7 +1835,7 @@
   },
   {
     "id": 169,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Leatherworking Tools",
     "name": "Stitching Pony",
     "price": "75.00",
@@ -1860,7 +1846,7 @@
   },
   {
     "id": 170,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "FDP900",
     "price": "2000.00",
@@ -1871,7 +1857,7 @@
   },
   {
     "id": 171,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "FHP500",
     "price": "1700.00",
@@ -1882,7 +1868,7 @@
   },
   {
     "id": 172,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "GMP100",
     "price": "900.00",
@@ -1893,7 +1879,7 @@
   },
   {
     "id": 173,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "GP4500",
     "price": "2100.00",
@@ -1904,7 +1890,7 @@
   },
   {
     "id": 174,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "HDP700",
     "price": "2300.00",
@@ -1915,7 +1901,7 @@
   },
   {
     "id": 175,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "LGP800",
     "price": "1900.00",
@@ -1926,7 +1912,7 @@
   },
   {
     "id": 176,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "LP3001",
     "price": "1200.00",
@@ -1937,7 +1923,7 @@
   },
   {
     "id": 177,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "ODP200",
     "price": "1600.00",
@@ -1948,7 +1934,7 @@
   },
   {
     "id": 178,
-    "mainCategory": "Industrial Fluid Management Systems",
+    "mainCategory": "Industrial Fluid Handling Solutions",
     "subCategory": "Lubrication Equipment",
     "name": "OPM300",
     "price": "1800.00",
@@ -1959,7 +1945,7 @@
   },
   {
     "id": 179,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Measurement Tools",
     "name": "Digital Caliper",
     "price": "120.00",
@@ -1970,7 +1956,7 @@
   },
   {
     "id": 180,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Measurement Tools",
     "name": "Tape Measure",
     "price": "25.00",
@@ -1981,7 +1967,7 @@
   },
   {
     "id": 181,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Allen Key Set",
     "price": "45.00",
@@ -1992,7 +1978,7 @@
   },
   {
     "id": 182,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Box Wrench",
     "price": "35.00",
@@ -2003,7 +1989,7 @@
   },
   {
     "id": 183,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Carbide Tipped Drill 6.0mm",
     "price": "22.00",
@@ -2014,7 +2000,7 @@
   },
   {
     "id": 184,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Combination Spanner Set",
     "price": "80.00",
@@ -2025,7 +2011,7 @@
   },
   {
     "id": 185,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Combination Wrench 10mm",
     "price": "15.00",
@@ -2036,7 +2022,7 @@
   },
   {
     "id": 186,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Crowfoot Wrench",
     "price": "28.00",
@@ -2047,7 +2033,7 @@
   },
   {
     "id": 187,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Deep Socket Set",
     "price": "75.00",
@@ -2058,7 +2044,7 @@
   },
   {
     "id": 188,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Flare Nut Wrench",
     "price": "25.00",
@@ -2069,7 +2055,7 @@
   },
   {
     "id": 189,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Chamfer Mill 12mm",
     "price": "45.00",
@@ -2080,7 +2066,7 @@
   },
   {
     "id": 190,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Core Drill 15mm",
     "price": "55.00",
@@ -2091,7 +2077,7 @@
   },
   {
     "id": 191,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Countersink 10mm",
     "price": "35.00",
@@ -2102,7 +2088,7 @@
   },
   {
     "id": 192,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Drill 7.0mm",
     "price": "18.00",
@@ -2113,7 +2099,7 @@
   },
   {
     "id": 193,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Drill Bit Set",
     "price": "85.00",
@@ -2124,7 +2110,7 @@
   },
   {
     "id": 194,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS End Mill 10mm",
     "price": "40.00",
@@ -2135,7 +2121,7 @@
   },
   {
     "id": 195,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Jobber Drill 3.5mm",
     "price": "15.00",
@@ -2146,7 +2132,7 @@
   },
   {
     "id": 196,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Reamer",
     "price": "50.00",
@@ -2157,7 +2143,7 @@
   },
   {
     "id": 197,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Spot Drill 6mm",
     "price": "22.00",
@@ -2168,7 +2154,7 @@
   },
   {
     "id": 198,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Step Drill 4-12mm",
     "price": "45.00",
@@ -2179,7 +2165,7 @@
   },
   {
     "id": 199,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Taper Drill 8-20mm",
     "price": "55.00",
@@ -2190,7 +2176,7 @@
   },
   {
     "id": 200,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "HSS Twist Drill 5.0mm",
     "price": "16.00",
@@ -2201,7 +2187,7 @@
   },
   {
     "id": 201,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Hex Wrench Set",
     "price": "40.00",
@@ -2212,7 +2198,7 @@
   },
   {
     "id": 202,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Impact Driver Bit Set",
     "price": "35.00",
@@ -2223,7 +2209,7 @@
   },
   {
     "id": 203,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Awl",
     "price": "25.00",
@@ -2234,7 +2220,7 @@
   },
   {
     "id": 204,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Binding Tool",
     "price": "30.00",
@@ -2245,7 +2231,7 @@
   },
   {
     "id": 205,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Burnishing Wheel",
     "price": "35.00",
@@ -2256,7 +2242,7 @@
   },
   {
     "id": 206,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Corner Punch",
     "price": "28.00",
@@ -2267,7 +2253,7 @@
   },
   {
     "id": 207,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Creaser",
     "price": "26.00",
@@ -2278,7 +2264,7 @@
   },
   {
     "id": 208,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Cutting Scissors",
     "price": "40.00",
@@ -2289,7 +2275,7 @@
   },
   {
     "id": 209,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Dye Applicator",
     "price": "25.00",
@@ -2300,7 +2286,7 @@
   },
   {
     "id": 210,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Edge Beveler",
     "price": "28.00",
@@ -2311,7 +2297,7 @@
   },
   {
     "id": 211,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Edge Paint Roller",
     "price": "32.00",
@@ -2322,7 +2308,7 @@
   },
   {
     "id": 212,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Edge Slicker",
     "price": "30.00",
@@ -2333,7 +2319,7 @@
   },
   {
     "id": 213,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Embossing Tool",
     "price": "35.00",
@@ -2344,7 +2330,7 @@
   },
   {
     "id": 214,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Folding Tool",
     "price": "28.00",
@@ -2355,7 +2341,7 @@
   },
   {
     "id": 215,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Groover",
     "price": "32.00",
@@ -2366,7 +2352,7 @@
   },
   {
     "id": 216,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Hole Punch Set",
     "price": "45.00",
@@ -2377,7 +2363,7 @@
   },
   {
     "id": 217,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Punch",
     "price": "30.00",
@@ -2388,7 +2374,7 @@
   },
   {
     "id": 218,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Rivet Setter",
     "price": "35.00",
@@ -2399,7 +2385,7 @@
   },
   {
     "id": 219,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Seam Roller",
     "price": "38.00",
@@ -2410,7 +2396,7 @@
   },
   {
     "id": 220,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Skiving Knife",
     "price": "42.00",
@@ -2421,7 +2407,7 @@
   },
   {
     "id": 221,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Stamping Tool",
     "price": "40.00",
@@ -2432,7 +2418,7 @@
   },
   {
     "id": 222,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Stitching Awl",
     "price": "35.00",
@@ -2443,7 +2429,7 @@
   },
   {
     "id": 223,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Stitching Chisel",
     "price": "38.00",
@@ -2454,7 +2440,7 @@
   },
   {
     "id": 224,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Leather Strap End Punch",
     "price": "35.00",
@@ -2465,7 +2451,7 @@
   },
   {
     "id": 225,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Lug Wrench",
     "price": "55.00",
@@ -2476,7 +2462,7 @@
   },
   {
     "id": 226,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Offset Wrench",
     "price": "40.00",
@@ -2487,7 +2473,7 @@
   },
   {
     "id": 227,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Open-End Spanner",
     "price": "25.00",
@@ -2498,7 +2484,7 @@
   },
   {
     "id": 228,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Open-End Wrench",
     "price": "28.00",
@@ -2509,7 +2495,7 @@
   },
   {
     "id": 229,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Pipe Wrench",
     "price": "65.00",
@@ -2520,7 +2506,7 @@
   },
   {
     "id": 230,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Ratchet Spanner Set",
     "price": "75.00",
@@ -2531,7 +2517,7 @@
   },
   {
     "id": 231,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Ratcheting Wrench",
     "price": "35.00",
@@ -2542,7 +2528,7 @@
   },
   {
     "id": 232,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Socket Wrench Set",
     "price": "95.00",
@@ -2553,7 +2539,7 @@
   },
   {
     "id": 233,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Ball End Mill 6mm",
     "price": "55.00",
@@ -2564,7 +2550,7 @@
   },
   {
     "id": 234,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Countersink 15mm",
     "price": "60.00",
@@ -2575,7 +2561,7 @@
   },
   {
     "id": 235,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Drill 10.0mm",
     "price": "65.00",
@@ -2586,7 +2572,7 @@
   },
   {
     "id": 236,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Drill 8.0mm",
     "price": "60.00",
@@ -2597,7 +2583,7 @@
   },
   {
     "id": 237,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide End Mill 4mm",
     "price": "45.00",
@@ -2608,7 +2594,7 @@
   },
   {
     "id": 238,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide End Mill 8mm",
     "price": "60.00",
@@ -2619,7 +2605,7 @@
   },
   {
     "id": 239,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Reamer 10mm",
     "price": "70.00",
@@ -2630,7 +2616,7 @@
   },
   {
     "id": 240,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Spot Drill 8mm",
     "price": "55.00",
@@ -2641,7 +2627,7 @@
   },
   {
     "id": 241,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Stub Drill 2.0mm",
     "price": "40.00",
@@ -2652,7 +2638,7 @@
   },
   {
     "id": 242,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Solid Carbide Taper Drill 10-20mm",
     "price": "75.00",
@@ -2663,7 +2649,7 @@
   },
   {
     "id": 243,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Striking Wrench",
     "price": "55.00",
@@ -2674,7 +2660,7 @@
   },
   {
     "id": 244,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "T-Handle Wrench",
     "price": "38.00",
@@ -2685,7 +2671,7 @@
   },
   {
     "id": 245,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Torque Screwdriver",
     "price": "120.00",
@@ -2696,7 +2682,7 @@
   },
   {
     "id": 246,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Osborne Tools Catalog",
     "name": "Torque Wrench",
     "price": "150.00",
@@ -2707,7 +2693,7 @@
   },
   {
     "id": 247,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Pliers",
     "name": "Needle Nose Pliers",
     "price": "28.00",
@@ -2718,7 +2704,7 @@
   },
   {
     "id": 248,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Pliers",
     "name": "Slip Joint Pliers",
     "price": "25.00",
@@ -2729,7 +2715,7 @@
   },
   {
     "id": 249,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Pneumatic Tools",
     "name": "Air Nailer",
     "price": "250.00",
@@ -2740,7 +2726,7 @@
   },
   {
     "id": 250,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Compact Nutrunner",
     "price": "3000.00",
@@ -2751,7 +2737,7 @@
   },
   {
     "id": 251,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Cordless Precision Screwdriver",
     "price": "2800.00",
@@ -2762,7 +2748,7 @@
   },
   {
     "id": 252,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Fastening Module",
     "price": "3200.00",
@@ -2773,7 +2759,7 @@
   },
   {
     "id": 253,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Heavy-Duty",
     "price": "3500.00",
@@ -2784,7 +2770,7 @@
   },
   {
     "id": 254,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Inline Screwdriver",
     "price": "2900.00",
@@ -2795,7 +2781,7 @@
   },
   {
     "id": 255,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QX Series Micro Screwdriver",
     "price": "2500.00",
@@ -2806,7 +2792,7 @@
   },
   {
     "id": 256,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXFN Series Compact",
     "price": "2800.00",
@@ -2817,7 +2803,7 @@
   },
   {
     "id": 257,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXFN Series Lightweight",
     "price": "2900.00",
@@ -2828,7 +2814,7 @@
   },
   {
     "id": 258,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXFN Series Micro",
     "price": "2600.00",
@@ -2839,7 +2825,7 @@
   },
   {
     "id": 259,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXFN Series Torque Control",
     "price": "3100.00",
@@ -2850,7 +2836,7 @@
   },
   {
     "id": 260,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXFN Series Ultra-Compact",
     "price": "2700.00",
@@ -2861,7 +2847,7 @@
   },
   {
     "id": 261,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXM Series Angle Nutrunner",
     "price": "3700.00",
@@ -2872,7 +2858,7 @@
   },
   {
     "id": 262,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXM Series High-Torque",
     "price": "3900.00",
@@ -2883,7 +2869,7 @@
   },
   {
     "id": 263,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXM Series Industrial",
     "price": "4100.00",
@@ -2894,7 +2880,7 @@
   },
   {
     "id": 264,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXM Series Multi-Speed",
     "price": "3800.00",
@@ -2905,7 +2891,7 @@
   },
   {
     "id": 265,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXM Series Precision",
     "price": "3700.00",
@@ -2916,7 +2902,7 @@
   },
   {
     "id": 266,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXX Series Angle Wrench",
     "price": "3200.00",
@@ -2927,7 +2913,7 @@
   },
   {
     "id": 267,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXX Series High-Speed",
     "price": "3300.00",
@@ -2938,7 +2924,7 @@
   },
   {
     "id": 268,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXX Series Multi-Torque",
     "price": "3400.00",
@@ -2949,7 +2935,7 @@
   },
   {
     "id": 269,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXX Series Pistol Grip",
     "price": "3200.00",
@@ -2960,7 +2946,7 @@
   },
   {
     "id": 270,
-    "mainCategory": "Industrial Assembly Tools",
+    "mainCategory": "Industrial Assembly Tools And System",
     "subCategory": "Cordless Precision Fastening",
     "name": "QXX Series Precision Nutrunner",
     "price": "3500.00",
@@ -3093,7 +3079,7 @@
   {
     "id": 282,
     "mainCategory": "Industrial Cleaning Solutions",
-    "subCategory": "C",
+    "subCategory": "Combination Machines",
     "name": "BR 855",
     "price": "",
     "comparePrice": "",
@@ -3556,6 +3542,17 @@
   {
     "id": 327,
     "mainCategory": "Industrial Cleaning Solutions",
+    "subCategory": "Vacuum Cleaners & Carpet Extractors",
+    "name": "ES4000",
+    "price": "",
+    "comparePrice": "",
+    "description": "Total carpet care with exceptional cleaning performance.",
+    "specification": "Rated power: 780 W, Brush speed: 900 rpm, Sound pressure level: 66 dB(A), Solution/recovery tank: 110 L",
+    "image": ""
+  },
+    {
+    "id": 328,
+    "mainCategory": "Industrial Plasto Weld And Heating Solutions",
     "subCategory": "Vacuum Cleaners & Carpet Extractors",
     "name": "ES4000",
     "price": "",

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import HeroSection from "../components/HeroSection";
-import Products from "../components/Products";
 import Facilities from "../components/Facilities";
 import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
@@ -18,11 +17,9 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Main Content */}
-      <main className="flex-grow">
+      <main className="flex-grow space-y-16">
         {/* Hero Section with Slider */}
         <HeroSection />
-        {/* New Arrival Products Section */}
-        <Products />
         {/* About & Facilities Section */}
         <Facilities />
         {/* Testimonials Section */}
@@ -30,7 +27,6 @@ const LandingPage = () => {
         {/* Call to Action - Sales Section */}
         <CTA />
       </main>
-
     </div>
   );
 };
