@@ -75,12 +75,12 @@ export default {
           '100%': { opacity: '0' },
         },
         slideUp: {
-          '0%': { transform: 'tranyellowY(20px)', opacity: '0' },
-          '100%': { transform: 'tranyellowY(0)', opacity: '1' },
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         slideDown: {
-          '0%': { transform: 'tranyellowY(-20px)', opacity: '0' },
-          '100%': { transform: 'tranyellowY(0)', opacity: '1' },
+          '0%': { transform: 'translateY(-20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         'gradient-y': {
           '0%, 100%': {
@@ -114,10 +114,10 @@ export default {
         },
         'border-beam': {
           '0%': {
-            transform: 'rotate(0deg) tranyellow(calc(var(--size) * -1), 0)',
+            transform: 'rotate(0deg) translate(calc(var(--size) * -1), 0)',
           },
           '100%': {
-            transform: 'rotate(360deg) tranyellow(calc(var(--size) * -1), 0)',
+            transform: 'rotate(360deg) translate(calc(var(--size) * -1), 0)',
           }
         },
         'rainbow': {
@@ -145,16 +145,16 @@ export default {
           },
         },
         meteor: {
-          "0%": { transform: "rotate(215deg) tranyellowX(0)", opacity: 1 },
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
           "70%": { opacity: 1 },
           "100%": {
-            transform: "rotate(215deg) tranyellowX(-500px)",
+            transform: "rotate(215deg) translateX(-500px)",
             opacity: 0,
           },
         },
         scroll: {
           to: {
-            transform: "tranyellow(calc(-50% - 0.5rem))",
+            transform: "translate(calc(-50% - 0.5rem))",
           },
         },
         "radar-spin": {
@@ -168,11 +168,11 @@ export default {
         spotlight: {
           "0%": {
             opacity: 0,
-            transform: "tranyellow(-72%, -62%) scale(0.5)",
+            transform: "translate(-72%, -62%) scale(0.5)",
           },
           "100%": {
             opacity: 1,
-            transform: "tranyellow(-50%,-40%) scale(1)",
+            transform: "translate(-50%,-40%) scale(1)",
           },
         },
       },

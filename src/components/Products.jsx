@@ -591,13 +591,6 @@ const getBrandCategory = (product) => {
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("featured");
-  const [viewMode, setViewMode] = useState("grid");
-  const [filters, setFilters] = useState({
-    brand: [],
-    category: [],
-    priceRange: { min: 0, max: 100000 },
-  });
-  const [activeFilters, setActiveFilters] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -606,38 +599,10 @@ const Products = () => {
     country: "",
     message: "",
   });
-  const productsPerPage = 6;
-
-  const categories = useMemo(() => {
-    const brands = [
-      ...new Set(
-        productsData.map((product) => product.brand || product.mainCategory)
-      ),
-    ].sort();
-    return { brands };
-  }, []);
-
-  const priceRange = useMemo(() => {
-    const prices = productsData.map((product) => parseFloat(product.price));
-    return { min: Math.min(...prices), max: Math.max(...prices) };
-  }, []);
-
-  const filteredProducts = useMemo(() => {
-    return productsData.filter((product) => {
-      const brandMatch =
-        filters.brand.length === 0 ||
-        filters.brand.includes(product.brand || product.mainCategory);
-      const price = parseFloat(product.price);
-      return (
-        brandMatch &&
-        price >= filters.priceRange.min &&
-        price <= filters.priceRange.max
-      );
-    });
-  }, [filters]);
+  const productsPerPage = 9; // Increased for better layout without filters
 
   const sortedProducts = useMemo(() => {
-    let sorted = [...filteredProducts];
+    let sorted = [...productsData];
     switch (sortBy) {
       case "price-low":
         return sorted.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
@@ -651,7 +616,7 @@ const Products = () => {
       default:
         return sorted;
     }
-  }, [filteredProducts, sortBy]);
+  }, [sortBy]);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -668,33 +633,7 @@ const Products = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [filters, sortBy]);
-
-  const toggleBrandFilter = (brand) => {
-    setFilters((prev) => {
-      const current = [...prev.brand];
-      const index = current.indexOf(brand);
-      if (index === -1) current.push(brand);
-      else current.splice(index, 1);
-      return { ...prev, brand: current };
-    });
-  };
-
-  const updatePriceRange = (min, max) => {
-    setFilters((prev) => ({ ...prev, priceRange: { min, max } }));
-  };
-
-  const clearFilters = () => {
-    setFilters({
-      brand: [],
-      category: [],
-      priceRange: { min: priceRange.min, max: priceRange.max },
-    });
-  };
-
-  const toggleFilters = () => {
-    setActiveFilters(!activeFilters);
-  };
+  }, [sortBy]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -725,7 +664,7 @@ const Products = () => {
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <nav className="flex" aria-label="Breadcrumb">
+          <nav className="flex justify-center" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-2 text-gray-600">
               <li>
                 <Link to="/" className="hover:text-yellow-700">
@@ -742,7 +681,7 @@ const Products = () => {
           </nav>
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Product Catalog
           </h1>
@@ -751,76 +690,112 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/4 hidden lg:block">
-            <div className="bg-white rounded-lg shadow-lg p-6 ">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                Filters
-              </h2>
-              <button
-                onClick={clearFilters}
-                className="text-sm text-yellow-600 hover:text-yellow-800 mb-4"
-              >
-                Clear All
-              </button>
+        {/* Centered main content */}
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-gray-600 order-2 sm:order-1">
+              Showing {indexOfFirstProduct + 1}-
+              {Math.min(indexOfLastProduct, sortedProducts.length)} of{" "}
+              {sortedProducts.length} products
+            </div>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="p-2 border border-gray-200 rounded order-1 sm:order-2"
+            >
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+            </select>
+          </div>
 
-              <div className="mb-6">
-                <h3 className="font-medium text-gray-700 mb-3">Brands</h3>
-                <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                  {categories.brands.map((brand, index) => (
-                    <div key={index} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id={`brand-${index}`}
-                        checked={filters.brand.includes(brand)}
-                        onChange={() => toggleBrandFilter(brand)}
-                        className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 rounded"
-                      />
-                      <label
-                        htmlFor={`brand-${index}`}
-                        className="ml-2 text-sm text-gray-700"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {currentProducts.map((product) => {
+              const brand = product.brand || product.mainCategory;
+              const fallbackUrl =
+                brandRedirects[brand] ||
+                brandRedirects[getBrandCategory(product).split(" & ")[0]] ||
+                "https://www.example.com";
+              const brochureUrl = product.brochureUrl || fallbackUrl;
+
+              return (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={getProductImage(product.id)}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                      {product.description}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <a
+                        href={brochureUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-yellow-600 hover:underline hover:text-yellow-800 transition-colors"
                       >
-                        {brand}
-                      </label>
+                        View Brochure
+                      </a>
                     </div>
-                  ))}
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+
+          {/* Enhanced Professional Pagination - Centered */}
+          {sortedProducts.length > productsPerPage && (
+            <div className="flex flex-col items-center mt-16 mb-8">
+              {/* Pagination Info */}
+              <div className="text-sm text-gray-600 mb-6">
+                Showing{" "}
+                <span className="font-semibold text-gray-900">
+                  {(currentPage - 1) * productsPerPage + 1}
+                </span>{" "}
+                to{" "}
+                <span className="font-semibold text-gray-900">
+                  {Math.min(
+                    currentPage * productsPerPage,
+                    sortedProducts.length
+                  )}
+                </span>{" "}
+                of{" "}
+                <span className="font-semibold text-gray-900">
+                  {sortedProducts.length}
+                </span>{" "}
+                products
               </div>
 
-              
-            </div>
-          </div>
-
-          <div className="lg:hidden mb-4">
-            <button
-              onClick={toggleFilters}
-              className="flex items-center px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50"
-            >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-                />
-              </svg>
-              Filters
-            </button>
-          </div>
-
-          {activeFilters && (
-            <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
-              <div className="bg-white w-4/5 h-full overflow-y-auto p-5">
-                <div className="flex justify-between mb-4">
-                  <h2 className="text-lg font-semibold">Filters</h2>
-                  <button onClick={toggleFilters}>
+              {/* Main Pagination Container */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
+                <div className="flex items-center gap-1 justify-center">
+                  {/* Previous Button */}
+                  <button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className={`
+          flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
+          ${
+            currentPage === 1
+              ? "text-gray-400 cursor-not-allowed bg-gray-50"
+              : "text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95"
+          }
+        `}
+                  >
                     <svg
-                      className="w-6 h-6"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -829,445 +804,292 @@ const Products = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                    <span className="hidden sm:inline">Previous</span>
+                  </button>
+
+                  {/* Page Numbers */}
+                  <div className="flex items-center gap-1 mx-2">
+                    {(() => {
+                      let pages = [];
+                      const maxVisiblePages = 7;
+
+                      if (totalPages <= maxVisiblePages) {
+                        // Show all pages if total is small
+                        for (let i = 1; i <= totalPages; i++) {
+                          pages.push(i);
+                        }
+                      } else {
+                        // Smart pagination logic
+                        if (currentPage <= 4) {
+                          pages = [1, 2, 3, 4, 5, "...", totalPages];
+                        } else if (currentPage >= totalPages - 3) {
+                          pages = [
+                            1,
+                            "...",
+                            totalPages - 4,
+                            totalPages - 3,
+                            totalPages - 2,
+                            totalPages - 1,
+                            totalPages,
+                          ];
+                        } else {
+                          pages = [
+                            1,
+                            "...",
+                            currentPage - 1,
+                            currentPage,
+                            currentPage + 1,
+                            "...",
+                            totalPages,
+                          ];
+                        }
+                      }
+
+                      return pages.map((page, index) => {
+                        if (page === "...") {
+                          return (
+                            <span
+                              key={`ellipsis-${index}`}
+                              className="px-3 py-2 text-gray-400 text-sm"
+                            >
+                              ⋯
+                            </span>
+                          );
+                        }
+
+                        const isActive = currentPage === page;
+                        return (
+                          <button
+                            key={page}
+                            onClick={() => paginate(page)}
+                            className={`
+                  min-w-[40px] h-10 flex items-center justify-center rounded-xl text-sm font-semibold
+                  transition-all duration-300 relative overflow-hidden group
+                  ${
+                    isActive
+                      ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 shadow-lg shadow-yellow-200"
+                      : "text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95"
+                  }
+                `}
+                          >
+                            {isActive && (
+                              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-20 rounded-xl"></div>
+                            )}
+                            <span className="relative z-10">{page}</span>
+                            {!isActive && (
+                              <div className="absolute inset-0 bg-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                            )}
+                          </button>
+                        );
+                      });
+                    })()}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages}
+                    className={`
+          flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
+          ${
+            currentPage === totalPages
+              ? "text-gray-400 cursor-not-allowed bg-gray-50"
+              : "text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95"
+          }
+        `}
+                  >
+                    <span className="hidden sm:inline">Next</span>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
                       />
                     </svg>
                   </button>
                 </div>
-                <div className="mb-6">
-                  <h3 className="font-medium text-gray-700 mb-3">Brands</h3>
-                  <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                    {categories.brands.map((brand, index) => (
-                      <div key={index} className="flex items-center">
-                        <input
-                          type="checkbox"
-                          id={`mobile-brand-${index}`}
-                          checked={filters.brand.includes(brand)}
-                          onChange={() => toggleBrandFilter(brand)}
-                          className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 rounded"
-                        />
-                        <label
-                          htmlFor={`mobile-brand-${index}`}
-                          className="ml-2 text-sm text-gray-700"
-                        >
-                          {brand}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="mb-6">
-                  <h3 className="font-medium text-gray-700 mb-3">
-                    Price Range
-                  </h3>
-                  <div className="flex space-x-2 items-center">
-                    <input
-                      type="number"
-                      min={priceRange.min}
-                      max={filters.priceRange.max}
-                      value={filters.priceRange.min}
-                      onChange={(e) =>
-                        updatePriceRange(
-                          Number(e.target.value),
-                          filters.priceRange.max
-                        )
-                      }
-                      className="w-full p-2 border border-gray-200 rounded text-sm"
-                      placeholder="Min"
-                    />
-                    <span className="text-gray-500">to</span>
-                    <input
-                      type="number"
-                      min={filters.priceRange.min}
-                      max={priceRange.max}
-                      value={filters.priceRange.max}
-                      onChange={(e) =>
-                        updatePriceRange(
-                          filters.priceRange.min,
-                          Number(e.target.value)
-                        )
-                      }
-                      className="w-full p-2 border border-gray-200 rounded text-sm"
-                      placeholder="Max"
-                    />
-                  </div>
-                </div>
-                <button
-                  onClick={clearFilters}
-                  className="w-full py-2 bg-gray-100 rounded"
-                >
-                  Clear All
-                </button>
-                <button
-                  onClick={toggleFilters}
-                  className="w-full py-2 bg-yellow-600 text-white rounded mt-2"
-                >
-                  Apply
-                </button>
               </div>
+
+              {/* Quick Jump (Optional - shows for large datasets) */}
+              {totalPages > 10 && (
+                <div className="flex items-center gap-3 mt-4 text-sm text-gray-600">
+                  <span>Go to page:</span>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="number"
+                      min="1"
+                      max={totalPages}
+                      value={currentPage}
+                      onChange={(e) => {
+                        const page = parseInt(e.target.value);
+                        if (page >= 1 && page <= totalPages) {
+                          paginate(page);
+                        }
+                      }}
+                      className="w-16 px-2 py-1 text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                    />
+                    <span className="text-gray-400">of {totalPages}</span>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
-          <div className="lg:w-3/4">
-            <div className="mb-6 flex justify-between items-center">
-              <div className="text-sm text-gray-600">
-                Showing {indexOfFirstProduct + 1}-
-                {Math.min(indexOfLastProduct, sortedProducts.length)} of{" "}
-                {sortedProducts.length} products
-              </div>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="p-2 border border-gray-200 rounded"
-              >
-                <option value="featured">Featured</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="name-asc">Name: A to Z</option>
-                <option value="name-desc">Name: Z to A</option>
-              </select>
-            </div>
-
-            {currentProducts.length === 0 ? (
-              <div className="bg-white rounded-lg shadow p-6 text-center">
-                <p className="text-gray-600">
-                  No products found. Try adjusting filters.
-                </p>
-                <button
-                  onClick={clearFilters}
-                  className="mt-4 px-4 py-2 bg-yellow-600 text-white rounded"
-                >
-                  Clear Filters
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {currentProducts.map((product) => {
-                  const brand = product.brand || product.mainCategory;
-                  const fallbackUrl =
-                    brandRedirects[brand] ||
-                    brandRedirects[getBrandCategory(product).split(" & ")[0]] ||
-                    "https://www.example.com";
-                  const brochureUrl = product.brochureUrl || fallbackUrl;
-                  const category = getBrandCategory(product);
-
-                  return (
-                   <div
-  key={product.id}
-  className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
->
-  <div className="relative h-48 overflow-hidden">
-    <img
-      src={getProductImage(product.id)}
-      alt={product.name}
-      className="w-full h-full object-cover"
-    />
-    {/* Removed both brand and category labels */}
-  </div>
-  <div className="p-4">
-    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-      {product.name}
-    </h3>
-    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-      {product.description}
-    </p>
-    <div className="flex justify-between items-center">
-      <a
-        href={brochureUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-sm text-yellow-600 hover:underline hover:text-yellow-800 transition-colors"
-      >
-        View Brochure
-      </a>
-    </div>
-  </div>
-</div>
-                  );
-                })}
-              </div>
-            )}
-
-{/* Enhanced Professional Pagination */}
-{sortedProducts.length > productsPerPage && (
-  <div className="flex flex-col items-center mt-16 mb-8">
-    {/* Pagination Info */}
-    <div className="text-sm text-gray-600 mb-6">
-      Showing <span className="font-semibold text-gray-900">{(currentPage - 1) * productsPerPage + 1}</span> to{' '}
-      <span className="font-semibold text-gray-900">
-        {Math.min(currentPage * productsPerPage, sortedProducts.length)}
-      </span>{' '}
-      of <span className="font-semibold text-gray-900">{sortedProducts.length}</span> products
-    </div>
-
-    {/* Main Pagination Container */}
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
-      <div className="flex items-center gap-1">
-        
-        {/* Previous Button */}
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className={`
-            flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
-            ${currentPage === 1 
-              ? 'text-gray-400 cursor-not-allowed bg-gray-50' 
-              : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
-            }
-          `}
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          <span className="hidden sm:inline">Previous</span>
-        </button>
-
-        {/* Page Numbers */}
-        <div className="flex items-center gap-1 mx-2">
-          {(() => {
-            let pages = [];
-            const maxVisiblePages = 7;
-            
-            if (totalPages <= maxVisiblePages) {
-              // Show all pages if total is small
-              for (let i = 1; i <= totalPages; i++) {
-                pages.push(i);
-              }
-            } else {
-              // Smart pagination logic
-              if (currentPage <= 4) {
-                pages = [1, 2, 3, 4, 5, '...', totalPages];
-              } else if (currentPage >= totalPages - 3) {
-                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-              } else {
-                pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
-              }
-            }
-
-            return pages.map((page, index) => {
-              if (page === '...') {
-                return (
-                  <span key={`ellipsis-${index}`} className="px-3 py-2 text-gray-400 text-sm">
-                    ⋯
-                  </span>
-                );
-              }
-
-              const isActive = currentPage === page;
-              return (
-                <button
-                  key={page}
-                  onClick={() => paginate(page)}
-                  className={`
-                    min-w-[40px] h-10 flex items-center justify-center rounded-xl text-sm font-semibold
-                    transition-all duration-300 relative overflow-hidden group
-                    ${isActive
-                      ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 shadow-lg shadow-yellow-200'
-                      : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
-                    }
-                  `}
-                >
-                  {isActive && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-20 rounded-xl"></div>
-                  )}
-                  <span className="relative z-10">{page}</span>
-                  {!isActive && (
-                    <div className="absolute inset-0 bg-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  )}
-                </button>
-              );
-            });
-          })()}
-        </div>
-
-        {/* Next Button */}
-        <button
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-          className={`
-            flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
-            ${currentPage === totalPages 
-              ? 'text-gray-400 cursor-not-allowed bg-gray-50' 
-              : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 active:scale-95'
-            }
-          `}
-        >
-          <span className="hidden sm:inline">Next</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    {/* Quick Jump (Optional - shows for large datasets) */}
-    {totalPages > 10 && (
-      <div className="flex items-center gap-3 mt-4 text-sm text-gray-600">
-        <span>Go to page:</span>
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            min="1"
-            max={totalPages}
-            value={currentPage}
-            onChange={(e) => {
-              const page = parseInt(e.target.value);
-              if (page >= 1 && page <= totalPages) {
-                paginate(page);
-              }
-            }}
-            className="w-16 px-2 py-1 text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-          />
-          <span className="text-gray-400">of {totalPages}</span>
-        </div>
-      </div>
-    )}
-  </div>
-)}
-
-
-            <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
+          {/* Centered Enquiry Form */}
+          <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
+            <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Enquiry Form
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600">
                 Get in touch with our sales team and partners for more details.
               </p>
-              <div
-                className="success-message"
-                id="successMessage"
-                style={{ display: "none" }}
-              >
-                ✅ Thank you for your enquiry! We'll get back to you within 24
-                hours.
+            </div>
+            <div
+              className="success-message text-center"
+              id="successMessage"
+              style={{ display: "none" }}
+            >
+              ✅ Thank you for your enquiry! We'll get back to you within 24
+              hours.
+            </div>
+            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="form-group">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 required"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+                  />
+                </div>
+                <div className="form-group">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 required"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+                  />
+                </div>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="form-group">
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 required"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 required"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="form-group">
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 required"
-                    >
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                    />
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="form-group">
                   <label
-                    htmlFor="country"
+                    htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 required"
                   >
-                    Country
+                    Phone
                   </label>
-                  <select
-                    id="country"
-                    name="country"
-                    value={formData.country}
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleInputChange}
                     required
                     className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                  >
-                    <option value="">Select Country</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="AU">Australia</option>
-                    <option value="DE">Germany</option>
-                    <option value="FR">France</option>
-                    <option value="IN">India</option>
-                    <option value="JP">Japan</option>
-                    <option value="CN">China</option>
-                    <option value="BR">Brazil</option>
-                    <option value="OTHER">Other</option>
-                  </select>
+                  />
                 </div>
                 <div className="form-group">
                   <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 required"
+                    htmlFor="company"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Message
+                    Company
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
                     onChange={handleInputChange}
-                    required
-                    rows="3"
                     className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                    placeholder="Tell us about your requirements, questions, or how we can help you..."
-                  ></textarea>
+                  />
                 </div>
+              </div>
+              <div className="form-group">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-gray-700 required"
+                >
+                  Country
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  required
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+                >
+                  <option value="">Select Country</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AU">Australia</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
+                  <option value="IN">India</option>
+                  <option value="JP">Japan</option>
+                  <option value="CN">China</option>
+                  <option value="BR">Brazil</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 required"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows="3"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+                  placeholder="Tell us about your requirements, questions, or how we can help you..."
+                ></textarea>
+              </div>
+              <div className="text-center">
                 <button
                   type="submit"
-                  className="w-full py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+                  className="w-full max-w-xs py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-colors"
                 >
                   Send Enquiry
                 </button>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -3,15 +3,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import productsData from '../components/Products.json';
 import atharvalogo from '../assets/atharvaa.png';
 
-// Get unique categories
+// Get unique categories with 3-level structure
 const getCategoriesStructure = () => {
   const mainCategories = [...new Set(productsData.map(p => p.mainCategory))];
   const categoryStructure = {};
+  
   mainCategories.forEach(mainCategory => {
     const productsInMain = productsData.filter(p => p.mainCategory === mainCategory);
     const subcategories = [...new Set(productsInMain.map(p => p.subCategory))];
-    categoryStructure[mainCategory] = subcategories.sort();
+    categoryStructure[mainCategory] = {};
+    
+    subcategories.forEach(subCategory => {
+      const productsInSub = productsInMain.filter(p => p.subCategory === subCategory);
+      const subSubcategories = [...new Set(productsInSub.map(p => p.subSubCategory || null).filter(Boolean))];
+      categoryStructure[mainCategory][subCategory] = subSubcategories.sort();
+    });
   });
+  
   return { mainCategories: mainCategories.sort(), categoryStructure };
 };
 
@@ -27,7 +35,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedMobileCategory, setExpandedMobileCategory] = useState(null);
-  const [activeMainCategory, setActiveMainCategory] = useState(null);
+  const [expandedMobileSubCategory, setExpandedMobileSubCategory] = useState(null);
 
   const { mainCategories, categoryStructure } = useMemo(() => getCategoriesStructure(), []);
 
@@ -78,17 +86,40 @@ const Navbar = () => {
 
   const toggleMobileCategory = (category) => {
     setExpandedMobileCategory(expandedMobileCategory === category ? null : category);
+    setExpandedMobileSubCategory(null); // Reset subcategory when main category changes
   };
 
-  const handleCategoryHover = (category) => setActiveMainCategory(category);
-
-  const handleCategoryClick = (type, category) => {
-    const slug = categoryToSlug(category);
-    navigate(`/category/${type}/${slug}`);
-    setIsProductsOpen(false);
-    setIsAllCategoriesOpen(false);
-    setMobileMenuOpen(false);
+  const toggleMobileSubCategory = (subCategory) => {
+    setExpandedMobileSubCategory(expandedMobileSubCategory === subCategory ? null : subCategory);
   };
+
+  const handleCategoryHover = (category) => {
+    setActiveMainCategory(category);
+    setActiveSubCategory(null); // Reset subcategory when main category changes
+  };
+
+  const handleSubCategoryHover = (subCategory) => {
+    setActiveSubCategory(subCategory);
+  };
+
+ const handleCategoryClick = (type, category) => {
+  const slug = categoryToSlug(category);
+  
+  if (type === 'main') {
+    // Navigate to subcategories page for this main category
+    navigate(`/subcategories/${slug}`);
+  } else if (type === 'sub') {
+    // Navigate to sub-subcategories page for this subcategory
+    navigate(`/subsubcategories/${slug}`);
+  } else if (type === 'subsub') {
+    // Navigate to products page filtered by sub-subcategory
+    navigate(`/category/subsub/${slug}`);
+  }
+  
+  setIsProductsOpen(false);
+  setIsAllCategoriesOpen(false);
+  setMobileMenuOpen(false);
+};
 
   return (
     <nav
@@ -110,7 +141,7 @@ const Navbar = () => {
                   alt="Atharva Enterprises"
                   className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-teal-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 bg-clip-text text-transparent tracking-tight">
                 ATHARVA ENTERPRISES
@@ -125,7 +156,7 @@ const Navbar = () => {
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
             <Link
@@ -133,10 +164,10 @@ const Navbar = () => {
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               About Us
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
-            {/* Products Dropdown */}
+            {/* Products Dropdown with 3-Level Structure */}
             <div className="relative">
               <button
                 onClick={toggleProductsDropdown}
@@ -153,102 +184,48 @@ const Navbar = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
               </button>
 
               {isProductsOpen && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-screen max-w-5xl bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
-                  <div className="flex h-96">
-                    {/* Sidebar */}
-                    <div className="w-72 bg-gradient-to-br from-slate-50/90 to-slate-100/60 p-6 overflow-y-auto border-r border-slate-200/40">
-                      <h3 className="font-bold text-sm mb-4 text-slate-600 uppercase tracking-wider">
-                        Categories
-                      </h3>
-                      <ul className="space-y-2">
-                        <li>
-                          <Link
-                            to="/products"
-                            className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-teal-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
-                            onClick={() => setIsProductsOpen(false)}
-                          >
-                            All Products
-                          </Link>
-                        </li>
-                        {mainCategories.map((mainCategory, index) => (
-                          <li key={index}>
-                            <button
-                              className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border ${
-                                activeMainCategory === mainCategory
-                                  ? 'bg-gradient-to-r from-yellow-100 to-teal-50 text-yellow-700 border-yellow-200/50 shadow-sm'
-                                  : 'hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-50 hover:text-slate-800 border-transparent'
-                              }`}
-                              onMouseEnter={() => handleCategoryHover(mainCategory)}
-                              onClick={() => handleCategoryHover(mainCategory)}
-                            >
-                              {mainCategory}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Subcategories */}
-                    <div className="flex-1 p-8 overflow-y-auto bg-gradient-to-br from-white/90 to-slate-50/30">
-                      {activeMainCategory ? (
-                        <div>
-                          <div className="flex items-center justify-between mb-6">
-                            <div>
-                              <h2 className="font-bold text-xl text-slate-800 mb-1">{activeMainCategory}</h2>
-                              <p className="text-sm text-slate-600">Professional-grade equipment</p>
-                            </div>
-                            <Link
-                              to={`/category/main/${categoryToSlug(activeMainCategory)}`}
-                              className="inline-flex items-center px-4 py-2 text-sm font-semibold text-yellow-700 hover:text-white bg-gradient-to-r from-yellow-50 to-teal-50 hover:from-yellow-600 hover:to-teal-600 border border-yellow-200 hover:border-yellow-600 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md"
-                              onClick={() => setIsProductsOpen(false)}
-                            >
-                              View All
-                              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                              </svg>
-                            </Link>
-                          </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            {categoryStructure[activeMainCategory].map((subCategory, i) => (
-                              <button
-                                key={i}
-                                className="text-sm text-slate-700 hover:text-yellow-700 py-3 px-4 border-b border-slate-100 hover:border-yellow-200 transition-all duration-300 text-left rounded-lg hover:bg-gradient-to-r hover:from-yellow-50/50 hover:to-teal-50/30 font-medium"
-                                onClick={() => handleCategoryClick('sub', subCategory)}
-                              >
-                                {subCategory}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="h-full flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-slate-100 to-slate-200 rounded-full flex items-center justify-center">
-                              <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-                              </svg>
-                            </div>
-                            <p className="text-slate-500 font-medium">Select a category to explore</p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
+  <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
+    <div className="p-6">
+      <h3 className="font-bold text-lg mb-4 text-slate-800">
+        Product Categories
+      </h3>
+      <ul className="space-y-2">
+        <li>
+          <Link
+            to="/products"
+            className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
+            onClick={() => setIsProductsOpen(false)}
+          >
+            All Products
+          </Link>
+        </li>
+        {mainCategories.map((mainCategory, index) => (
+          <li key={index}>
+            <button
+              className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
+              onClick={() => handleCategoryClick('main', mainCategory)}
+            >
+              {mainCategory}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+)}
             </div>
 
-            {/* All Categories Dropdown */}
+            {/* All Categories Dropdown - Enhanced for 3-Level */}
             <div className="relative">
               <button
                 onClick={toggleAllCategoriesDropdown}
                 className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 flex items-center space-x-2 relative group py-2"
               >
-                <span>All categories</span>
+                <span>Catalogs</span>
                 <svg
                   className={`w-4 h-4 transition-all duration-300 ${
                     isAllCategoriesOpen ? 'rotate-180 text-yellow-600' : 'group-hover:text-yellow-600'
@@ -259,26 +236,39 @@ const Navbar = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
               </button>
 
               {isAllCategoriesOpen && (
-                <div className="absolute left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 max-h-80 overflow-y-auto">
-                  <div className="p-6">
-                    <div className="space-y-3">
-                      {mainCategories.map((mainCategory, index) => (
-                        <button
-                          key={index}
-                          className="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold hover:bg-gradient-to-r hover:from-yellow-50 hover:to-teal-50 hover:text-yellow-700 transition-all duration-300 border border-transparent hover:border-yellow-200/50"
-                          onClick={() => handleCategoryClick('main', mainCategory)}
-                        >
-                          {mainCategory}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+  <div className="absolute left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
+    <div className="p-6">
+      <h3 className="font-bold text-lg mb-4 text-slate-800">
+        All Categories
+      </h3>
+      <ul className="space-y-2">
+        <li>
+          <Link
+            to="/products"
+            className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
+            onClick={() => setIsAllCategoriesOpen(false)}
+          >
+            All Products
+          </Link>
+        </li>
+        {mainCategories.map((mainCategory, index) => (
+          <li key={index}>
+            <button
+              className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
+              onClick={() => handleCategoryClick('main', mainCategory)}
+            >
+              {mainCategory}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+)}
             </div>
 
             <Link
@@ -286,7 +276,7 @@ const Navbar = () => {
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               Partners
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
             <Link
@@ -294,8 +284,8 @@ const Navbar = () => {
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               Contact Us
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-teal-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+            </Link>   
           </div>
 
           {/* Right Actions */}
@@ -329,7 +319,7 @@ const Navbar = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-yellow-600 to-teal-600 hover:from-yellow-700 hover:to-teal-700 text-white px-6 py-4 rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+                      className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 text-white px-6 py-4 rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
                       Search Products
                     </button>
@@ -376,7 +366,7 @@ const Navbar = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gradient-to-r from-yellow-600 to-teal-600 text-white rounded-lg text-sm font-semibold hover:from-yellow-700 hover:to-teal-700 transition-all duration-300"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gradient-to-r from-yellow-600 to-yellow-600 text-white rounded-lg text-sm font-semibold hover:from-yellow-700 hover:to-yellow-700 transition-all duration-300"
                 >
                   Search
                 </button>
