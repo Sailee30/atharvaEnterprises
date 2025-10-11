@@ -7,8 +7,10 @@ import AboutUs from './pages/AboutUs';
 import ProductCategoryDetail from './pages/ProductsCategoryDetail';
 import ProductDetail from './pages/ProductsDetail';
 import Products from './components/Products';
+import AdminLogin from './pages/AdminLogin';
 import AdminPortal from './components/AdminPortal';
 import SearchResults from './pages/SearchResults';
+
 // Add these new imports
 import Industries from './pages/Industries';
 import Services from './pages/Services';
@@ -75,12 +77,13 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/search" element={<SearchResults />} />
           {/* Updated routes to use actual components */}
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
-         <Route path="/contact-us" element={<ContactForm />} />
+          <Route path="/contact-us" element={<ContactForm />} />
           <Route path="/catalog" element={<div className="container mx-auto px-4 py-24"><h1 className="text-3xl font-medium">Product Catalog</h1><p className="mt-4">Download our latest product catalog.</p></div>} />
           
           <Route path="/category/:categoryType/:categorySlug" element={<ProductCategoryDetail />} />
