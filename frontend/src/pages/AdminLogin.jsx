@@ -18,10 +18,12 @@ const AdminLogin = () => {
 
     try {
       const response = await authAPI.login(formData);
-      
-      if (response.success) {
+      if (response.success && response.token) {
         localStorage.setItem('adminUser', JSON.stringify(response.data));
+        localStorage.setItem('adminToken', response.token); // Store token for API authentication
         navigate('/admin');
+      } else {
+        setError(response.message || 'Invalid credentials');
       }
     } catch (err) {
       setError(err.message || 'Invalid credentials');

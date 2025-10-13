@@ -6,30 +6,22 @@ const AdminPortal = () => {
   const [activeTab, setActiveTab] = useState('products');
   
   // Product Management State
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      title: 'Industrial Widget A',
-      image: '/api/placeholder/300/200',
-      specs: 'Dimensions: 10x5x3cm, Weight: 2kg',
-      priceRange: '$100 - $500',
-      partner: 'Partner A',
-      brochure: 'widget-a-brochure.pdf',
-      specSheet: 'widget-a-specs.pdf',
-      status: 'active'
-    },
-    {
-      id: 2,
-      title: 'Advanced Controller B',
-      image: '/api/placeholder/300/200',
-      specs: 'Input: 220V, Output: 24V DC',
-      priceRange: '$200 - $800',
-      partner: 'Partner B',
-      brochure: 'controller-b-brochure.pdf',
-      specSheet: 'controller-b-specs.pdf',
-      status: 'active'
-    }
-  ]);
+  const [products, setProducts] = useState([]);
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { productAPI } = await import('../services/api');
+      try {
+        const res = await productAPI.getAll();
+        if (res.success && Array.isArray(res.data)) {
+          setProducts(res.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch products:', err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   // Quotation Requests State
   const [quotations, setQuotations] = useState([
@@ -78,16 +70,20 @@ const AdminPortal = () => {
   const [filterStatus, setFilterStatus] = useState('all');
 
   // Product Form State
-  const [productForm, setProductForm] = useState({
-    title: '',
-    image: '',
-    specs: '',
-    priceRange: '',
-    partner: '',
-    brochure: '',
-    specSheet: '',
-    status: 'active'
-  });
+  // FIXED: Product Form State with correct field names
+const [productForm, setProductForm] = useState({
+  title: '',
+  image: '',
+  specs: '',
+  priceRange: '',
+  partner: '',
+  brochure: '',
+  specSheet: '',
+  category: '',        // This maps to mainCategory
+  subcategory: '',     // This maps to subCategory  
+  subSubCategory: '',  // FIXED: Was subsubcategory
+  status: 'active'
+});
 
   // Admin Form State
   const [adminForm, setAdminForm] = useState({
@@ -103,26 +99,85 @@ const AdminPortal = () => {
   const [showBulkUpload, setShowBulkUpload] = useState(false);
 
   // Product Management Functions
-  const handleProductSubmit = (e) => {
-    e.preventDefault();
-    if (editingProduct) {
-      setProducts(products.map(p => p.id === editingProduct.id ? { ...productForm, id: editingProduct.id } : p));
-      setEditingProduct(null);
+  const handleProductSubmit = async (e) => {
+  e.preventDefault();
+  const { productAPI } = await import('../services/api');
+  
+  let imageUrl = '';
+  
+  if (!productForm.image || !(productForm.image instanceof File)) {
+    alert('Please select a product image before submitting.');
+    return;
+  }
+
+    try {
+      // Step 1: Upload image to Cloudinary
+      console.log('Uploading image...');
+    const imgForm = new FormData();
+    imgForm.append('image', productForm.image);
+    
+    const uploadRes = await productAPI.uploadImage(imgForm);
+    
+    if (uploadRes.success && uploadRes.data?.url) {
+      imageUrl = uploadRes.data.url;
+      console.log('Image uploaded successfully:', imageUrl);
     } else {
-      setProducts([...products, { ...productForm, id: products.length + 1 }]);
+      alert('Image upload failed: ' + (uploadRes.message || 'Unknown error'));
+      return;
     }
-    setProductForm({
-      title: '',
-      image: '',
-      specs: '',
-      priceRange: '',
-      partner: '',
-      brochure: '',
-      specSheet: '',
-      status: 'active'
-    });
-    setShowProductForm(false);
-  };
+
+      // Step 2: Create product with image URL
+      console.log('Creating product...');
+    const productData = {
+      title: productForm.title,
+      image: imageUrl,
+      specs: productForm.specs,
+      priceRange: productForm.priceRange,
+      partner: productForm.partner,
+      brochure: productForm.brochure,
+      specSheet: productForm.specSheet,
+      mainCategory: productForm.category,           // FIXED: map category → mainCategory
+      subCategory: productForm.subcategory,         // FIXED: map subcategory → subCategory
+      subSubCategory: productForm.subSubCategory,   // FIXED: correct casing
+      status: productForm.status
+    };
+
+      const createRes = await productAPI.create(productData);
+    
+    if (createRes.success) {
+      console.log('Product created successfully');
+      alert('Product added successfully!');
+      
+      // Reset form
+      setShowProductForm(false);
+      setEditingProduct(null);
+      setProductForm({
+        title: '',
+        image: '',
+        specs: '',
+        priceRange: '',
+        partner: '',
+        brochure: '',
+        specSheet: '',
+        category: '',
+        subcategory: '',
+        subSubCategory: '',  // FIXED
+        status: 'active'
+      });
+        
+        // Refresh products list
+        const res = await productAPI.getAll();
+      if (res.success && Array.isArray(res.data)) {
+        setProducts(res.data);
+      }
+    } else {
+      alert('Failed to create product: ' + (createRes.message || 'Unknown error'));
+    }
+  } catch (err) {
+    console.error('Error:', err);
+    alert('Error: ' + (err.message || 'Unknown error'));
+  }
+};
 
   const handleEditProduct = (product) => {
     setEditingProduct(product);
@@ -137,23 +192,50 @@ const AdminPortal = () => {
   };
 
   // Admin Management Functions
-  const handleAdminSubmit = (e) => {
+  const handleAdminSubmit = async (e) => {
     e.preventDefault();
-    if (editingAdmin) {
-      setAdmins(admins.map(a => a.id === editingAdmin.id ? { ...adminForm, id: editingAdmin.id } : a));
-      setEditingAdmin(null);
-    } else {
-      setAdmins([...admins, { ...adminForm, id: admins.length + 1, status: 'active' }]);
+    const { authAPI } = await import('../services/api');
+    try {
+      let response;
+      if (editingAdmin) {
+        response = await authAPI.updateAdmin(editingAdmin.id, adminForm);
+      } else {
+        response = await authAPI.createAdmin(adminForm);
+      }
+      if (response.success) {
+        setShowAdminForm(false);
+        setEditingAdmin(null);
+        setAdminForm({
+          username: '',
+          password: '',
+          role: 'partner_admin',
+          email: '',
+          partner: ''
+        });
+        fetchAdmins();
+      } else {
+        alert(response.message || 'Failed to save admin');
+      }
+    } catch (err) {
+      alert('Error saving admin: ' + (err.message || 'Unknown error'));
     }
-    setAdminForm({
-      username: '',
-      password: '',
-      role: 'partner_admin',
-      email: '',
-      partner: ''
-    });
-    setShowAdminForm(false);
   };
+
+  const fetchAdmins = async () => {
+    const { authAPI } = await import('../services/api');
+    try {
+      const res = await authAPI.getAdmins();
+      if (res.success && Array.isArray(res.data)) {
+        setAdmins(res.data);
+      }
+    } catch (err) {
+      console.error('Failed to fetch admins:', err);
+    }
+  };
+
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
 
   const handleEditAdmin = (admin) => {
     setEditingAdmin(admin);
@@ -167,7 +249,6 @@ const AdminPortal = () => {
     }
   };
 
-  // Quotation Functions
   const handleQuotationStatusChange = (id, status) => {
     setQuotations(quotations.map(q => q.id === id ? { ...q, status } : q));
   };
@@ -181,19 +262,16 @@ const AdminPortal = () => {
     }
   };
 
-  // Bulk Upload Functions
   const handleBulkUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       setBulkUploadFile(file);
-      // In a real app, you would process the CSV/XLSX file here
       alert(`File "${file.name}" uploaded successfully. Processing...`);
     }
   };
 
   const processBulkUpload = () => {
     if (bulkUploadFile) {
-      // Simulated bulk processing
       alert('Bulk upload processed successfully!');
       setBulkUploadFile(null);
       setShowBulkUpload(false);
@@ -218,12 +296,12 @@ const AdminPortal = () => {
 
   // Render Functions
   const renderProductForm = () => (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
-        <h3 className="text-lg font-semibold mb-4">
-          {editingProduct ? 'Edit Product' : 'Add New Product'}
-        </h3>
-        <form onSubmit={handleProductSubmit} className="space-y-4">
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
+      <h3 className="text-lg font-semibold mb-4">
+        {editingProduct ? 'Edit Product' : 'Add New Product'}
+      </h3>
+      <form onSubmit={handleProductSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Title</label>
             <input
@@ -235,11 +313,42 @@ const AdminPortal = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Image URL</label>
+            <label className="block text-sm font-medium mb-1">Category</label>
             <input
               type="text"
-              value={productForm.image}
-              onChange={(e) => setProductForm({ ...productForm, image: e.target.value })}
+              value={productForm.category}
+              onChange={(e) => setProductForm({ ...productForm, category: e.target.value })}
+              className="w-full border rounded px-3 py-2"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Subcategory</label>
+            <input
+              type="text"
+              value={productForm.subcategory}
+              onChange={(e) => setProductForm({ ...productForm, subcategory: e.target.value })}
+              className="w-full border rounded px-3 py-2"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Sub-Subcategory</label>
+            <input
+              type="text"
+              value={productForm.subSubCategory}  
+              onChange={(e) => setProductForm({ ...productForm, subSubCategory: e.target.value })}
+              className="w-full border rounded px-3 py-2"
+              placeholder="e.g., Scrubber-Dryers"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Product Image <span className="text-red-500">*</span></label>
+            <input
+              type="file"
+              accept="image/*"
+              required
+              onChange={(e) => setProductForm({ ...productForm, image: e.target.files[0] })}
               className="w-full border rounded px-3 py-2"
             />
           </div>
@@ -540,6 +649,8 @@ const AdminPortal = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subcategory</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Partner</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price Range</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -560,11 +671,13 @@ const AdminPortal = () => {
                           </div>
                         </div>
                       </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{product.mainCategory || product.category}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{product.subCategory || product.subcategory}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{product.partner}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{product.priceRange}</td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          product.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                          product.status === 'ACTIVE' || product.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                         }`}>
                           {product.status}
                         </span>
@@ -778,7 +891,6 @@ const AdminPortal = () => {
         )}
       </div>
 
-      {/* Modals */}
       {showProductForm && renderProductForm()}
       {showAdminForm && renderAdminForm()}
       {showBulkUpload && renderBulkUpload()}

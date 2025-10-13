@@ -1,18 +1,24 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Get token from localStorage
 const getToken = () => localStorage.getItem('adminToken');
 
 // Set token
-const setToken = (token) => localStorage.setItem('adminToken', token);
+const setToken = (token) => {
+  if (token) {
+    localStorage.setItem('adminToken', token);
+  }
+};
 
 // Remove token
-const removeToken = () => localStorage.removeItem('adminToken');
+const removeToken = () => {
+  localStorage.removeItem('adminToken');
+};
 
-// API call helper
+// API call helper with error handling
 const apiCall = async (endpoint, options = {}) => {
   const token = getToken();
-  
+
   const headers = {
     ...options.headers,
   };
@@ -21,22 +27,35 @@ const apiCall = async (endpoint, options = {}) => {
     headers.Authorization = `Bearer ${token}`;
   }
 
+  // Don't set Content-Type for FormData - browser will set it automatically
   if (!(options.body instanceof FormData)) {
     headers['Content-Type'] = 'application/json';
   }
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
-    ...options,
-    headers,
-  });
+  try {
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong');
+    // Handle 401 - Token expired or invalid
+    if (response.status === 401) {
+      removeToken();
+      window.location.href = '/login';
+      throw new Error(data.message || 'Unauthorized. Please login again.');
+    }
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Something went wrong');
+    }
+
+    return data;
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
   }
-
-  return data;
 };
 
 // Auth APIs
@@ -57,11 +76,27 @@ export const authAPI = {
   },
 
   getProfile: () => apiCall('/admins/me'),
+
+  getToken: () => getToken(),
+
+  isAuthenticated: () => !!getToken(),
+
+  createAdmin: (adminData) => apiCall('/admins', {
+    method: 'POST',
+    body: JSON.stringify(adminData),
+  }),
+
+  updateAdmin: (id, adminData) => apiCall(`/admins/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(adminData),
+  }),
+
+  getAdmins: () => apiCall('/admins'),
 };
 
 // Product APIs
 export const productAPI = {
-  getAll: (params) => {
+  getAll: (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
     return apiCall(`/products${queryString ? `?${queryString}` : ''}`);
   },
@@ -82,21 +117,30 @@ export const productAPI = {
     method: 'DELETE',
   }),
 
-  uploadImage: async (file) => {
-    const formData = new FormData();
-    formData.append('image', file);
+  // FIXED: Single uploadImage function that properly handles FormData
+  uploadImage: (formData) => apiCall('/products/upload/image', {
+    method: 'POST',
+    body: formData,
+    // Don't set Content-Type header - let browser handle it for FormData
+  }),
 
-    return apiCall('/products/upload-image', {
-      method: 'POST',
-      body: formData,
-    });
+  getByCategory: (params) => {
+    const queryString = new URLSearchParams(params).toString();
+    return apiCall(`/products/category${queryString ? `?${queryString}` : ''}`);
   },
+
+  bulkUpload: (products) => apiCall('/products/bulk/upload', {
+    method: 'POST',
+    body: JSON.stringify(products),
+  }),
+
+  exportCSV: () => apiCall('/products/export/csv'),
 };
 
 // Admin APIs
 export const adminAPI = {
   getAll: () => apiCall('/admins'),
-  
+
   getOne: (id) => apiCall(`/admins/${id}`),
 
   create: (adminData) => apiCall('/admins', {
@@ -112,4 +156,40 @@ export const adminAPI = {
   delete: (id) => apiCall(`/admins/${id}`, {
     method: 'DELETE',
   }),
+};
+
+// Datasheet APIs
+export const datasheetAPI = {
+  getAll: (params = {}) => {
+    const queryString = new URLSearchParams(params).toString();
+    return apiCall(`/datasheets${queryString ? `?${queryString}` : ''}`);
+  },
+
+  getOne: (id) => apiCall(`/datasheets/${id}`),
+
+  create: (datasheetData) => apiCall('/datasheets', {
+    method: 'POST',
+    body: JSON.stringify(datasheetData),
+  }),
+
+  update: (id, datasheetData) => apiCall(`/datasheets/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(datasheetData),
+  }),
+
+  delete: (id) => apiCall(`/datasheets/${id}`, {
+    method: 'DELETE',
+  }),
+
+  updateStatus: (id, status) => apiCall(`/datasheets/${id}/status`, {
+    method: 'PATCH',
+    body: JSON.stringify({ status }),
+  }),
+};
+
+export default {
+  authAPI,
+  productAPI,
+  adminAPI,
+  datasheetAPI,
 };

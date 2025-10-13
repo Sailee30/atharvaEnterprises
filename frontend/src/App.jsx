@@ -48,15 +48,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   
   const { pageTransition, exitComplete } = usePageTransition();
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000); // 1 second loading animation
-    
     return () => clearTimeout(timer);
   }, []);
-  
+
   if (isLoading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
@@ -71,27 +70,23 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      
       <main className="flex-grow pt-16">
         <Routes location={location}>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminPortal />} />
+          <Route path="/products/category/:category" element={<ProductCategoryDetail />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/search" element={<SearchResults />} />
-          {/* Updated routes to use actual components */}
-          <Route path="/services" element={<Services />} />
+          <Route path="/admin" element={<AdminPortal />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/login" element={<AdminLogin />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/contact-us" element={<ContactForm />} />
-          <Route path="/catalog" element={<div className="container mx-auto px-4 py-24"><h1 className="text-3xl font-medium">Product Catalog</h1><p className="mt-4">Download our latest product catalog.</p></div>} />
-          
-          <Route path="/category/:categoryType/:categorySlug" element={<ProductCategoryDetail />} />
-          <Route path="/product/:productSlug" element={<ProductDetail />} />
-          <Route path="/product/:productId/specifications" element={<ProductSpecifications />} />
-          <Route path="/subcategories/:mainCategory" element={<Subcategories />} />
-          <Route path="/subsubcategories/:subCategory" element={<SubSubcategories />} />
-          
+          <Route path="/services" element={<Services />} />
+          <Route path="/specifications/:id" element={<ProductSpecifications />} />
+          <Route path="/contact" element={<ContactForm />} />
+          <Route path="/subcategories/:category" element={<Subcategories />} />
+          <Route path="/subsubcategories/:subcategory" element={<SubSubcategories />} />
           <Route path="*" element={
             <div className="container mx-auto px-4 py-24 text-center">
               <h1 className="text-5xl font-medium mb-6">404</h1>
@@ -104,7 +99,6 @@ function App() {
           } />
         </Routes>
       </main>
-      
       <Footer />
     </div>
   );

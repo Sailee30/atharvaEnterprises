@@ -1,0 +1,142 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin Model
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique @db.VarChar(50)
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  role      Role     @default(PARTNER_ADMIN)
+  partner   String?  @db.VarChar(255)
+  status    Status   @default(ACTIVE)
+  lastLogin DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([username])
+  @@map("admins")
+}
+
+// Product Model
+model Product {
+  id                String   @id @default(cuid())
+  title             String   @db.VarChar(255)
+  image             String
+  imagePublicId     String?  @db.VarChar(255)
+  specs             String?  @db.Text
+  priceRange        String?  @db.VarChar(100)
+  partner           String   @db.VarChar(255)
+  brochure          String?
+  specSheet         String?
+  status            Status   @default(ACTIVE)
+  mainCategory      String?  @db.VarChar(100)
+  subCategory       String?  @db.VarChar(100)
+  subSubCategory    String?  @db.VarChar(100)
+  description       String?  @db.Text
+  specification     String?  @db.Text
+  price             String?  @db.VarChar(50)
+  comparePrice      String?  @db.VarChar(50)
+  
+  // JSONB for flexible metadata
+  metadata          Json?    @default("{}")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  datasheets DatasheetProduct[]
+
+  @@index([title])
+  @@index([partner])
+  @@index([status])
+  @@index([mainCategory])
+  @@index([createdAt])
+  // @@fulltext([title, specs, description])
+  @@map("products")
+}
+
+// Datasheet Model
+model Datasheet {
+  id        String   @id @default(cuid())
+  name      String   @db.VarChar(255)
+  email     String   @db.VarChar(255)
+  phone     String   @db.VarChar(20)
+  company   String?  @db.VarChar(255)
+  message   String?  @db.Text
+  
+  // JSONB for storing products data
+  products  DatasheetProduct[]
+  
+  status    DatasheetStatus @default(PENDING)
+  priority  Priority        @default(MEDIUM)
+  notes     String?         @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+  @@index([status])
+  @@map("datasheets")
+}
+
+// Datasheet Product Junction Model
+model DatasheetProduct {
+  id            String @id @default(cuid())
+  
+  datasheet     Datasheet @relation(fields: [datasheetId], references: [id], onDelete: Cascade)
+  datasheetId   String
+  
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId     String
+  
+  quantity      Int     @default(1)
+  productName   String  @db.VarChar(255)
+
+  @@unique([datasheetId, productId])
+  @@map("datasheet_products")
+}
+
+// Enums
+enum Role {
+  SUPER_ADMIN
+  PARTNER_ADMIN
+
+  @@map("role")
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+
+  @@map("status")
+}
+
+enum DatasheetStatus {
+  PENDING
+  PROCESSING
+  SENT
+  COMPLETED
+
+  @@map("datasheet_status")
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+
+  @@map("priority")
+}
