@@ -85,8 +85,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/specifications/:id" element={<ProductSpecifications />} />
           <Route path="/contact" element={<ContactForm />} />
-          <Route path="/subcategories/:category" element={<Subcategories />} />
-          <Route path="/subsubcategories/:subcategory" element={<SubSubcategories />} />
+          <Route path="/subcategories/:mainCategory" element={<Subcategories />} />
+          <Route path="/category/sub/:subCategory" element={<SubSubcategories />} />
           <Route path="*" element={
             <div className="container mx-auto px-4 py-24 text-center">
               <h1 className="text-5xl font-medium mb-6">404</h1>

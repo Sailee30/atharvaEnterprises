@@ -40,11 +40,10 @@ const SubSubcategories = () => {
     fetchProducts();
   }, []);
   
-  // Filter products for this subcategory (case-insensitive)
-  const productsInSub = products.filter(p => {
-    const productSubCategory = (p.subCategory || '').toLowerCase();
-    return productSubCategory === subCategoryName.toLowerCase();
-  });
+  // Normalize function to compare subcategory names
+const normalize = (str) => str?.toLowerCase().replace(/-/g, ' ').trim();
+
+const productsInSub = products.filter(p => normalize(p.subCategory) === normalize(subCategory));
   
   // Get unique sub-subcategories
   const subSubcategories = [...new Set(

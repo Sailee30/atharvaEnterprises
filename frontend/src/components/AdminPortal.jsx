@@ -161,7 +161,7 @@ const [productForm, setProductForm] = useState({
         specSheet: '',
         category: '',
         subcategory: '',
-        subSubCategory: '',  // FIXED
+        subSubCategory: '',  
         status: 'active'
       });
         
@@ -336,10 +336,9 @@ const [productForm, setProductForm] = useState({
             <label className="block text-sm font-medium mb-1">Sub-Subcategory</label>
             <input
               type="text"
-              value={productForm.subSubCategory}  
+              value={productForm.subSubCategory}  c
               onChange={(e) => setProductForm({ ...productForm, subSubCategory: e.target.value })}
               className="w-full border rounded px-3 py-2"
-              placeholder="e.g., Scrubber-Dryers"
             />
           </div>
           <div>
