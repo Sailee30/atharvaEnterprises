@@ -16,7 +16,7 @@ const prisma = new PrismaClient();
 // CORS configuration - UPDATED
 const allowedOrigins = [
   process.env.FRONTEND_URL,
-  'https://atharva-enterprises-gilt.vercel.app/',
+  'https://atharva-enterprises-gilt.vercel.app',
   'http://localhost:3000',
   'http://localhost:5173'
 ].filter(Boolean); // Remove undefined values
