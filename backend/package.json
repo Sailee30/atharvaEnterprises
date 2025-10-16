@@ -5,14 +5,15 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:migrate:prod": "prisma migrate deploy",
-    "prisma:studio": "prisma studio",
-    "build": "echo 'Backend build complete'"
-  },
+  "dev": "nodemon src/server.js",
+  "start": "node src/server.js",
+  "build": "prisma generate && prisma migrate deploy",
+  "postinstall": "prisma generate",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev",
+  "prisma:migrate:prod": "prisma migrate deploy",
+  "prisma:studio": "prisma studio"
+},
   "keywords": [
     "ecommerce",
     "industrial",
