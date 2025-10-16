@@ -336,7 +336,7 @@ const [productForm, setProductForm] = useState({
             <label className="block text-sm font-medium mb-1">Sub-Subcategory</label>
             <input
               type="text"
-              value={productForm.subSubCategory}  c
+              value={productForm.subSubCategory}
               onChange={(e) => setProductForm({ ...productForm, subSubCategory: e.target.value })}
               className="w-full border rounded px-3 py-2"
             />

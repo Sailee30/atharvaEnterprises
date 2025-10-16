@@ -1,18 +1,19 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-// Get token from localStorage
-const getToken = () => localStorage.getItem('adminToken');
+// Get token from localStorage - FIXED: Changed from 'adminToken' to 'token'
+const getToken = () => localStorage.getItem('token');
 
-// Set token
+// Set token - FIXED: Changed from 'adminToken' to 'token'
 const setToken = (token) => {
   if (token) {
-    localStorage.setItem('adminToken', token);
+    localStorage.setItem('token', token);
   }
 };
 
-// Remove token
+// Remove token - FIXED: Changed from 'adminToken' to 'token'
 const removeToken = () => {
-  localStorage.removeItem('adminToken');
+  localStorage.removeItem('token');
+  localStorage.removeItem('adminUser'); // Also remove user data
 };
 
 // API call helper with error handling
@@ -43,7 +44,7 @@ const apiCall = async (endpoint, options = {}) => {
     // Handle 401 - Token expired or invalid
     if (response.status === 401) {
       removeToken();
-      window.location.href = '/login';
+      window.location.href = '/admin/login'; // FIXED: Changed from '/login' to '/admin/login'
       throw new Error(data.message || 'Unauthorized. Please login again.');
     }
 

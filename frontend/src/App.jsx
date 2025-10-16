@@ -18,6 +18,7 @@ import ProductSpecifications from './pages/ProductSpecifications';
 import ContactForm from './components/ContactForm';
 import Subcategories from './components/Subcategories';
 import SubSubcategories from './components/SubSubcategories';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Custom hook for page transitions
 const usePageTransition = () => {
@@ -78,9 +79,8 @@ function App() {
           <Route path="/products/category/:category" element={<ProductCategoryDetail />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/search" element={<SearchResults />} />
-          <Route path="/admin" element={<AdminPortal />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/login" element={<AdminLogin />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<ProtectedRoute> <AdminPortal /> </ProtectedRoute> } />
           <Route path="/industries" element={<Industries />} />
           <Route path="/services" element={<Services />} />
           <Route path="/specifications/:id" element={<ProductSpecifications />} />

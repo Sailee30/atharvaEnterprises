@@ -19,9 +19,12 @@ const AdminLogin = () => {
     try {
       const response = await authAPI.login(formData);
       if (response.success && response.token) {
+        // Store token and user data
+        localStorage.setItem('token', response.token); // Changed from 'adminToken' to 'token'
         localStorage.setItem('adminUser', JSON.stringify(response.data));
-        localStorage.setItem('adminToken', response.token); // Store token for API authentication
-        navigate('/admin');
+        
+        // Navigate to admin portal
+        navigate('/admin', { replace: true });
       } else {
         setError(response.message || 'Invalid credentials');
       }
