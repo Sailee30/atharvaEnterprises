@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://atharvaenterprises-production.up.railway.app';
+const API_URL = import.meta.env.VITE_API_URL || 'https://atharvaenterprises-production.up.railway.app/api';
 
 // Get token from localStorage - FIXED: Changed from 'adminToken' to 'token'
 const getToken = () => localStorage.getItem('token');
