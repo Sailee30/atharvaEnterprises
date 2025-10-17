@@ -54,10 +54,7 @@ const AdminPortal = () => {
   ]);
 
   // Admin Management State
-  const [admins, setAdmins] = useState([
-    { id: 1, username: 'admin1', role: 'SUPER_ADMIN', email: 'admin1@company.com', status: 'active' },
-    { id: 2, username: 'partner1', role: 'PARTNER_ADMIN', email: 'partner1@company.com', status: 'active', partner: 'Partner A' }
-  ]);
+  const [admins, setAdmins] = useState([]);
 
   // Form States
   const [showProductForm, setShowProductForm] = useState(false);
@@ -70,26 +67,25 @@ const AdminPortal = () => {
   const [filterStatus, setFilterStatus] = useState('all');
 
   // Product Form State
-  // FIXED: Product Form State with correct field names
-const [productForm, setProductForm] = useState({
-  title: '',
-  image: '',
-  specs: '',
-  priceRange: '',
-  partner: '',
-  brochure: '',
-  specSheet: '',
-  category: '',        // This maps to mainCategory
-  subcategory: '',     // This maps to subCategory  
-  subSubCategory: '',  // FIXED: Was subsubcategory
-  status: 'active'
-});
+  const [productForm, setProductForm] = useState({
+    title: '',
+    image: '',
+    specs: '',
+    priceRange: '',
+    partner: '',
+    brochure: '',
+    specSheet: '',
+    category: '',
+    subcategory: '',
+    subSubCategory: '',
+    status: 'active'
+  });
 
-  // Admin Form State
+  // Admin Form State - ✅ FIXED: Use correct enum values
   const [adminForm, setAdminForm] = useState({
     username: '',
     password: '',
-    role: 'PARTNER_ADMIN',
+    role: 'PARTNER_ADMIN',  // ✅ UPPERCASE with UNDERSCORE
     email: '',
     partner: ''
   });
@@ -100,84 +96,80 @@ const [productForm, setProductForm] = useState({
 
   // Product Management Functions
   const handleProductSubmit = async (e) => {
-  e.preventDefault();
-  const { productAPI } = await import('../services/api');
-  
-  let imageUrl = '';
-  
-  if (!productForm.image || !(productForm.image instanceof File)) {
-    alert('Please select a product image before submitting.');
-    return;
-  }
-
-    try {
-      // Step 1: Upload image to Cloudinary
-      console.log('Uploading image...');
-    const imgForm = new FormData();
-    imgForm.append('image', productForm.image);
+    e.preventDefault();
+    const { productAPI } = await import('../services/api');
     
-    const uploadRes = await productAPI.uploadImage(imgForm);
+    let imageUrl = '';
     
-    if (uploadRes.success && uploadRes.data?.url) {
-      imageUrl = uploadRes.data.url;
-      console.log('Image uploaded successfully:', imageUrl);
-    } else {
-      alert('Image upload failed: ' + (uploadRes.message || 'Unknown error'));
+    if (!productForm.image || !(productForm.image instanceof File)) {
+      alert('Please select a product image before submitting.');
       return;
     }
 
-      // Step 2: Create product with image URL
+    try {
+      console.log('Uploading image...');
+      const imgForm = new FormData();
+      imgForm.append('image', productForm.image);
+      
+      const uploadRes = await productAPI.uploadImage(imgForm);
+      
+      if (uploadRes.success && uploadRes.data?.url) {
+        imageUrl = uploadRes.data.url;
+        console.log('Image uploaded successfully:', imageUrl);
+      } else {
+        alert('Image upload failed: ' + (uploadRes.message || 'Unknown error'));
+        return;
+      }
+
       console.log('Creating product...');
-    const productData = {
-      title: productForm.title,
-      image: imageUrl,
-      specs: productForm.specs,
-      priceRange: productForm.priceRange,
-      partner: productForm.partner,
-      brochure: productForm.brochure,
-      specSheet: productForm.specSheet,
-      mainCategory: productForm.category,           // FIXED: map category → mainCategory
-      subCategory: productForm.subcategory,         // FIXED: map subcategory → subCategory
-      subSubCategory: productForm.subSubCategory,   // FIXED: correct casing
-      status: productForm.status
-    };
+      const productData = {
+        title: productForm.title,
+        image: imageUrl,
+        specs: productForm.specs,
+        priceRange: productForm.priceRange,
+        partner: productForm.partner,
+        brochure: productForm.brochure,
+        specSheet: productForm.specSheet,
+        mainCategory: productForm.category,
+        subCategory: productForm.subcategory,
+        subSubCategory: productForm.subSubCategory,
+        status: productForm.status
+      };
 
       const createRes = await productAPI.create(productData);
-    
-    if (createRes.success) {
-      console.log('Product created successfully');
-      alert('Product added successfully!');
       
-      // Reset form
-      setShowProductForm(false);
-      setEditingProduct(null);
-      setProductForm({
-        title: '',
-        image: '',
-        specs: '',
-        priceRange: '',
-        partner: '',
-        brochure: '',
-        specSheet: '',
-        category: '',
-        subcategory: '',
-        subSubCategory: '',  
-        status: 'active'
-      });
+      if (createRes.success) {
+        console.log('Product created successfully');
+        alert('Product added successfully!');
         
-        // Refresh products list
+        setShowProductForm(false);
+        setEditingProduct(null);
+        setProductForm({
+          title: '',
+          image: '',
+          specs: '',
+          priceRange: '',
+          partner: '',
+          brochure: '',
+          specSheet: '',
+          category: '',
+          subcategory: '',
+          subSubCategory: '',
+          status: 'active'
+        });
+          
         const res = await productAPI.getAll();
-      if (res.success && Array.isArray(res.data)) {
-        setProducts(res.data);
+        if (res.success && Array.isArray(res.data)) {
+          setProducts(res.data);
+        }
+      } else {
+        alert('Failed to create product: ' + (createRes.message || 'Unknown error'));
       }
-    } else {
-      alert('Failed to create product: ' + (createRes.message || 'Unknown error'));
+    } catch (err) {
+      console.error('Error:', err);
+      alert('Error: ' + (err.message || 'Unknown error'));
     }
-  } catch (err) {
-    console.error('Error:', err);
-    alert('Error: ' + (err.message || 'Unknown error'));
-  }
-};
+  };
 
   const handleEditProduct = (product) => {
     setEditingProduct(product);
@@ -191,43 +183,50 @@ const [productForm, setProductForm] = useState({
     }
   };
 
-  // Admin Management Functions
+  // Admin Management Functions - ✅ FIXED
   const handleAdminSubmit = async (e) => {
-  e.preventDefault();
-  const { authAPI } = await import('../services/api');
-  try {
-    // Make sure role is uppercase before sending
-    const adminDataToSend = {
-      ...adminForm,
-      role: adminForm.role.toUpperCase(), // <-- add this line
-    };
+    e.preventDefault();
+    const { authAPI } = await import('../services/api');
+    
+    try {
+      // ✅ FIXED: Prepare data with proper role and partner handling
+      const adminDataToSend = {
+        username: adminForm.username.trim(),
+        email: adminForm.email.trim(),
+        password: adminForm.password,
+        role: adminForm.role, // Already in correct format (SUPER_ADMIN or PARTNER_ADMIN)
+        partner: adminForm.role === 'PARTNER_ADMIN' ? (adminForm.partner || null) : null
+      };
 
-    let response;
-    if (editingAdmin) {
-      response = await authAPI.updateAdmin(editingAdmin.id, adminDataToSend);
-    } else {
-      response = await authAPI.createAdmin(adminDataToSend);
+      console.log('Sending admin data:', adminDataToSend);
+
+      let response;
+      if (editingAdmin) {
+        response = await authAPI.updateAdmin(editingAdmin.id, adminDataToSend);
+      } else {
+        response = await authAPI.createAdmin(adminDataToSend);
+      }
+
+      if (response.success) {
+        alert('Admin saved successfully!');
+        setShowAdminForm(false);
+        setEditingAdmin(null);
+        setAdminForm({
+          username: '',
+          password: '',
+          role: 'PARTNER_ADMIN',
+          email: '',
+          partner: ''
+        });
+        fetchAdmins();
+      } else {
+        alert(response.message || 'Failed to save admin');
+      }
+    } catch (err) {
+      console.error('Error saving admin:', err);
+      alert('Error: ' + (err.message || 'Unknown error'));
     }
-
-    if (response.success) {
-      setShowAdminForm(false);
-      setEditingAdmin(null);
-      setAdminForm({
-        username: '',
-        password: '',
-        role: 'PARTNER_ADMIN',
-        email: '',
-        partner: ''
-      });
-      fetchAdmins();
-    } else {
-      alert(response.message || 'Failed to save admin');
-    }
-  } catch (err) {
-    alert('Error saving admin: ' + (err.message || 'Unknown error'));
-  }
-};
-
+  };
 
   const fetchAdmins = async () => {
     const { authAPI } = await import('../services/api');
@@ -304,12 +303,12 @@ const [productForm, setProductForm] = useState({
 
   // Render Functions
   const renderProductForm = () => (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
-      <h3 className="text-lg font-semibold mb-4">
-        {editingProduct ? 'Edit Product' : 'Add New Product'}
-      </h3>
-      <form onSubmit={handleProductSubmit} className="space-y-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
+        <h3 className="text-lg font-semibold mb-4">
+          {editingProduct ? 'Edit Product' : 'Add New Product'}
+        </h3>
+        <form onSubmit={handleProductSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Title</label>
             <input
@@ -442,6 +441,7 @@ const [productForm, setProductForm] = useState({
     </div>
   );
 
+  // ✅ FIXED: Admin form with correct role values
   const renderAdminForm = () => (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md">
@@ -460,7 +460,7 @@ const [productForm, setProductForm] = useState({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
+            <label className="block text-sm font-medium mb-1">Password {editingAdmin && '(leave blank to keep current)'}</label>
             <input
               type="password"
               value={adminForm.password}
@@ -483,9 +483,9 @@ const [productForm, setProductForm] = useState({
             <label className="block text-sm font-medium mb-1">Role</label>
             <select
               value={adminForm.role}
-              onChange={(e) => setAdminForm({ ...adminForm, role: e.target.value.toUpperCase() })}
+              onChange={(e) => setAdminForm({ ...adminForm, role: e.target.value })}
               className="w-full border rounded px-3 py-2"
-              disabled={currentUser.role !== 'SUPER_ADMIN'}  {/* also updated here */}
+              disabled={currentUser.role !== 'SUPER_ADMIN'}
             >
               <option value="SUPER_ADMIN">Super Admin</option>
               <option value="PARTNER_ADMIN">Partner Admin</option>
@@ -493,13 +493,14 @@ const [productForm, setProductForm] = useState({
           </div>
           {adminForm.role === 'PARTNER_ADMIN' && (
             <div>
-              <label className="block text-sm font-medium mb-1">Partner</label>
+              <label className="block text-sm font-medium mb-1">Partner <span className="text-red-500">*</span></label>
               <input
                 type="text"
-                value={adminForm.partner}
+                value={adminForm.partner || ''}
                 onChange={(e) => setAdminForm({ ...adminForm, partner: e.target.value })}
                 className="w-full border rounded px-3 py-2"
                 required
+                placeholder="Enter partner name"
               />
             </div>
           )}
@@ -830,7 +831,7 @@ const [productForm, setProductForm] = useState({
           </div>
         )}
 
-        {activeTab === 'admins' && currentUser.role === 'super_admin' && (
+        {activeTab === 'admins' && currentUser.role === 'SUPER_ADMIN' && (
           <div>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-semibold">Admin Management</h2>
@@ -868,7 +869,7 @@ const [productForm, setProductForm] = useState({
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          admin.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                          admin.status === 'ACTIVE' || admin.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                         }`}>
                           {admin.status}
                         </span>
