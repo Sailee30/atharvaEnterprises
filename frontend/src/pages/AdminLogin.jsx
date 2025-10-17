@@ -89,12 +89,7 @@ const AdminLogin = () => {
             </button>
           </div>
         </form>
-
-        <div className="text-center text-sm text-gray-600">
-          <p>Default credentials:</p>
-          <p>Username: <strong>admin1</strong></p>
-          <p>Password: <strong>admin123</strong></p>
-        </div>
+        
       </div>
     </div>
   );
