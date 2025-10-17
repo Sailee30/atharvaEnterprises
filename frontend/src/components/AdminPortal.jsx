@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, Upload, Mail, Eye, Search, Filter, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
-
 const AdminPortal = () => {
   const [currentUser, setCurrentUser] = useState({ role: 'SUPER_ADMIN', username: 'admin1' });
   const [activeTab, setActiveTab] = useState('products');
+  
+  const navigate = useNavigate();
   
   // Product Management State
   const [products, setProducts] = useState([]);
@@ -572,11 +572,12 @@ const AdminPortal = () => {
     </div>
   );
 
-  const handleLogout = () => {
+const handleLogout = () => {
   localStorage.removeItem('token');
   setCurrentUser(null);
-  // Optional: redirect to login page if using React Router
-  window.location.href = '/login'; 
+
+  // Redirect using React Router
+  navigate('/'); 
 };
 
   return (
