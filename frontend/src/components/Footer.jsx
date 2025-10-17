@@ -71,22 +71,21 @@ const Footer = () => {
 
             {/* Phone */}
             <div className="flex flex-col items-center md:items-start">
-  <div className="flex items-center mb-4">
-    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gray-800/30 to-gray-700/30 flex items-center justify-center mr-3">
-      <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-      </svg>
-    </div>
-    <h3 className="text-white text-lg font-semibold">Contact number</h3>
-  </div>
-  <div className="flex flex-col text-sm">
-    <a href="tel:+9175930939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 9175930939</a>
-    <a href="tel:+918669660939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 8669660939</a>
-    <a href="tel:+919175964828" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 9175964828</a>
-    <a href="tel:+918600380939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 8600380939</a>
-  </div>
-</div>
-
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gray-800/30 to-gray-700/30 flex items-center justify-center mr-3">
+                  <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-white text-lg font-semibold">Contact number</h3>
+              </div>
+              <div className="flex flex-col text-sm">
+                <a href="tel:+9175930939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 9175930939</a>
+                <a href="tel:+918669660939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 8669660939</a>
+                <a href="tel:+919175964828" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 9175964828</a>
+                <a href="tel:+918600380939" className="text-gray-400 hover:text-gray-200 transition-colors duration-300">+91 8600380939</a>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -94,7 +93,6 @@ const Footer = () => {
         <div className="relative pt-10 mb-10">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"></div>
-
           </div>
           
           <div className="flex flex-col items-center">
@@ -151,13 +149,25 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Copyright with subtle separator */}
+        {/* Copyright with Admin Link */}
         <div className="relative">
           <div className="absolute top-0 left-0 w-full h-px bg-gray-800"></div>
-          <div className="pt-6 flex items-center justify-center">
+          <div className="pt-6 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
             <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} Atharva Enterprises, Pune. All rights reserved.
             </p>
+            
+            {/* Admin Link - Small and subtle */}
+            <a 
+              href="/admin/login"
+              className="text-gray-600 hover:text-gray-400 text-xs transition-colors duration-300 flex items-center gap-1"
+              title="Admin Access"
+            >
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+              </svg>
+              Admin
+            </a>
           </div>
         </div>
       </div>
