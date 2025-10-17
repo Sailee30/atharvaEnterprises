@@ -268,7 +268,14 @@ const AdminPortal = () => {
       setEmailContent('');
     }
   };
-
+  
+const handleLogout = () => {
+  // Clear user state
+  setCurrentUser(null);
+  // Optional: redirect to login page if using React Router
+  window.location.href = '/login'; 
+};
+  
   const handleBulkUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -579,7 +586,7 @@ const AdminPortal = () => {
               <span className="text-sm text-gray-600">
                 {currentUser.username} ({currentUser.role.replace('_', ' ')})
               </span>
-              <button className="text-yellow-600 hover:text-yellow-800">Logout</button>
+              <button onClick={handleLogout} className="text-yellow-600 hover:text-yellow-800">Logout </button>
             </div>
           </div>
           
