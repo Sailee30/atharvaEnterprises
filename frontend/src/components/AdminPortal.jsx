@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, Upload, Mail, Eye, Search, Filter, Download } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
 
 const AdminPortal = () => {
   const [currentUser, setCurrentUser] = useState({ role: 'SUPER_ADMIN', username: 'admin1' });
