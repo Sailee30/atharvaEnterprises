@@ -477,13 +477,13 @@ const [productForm, setProductForm] = useState({
               value={adminForm.role}
               onChange={(e) => setAdminForm({ ...adminForm, role: e.target.value })}
               className="w-full border rounded px-3 py-2"
-              disabled={currentUser.role !== 'super_admin'}
+              disabled={currentUser.role !== 'SUPER_ADMIN'}  {/* also updated here */}
             >
-              <option value="super_admin">Super Admin</option>
-              <option value="partner_admin">Partner Admin</option>
+              <option value="SUPER_ADMIN">Super Admin</option>
+              <option value="PARTNER_ADMIN">Partner Admin</option>
             </select>
           </div>
-          {adminForm.role === 'partner_admin' && (
+          {adminForm.role === 'PARTNER_ADMIN' && (
             <div>
               <label className="block text-sm font-medium mb-1">Partner</label>
               <input
@@ -587,7 +587,7 @@ const [productForm, setProductForm] = useState({
             >
               Quotations
             </button>
-            {currentUser.role === 'super_admin' && (
+            {currentUser.role === 'SUPER_ADMIN' && (
               <button
                 onClick={() => setActiveTab('admins')}
                 className={`py-2 px-4 font-medium ${activeTab === 'admins' ? 'border-b-2 border-yellow-500 text-yellow-600' : 'text-gray-600'}`}
