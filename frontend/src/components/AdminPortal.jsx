@@ -193,33 +193,41 @@ const [productForm, setProductForm] = useState({
 
   // Admin Management Functions
   const handleAdminSubmit = async (e) => {
-    e.preventDefault();
-    const { authAPI } = await import('../services/api');
-    try {
-      let response;
-      if (editingAdmin) {
-        response = await authAPI.updateAdmin(editingAdmin.id, adminForm);
-      } else {
-        response = await authAPI.createAdmin(adminForm);
-      }
-      if (response.success) {
-        setShowAdminForm(false);
-        setEditingAdmin(null);
-        setAdminForm({
-          username: '',
-          password: '',
-          role: 'partner_admin',
-          email: '',
-          partner: ''
-        });
-        fetchAdmins();
-      } else {
-        alert(response.message || 'Failed to save admin');
-      }
-    } catch (err) {
-      alert('Error saving admin: ' + (err.message || 'Unknown error'));
+  e.preventDefault();
+  const { authAPI } = await import('../services/api');
+  try {
+    // Make sure role is uppercase before sending
+    const adminDataToSend = {
+      ...adminForm,
+      role: adminForm.role.toUpperCase(), // <-- add this line
+    };
+
+    let response;
+    if (editingAdmin) {
+      response = await authAPI.updateAdmin(editingAdmin.id, adminDataToSend);
+    } else {
+      response = await authAPI.createAdmin(adminDataToSend);
     }
-  };
+
+    if (response.success) {
+      setShowAdminForm(false);
+      setEditingAdmin(null);
+      setAdminForm({
+        username: '',
+        password: '',
+        role: 'partner_admin',
+        email: '',
+        partner: ''
+      });
+      fetchAdmins();
+    } else {
+      alert(response.message || 'Failed to save admin');
+    }
+  } catch (err) {
+    alert('Error saving admin: ' + (err.message || 'Unknown error'));
+  }
+};
+
 
   const fetchAdmins = async () => {
     const { authAPI } = await import('../services/api');
@@ -475,7 +483,7 @@ const [productForm, setProductForm] = useState({
             <label className="block text-sm font-medium mb-1">Role</label>
             <select
               value={adminForm.role}
-              onChange={(e) => setAdminForm({ ...adminForm, role: e.target.value })}
+              onChange={(e) => setAdminForm({ ...adminForm, role: e.target.value.toUpperCase() })}
               className="w-full border rounded px-3 py-2"
               disabled={currentUser.role !== 'SUPER_ADMIN'}  {/* also updated here */}
             >
