@@ -285,21 +285,7 @@ const Navbar = () => {
             >
               Contact Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>   
-            <Link
-              to="/admin/login"
-              className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
-            >
-              Admin
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link>  
-            <Link
-              to="/admin"
-              className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
-            >
-              Admin
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-            </Link> 
+            </Link>
           </div>
 
           {/* Right Actions */}
