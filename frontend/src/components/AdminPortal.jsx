@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, Upload, Mail, Eye, Search, Filter, Download } from 'lucide-react';
 
 const AdminPortal = () => {
-  const [currentUser, setCurrentUser] = useState({ role: 'super_admin', username: 'admin1' });
+  const [currentUser, setCurrentUser] = useState({ role: 'SUPER_ADMIN', username: 'admin1' });
   const [activeTab, setActiveTab] = useState('products');
   
   // Product Management State
@@ -55,8 +55,8 @@ const AdminPortal = () => {
 
   // Admin Management State
   const [admins, setAdmins] = useState([
-    { id: 1, username: 'admin1', role: 'super_admin', email: 'admin1@company.com', status: 'active' },
-    { id: 2, username: 'partner1', role: 'partner_admin', email: 'partner1@company.com', status: 'active', partner: 'Partner A' }
+    { id: 1, username: 'admin1', role: 'SUPER_ADMIN', email: 'admin1@company.com', status: 'active' },
+    { id: 2, username: 'partner1', role: 'PARTNER_ADMIN', email: 'partner1@company.com', status: 'active', partner: 'Partner A' }
   ]);
 
   // Form States
@@ -89,7 +89,7 @@ const [productForm, setProductForm] = useState({
   const [adminForm, setAdminForm] = useState({
     username: '',
     password: '',
-    role: 'partner_admin',
+    role: 'PARTNER_ADMIN',
     email: '',
     partner: ''
   });
@@ -215,7 +215,7 @@ const [productForm, setProductForm] = useState({
       setAdminForm({
         username: '',
         password: '',
-        role: 'partner_admin',
+        role: 'PARTNER_ADMIN',
         email: '',
         partner: ''
       });
@@ -291,7 +291,7 @@ const [productForm, setProductForm] = useState({
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          product.partner.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = filterStatus === 'all' || product.status === filterStatus;
-    const hasPermission = currentUser.role === 'super_admin' || product.partner === currentUser.partner;
+    const hasPermission = currentUser.role === 'SUPER_ADMIN' || product.partner === currentUser.partner;
     return matchesSearch && matchesStatus && hasPermission;
   });
 
@@ -385,7 +385,7 @@ const [productForm, setProductForm] = useState({
               value={productForm.partner}
               onChange={(e) => setProductForm({ ...productForm, partner: e.target.value })}
               className="w-full border rounded px-3 py-2"
-              disabled={currentUser.role === 'partner_admin'}
+              disabled={currentUser.role === 'PARTNER_ADMIN'}
             />
           </div>
           <div>
