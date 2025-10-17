@@ -272,13 +272,6 @@ const AdminPortal = () => {
     }
   };
   
-const handleLogout = () => {
-  // Clear user state
-  setCurrentUser(null);
-  // Optional: redirect to login page if using React Router
-  window.location.href = '/login'; 
-};
-  
   const handleBulkUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -578,6 +571,13 @@ const handleLogout = () => {
       </div>
     </div>
   );
+
+  const handleLogout = () => {
+  localStorage.removeItem('token');
+  setCurrentUser(null);
+  // Optional: redirect to login page if using React Router
+  window.location.href = '/login'; 
+};
 
   return (
     <div className="min-h-screen bg-gray-100">
