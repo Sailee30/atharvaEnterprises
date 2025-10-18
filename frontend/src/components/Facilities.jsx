@@ -7,7 +7,7 @@ const Facilities = () => {
       <section className="py-12 bg-gray-900 text-white relative overflow-hidden">
         <div className="container max-w-5xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Left Column - Marquee */}
+            {/* Left Column - Image */}
             <div className="relative overflow-hidden min-h-[250px] rounded-lg">
               <img 
                 src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65bb6feb8d54a6bc2dfca9f6_about-image.jpg"
@@ -15,21 +15,12 @@ const Facilities = () => {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-              <div className="absolute bottom-0 left-0 right-0 py-3 overflow-hidden">
-                <div className="whitespace-nowrap animate-marquee flex">
-                  {[...Array(7)].map((_, index) => (
-                    <div key={index} className="inline-block mx-4">
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
             
             {/* Right Column */}
             <div className="py-6">
               <h2 className="text-2xl font-medium mb-3">Our Journey</h2>
               <p className="text-gray-300 text-sm mb-4">
-                At Atharva Enterpriseso, we embark on a relentless pursuit of excellence, driven by a passion for craftsmanship and innovation. Our story is woven with a commitment to providing artisans.
+                At Atharva Enterprises, we embark on a relentless pursuit of excellence, driven by a passion for craftsmanship and innovation. Our story is woven with a commitment to providing artisans.
               </p>
               <a 
                 href="/about-us" 
@@ -39,7 +30,7 @@ const Facilities = () => {
               </a>
               <div className="grid grid-cols-2 gap-4 mt-2">
                 <div>
-                    <h3 className="text-2xl font-medium mb-1">
+                  <h3 className="text-2xl font-medium mb-1">
                     800<span className="text-yellow-500">+</span>
                   </h3>
                   <p className="text-gray-300 text-xs">Total tools</p>
