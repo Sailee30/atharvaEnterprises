@@ -116,13 +116,21 @@ const AtharvaLandingPage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [categoryScrollPos, setCategoryScrollPos] = useState(0);
 
+  // Auto-rotate hero slideshow
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   // Hero slider functions
   const nextHero = () => {
-    setHeroIndex((prev) => (prev + 1) % categories.length);
+    setHeroIndex((prev) => (prev + 1) % heroImages.length);
   };
 
   const prevHero = () => {
-    setHeroIndex((prev) => (prev - 1 + categories.length) % categories.length);
+    setHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
   };
 
   // Category scroll functions
@@ -153,9 +161,6 @@ const AtharvaLandingPage = () => {
                 <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                   Explore Products
                 </button>
-                <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
-                  Request Demo
-                </button>
               </div>
             </div>
           </div>
@@ -163,8 +168,8 @@ const AtharvaLandingPage = () => {
           {/* Hero Product Image - Right Side (Overlapping) */}
           <div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-center">
             <img
-              src={categories[heroIndex].image}
-              alt={categories[heroIndex].name}
+              src={heroImages[heroIndex].image}
+              alt={heroImages[heroIndex].name}
               className="max-h-full max-w-full object-contain transition-opacity duration-500"
             />
           </div>
@@ -185,7 +190,7 @@ const AtharvaLandingPage = () => {
 
           {/* Hero Navigation Dots */}
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-            {categories.map((_, idx) => (
+            {heroImages.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setHeroIndex(idx)}
