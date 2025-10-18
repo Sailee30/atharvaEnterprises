@@ -15,7 +15,6 @@ const Facilities = () => {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-            </div>
             
             {/* Right Column */}
             <div className="py-6">
