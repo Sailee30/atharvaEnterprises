@@ -168,9 +168,6 @@ const AtharvaLandingPage = () => {
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                         Explore Products
                       </button>
-                      <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
-                        Request Demo
-                      </button>
                     </div>
                   </div>
 
