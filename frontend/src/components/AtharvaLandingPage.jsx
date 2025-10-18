@@ -237,11 +237,11 @@ const AtharvaLandingPage = () => {
                 {categories.map((category) => (
                   <a
                     key={category.id}
-                    href={`/products/category/${encodeURIComponent(category.name)}`}
+                    href={`/products/category/main/${encodeURIComponent(category.name.toLowerCase().replace(/\s+/g, '-'))}`}
                     className="group flex flex-col items-center flex-shrink-0"
                   >
                     {/* Circle Container */}
-                    <div className={`${category.color} rounded-full w-40 h-40 flex items-center justify-center overflow-hidden border-4 border-transparent hover:border-yellow-500 transition-all duration-300 shadow-lg hover:shadow-xl`}>
+                    <div className={`${category.color} rounded-full w-56 h-56 flex items-center justify-center overflow-hidden border-4 border-transparent hover:border-yellow-500 transition-all duration-300 shadow-lg hover:shadow-xl`}>
                       <img
                         src={category.image}
                         alt={category.name}
@@ -249,7 +249,7 @@ const AtharvaLandingPage = () => {
                       />
                     </div>
                     {/* Category Name - Shortened */}
-                    <h3 className="mt-4 text-sm font-semibold text-gray-900 text-center max-w-32 group-hover:text-yellow-600 transition-colors line-clamp-2">
+                    <h3 className="mt-4 text-sm font-semibold text-gray-900 text-center max-w-40 group-hover:text-yellow-600 transition-colors line-clamp-2">
                       {category.name}
                     </h3>
                   </a>
