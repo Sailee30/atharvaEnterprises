@@ -154,10 +154,10 @@ const AtharvaLandingPage = () => {
               {heroImages.map((hero) => (
                 <div
                   key={hero.id}
-                  className="w-full h-full flex-shrink-0 flex items-center bg-white"
+                  className="w-full h-full flex-shrink-0 relative flex items-center bg-white"
                 >
                   {/* Left Content */}
-                  <div className="w-1/2 px-12 z-10">
+                  <div className="w-1/2 px-12 z-20 relative">
                     <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                       {hero.name}
                     </h1>
@@ -168,15 +168,18 @@ const AtharvaLandingPage = () => {
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                         Explore Products
                       </button>
+                      <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
+                        Request Demo
+                      </button>
                     </div>
                   </div>
 
-                  {/* Right Image */}
-                  <div className="w-1/2 h-full flex items-center justify-center bg-gray-50">
+                  {/* Right Image - Overlapping */}
+                  <div className="absolute right-0 top-0 h-full w-3/5 flex items-center justify-center">
                     <img
                       src={hero.image}
                       alt={hero.name}
-                      className="max-h-full max-w-full object-contain p-8"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
                 </div>
