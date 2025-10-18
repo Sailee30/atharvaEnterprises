@@ -40,32 +40,73 @@ const AtharvaLandingPage = () => {
     {
       id: 1,
       name: "Industrial Assembly Tools & Systems",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780828/pe-series-small-group_tbqrvx.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772740/AT_iosrp2.jpg",
       color: "bg-blue-50",
     },
     {
       id: 2,
       name: "Industrial Cleaning Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760689954/atharva_products/tmp-1-661760689953715_ya5rhv.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/CS_gexgbw.jpg",
       color: "bg-emerald-50",
     },
     {
       id: 3,
       name: "Industrial Fluid Handling Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781418/2-ball-piston-pump-package_wjntj2.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/FH_hngq5i.webp",
       color: "bg-orange-50",
     },
     {
       id: 4,
       name: "Industrial Lifting Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780329/liftchain25tonhydraulicboptrolleyhookfrtif_whcnm1.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772505/LS_qkdfmr.webp",
       color: "bg-yellow-50",
     },
     {
       id: 5,
       name: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781966/1_bfbuip.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
       color: "bg-red-50",
+    },
+  ];
+
+  // ============================================
+  // NEW ARRIVAL SECTION PRODUCTS
+  // ============================================
+  const featuredProducts = [
+    {
+      id: 1,
+      name: "WELDY HG Series Hot Air Guns",
+      category: "Industrial Assembly Tools & Systems",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772740/AT_iosrp2.jpg",
+      isNew: true,
+    },
+    {
+      id: 2,
+      name: "NILFISK Professional Cleaners",
+      category: "Industrial Cleaning Solutions",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/CS_gexgbw.jpg",
+      isNew: true,
+    },
+    {
+      id: 3,
+      name: "ARO Chemical Pumps",
+      category: "Industrial Fluid Handling Solutions",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/FH_hngq5i.webp",
+      isNew: false,
+    },
+    {
+      id: 4,
+      name: "Heavy-Duty Chain Hoist",
+      category: "Industrial Lifting Solutions",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772505/LS_qkdfmr.webp",
+      isNew: true,
+    },
+    {
+      id: 5,
+      name: "WELDY Professional Heat Gun",
+      category: "Industrial Plasto Weld & Heating Solutions",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
+      isNew: false,
     },
   ];
 
@@ -127,6 +168,9 @@ const AtharvaLandingPage = () => {
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                         Explore Products
                       </button>
+                      <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
+                        Request Demo
+                      </button>
                     </div>
                   </div>
 
@@ -143,16 +187,16 @@ const AtharvaLandingPage = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Positioned at bottom */}
           <button
             onClick={prevHero}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-yellow-500/70 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
+            className="absolute left-8 bottom-6 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronLeft size={32} />
           </button>
           <button
             onClick={nextHero}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-yellow-500/70 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
+            className="absolute right-8 bottom-6 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronRight size={32} />
           </button>
@@ -174,8 +218,8 @@ const AtharvaLandingPage = () => {
         </div>
       </section>
 
-      {/* ===== CATEGORY EXPLORATION SECTION ===== */}
-      <section className="py-20 px-8 bg-white">
+      {/* ===== CATEGORY EXPLORATION SECTION - GEARO STYLE ===== */}
+      <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
             Explore Categories
@@ -184,34 +228,34 @@ const AtharvaLandingPage = () => {
             Discover our comprehensive range of industrial solutions
           </p>
 
-          {/* Category Carousel */}
+          {/* Category Carousel - Horizontal Scroll */}
           <div className="relative">
-            {/* Categories Container */}
             <div className="overflow-hidden">
               <div
-                className="flex gap-6 transition-transform duration-300"
+                className="flex gap-8 transition-transform duration-300 justify-center"
                 style={{
                   transform: `translateX(-${categoryScrollPos}px)`,
                 }}
               >
                 {categories.map((category) => (
-                  <div
+                  <a
                     key={category.id}
-                    className="flex-shrink-0 w-80 group cursor-pointer"
+                    href={`/products/category/${encodeURIComponent(category.name)}`}
+                    className="group flex flex-col items-center flex-shrink-0"
                   >
-                    <div
-                      className={`${category.color} rounded-lg p-8 h-80 flex flex-col items-center justify-center overflow-hidden relative`}
-                    >
+                    {/* Circle Container */}
+                    <div className={`${category.color} rounded-full w-40 h-40 flex items-center justify-center overflow-hidden border-4 border-transparent hover:border-yellow-500 transition-all duration-300 shadow-lg hover:shadow-xl`}>
                       <img
                         src={category.image}
                         alt={category.name}
-                        className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300 p-4"
                       />
                     </div>
-                    <h3 className="mt-4 text-lg font-semibold text-gray-900 text-center">
+                    {/* Category Name - Shortened */}
+                    <h3 className="mt-4 text-sm font-semibold text-gray-900 text-center max-w-32 group-hover:text-yellow-600 transition-colors line-clamp-2">
                       {category.name}
                     </h3>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -219,13 +263,13 @@ const AtharvaLandingPage = () => {
             {/* Carousel Arrows */}
             <button
               onClick={() => scrollCategories("left")}
-              className="absolute -left-6 top-1/3 -translate-y-1/2 z-10 bg-gray-900 hover:bg-yellow-500 text-white p-3 rounded-full transition-all"
+              className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900 hover:bg-yellow-500 text-white p-3 rounded-full transition-all"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={() => scrollCategories("right")}
-              className="absolute -right-6 top-1/3 -translate-y-1/2 z-10 bg-gray-900 hover:bg-yellow-500 text-white p-3 rounded-full transition-all"
+              className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-gray-900 hover:bg-yellow-500 text-white p-3 rounded-full transition-all"
             >
               <ChevronRight size={24} />
             </button>
