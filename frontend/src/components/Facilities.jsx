@@ -1,4 +1,5 @@
 import React from 'react';
+import atharvaImage from '../assets/atharvaaa.jpeg';
 
 const Facilities = () => {
   return (
@@ -8,7 +9,7 @@ const Facilities = () => {
           {/* Left Column - Image */}
           <div className="relative overflow-hidden min-h-[250px] rounded-lg">
             <img 
-              src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65bb6feb8d54a6bc2dfca9f6_about-image.jpg"
+              src="{atharvaImage}"
               alt="Atharva Enterprises Journey"
               className="w-full h-full object-cover rounded-lg"
             />
