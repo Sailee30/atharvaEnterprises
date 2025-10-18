@@ -29,7 +29,7 @@ const AtharvaLandingPage = () => {
     {
       id: 5,
       name: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760789569/WhatsApp_Image_2025-10-18_at_5.05.29_AM_x499vg.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760790689/3_uvlabb.jpg",
     },
   ];
 
@@ -40,25 +40,25 @@ const AtharvaLandingPage = () => {
     {
       id: 1,
       name: "Industrial Assembly Tools & Systems",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772740/AT_iosrp2.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780828/pe-series-small-group_tbqrvx.jpg",
       color: "bg-blue-50",
     },
     {
       id: 2,
       name: "Industrial Cleaning Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/CS_gexgbw.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760689954/atharva_products/tmp-1-661760689953715_ya5rhv.jpg",
       color: "bg-emerald-50",
     },
     {
       id: 3,
       name: "Industrial Fluid Handling Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/FH_hngq5i.webp",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781418/2-ball-piston-pump-package_wjntj2.jpg",
       color: "bg-orange-50",
     },
     {
       id: 4,
       name: "Industrial Lifting Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772505/LS_qkdfmr.webp",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780329/liftchain25tonhydraulicboptrolleyhookfrtif_whcnm1.jpg",
       color: "bg-yellow-50",
     },
     {
