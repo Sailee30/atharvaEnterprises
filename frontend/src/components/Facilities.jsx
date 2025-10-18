@@ -7,7 +7,7 @@ const Facilities = () => {
       <div className="container max-w-5xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Image */}
-          <div className="relative overflow-hidden min-h-[250px] rounded-lg">
+          <div className="relative overflow-hidden h-56 w-96 rounded-lg">
             <img 
               src={atharvaImage}
               alt="Atharva Enterprises Journey"
