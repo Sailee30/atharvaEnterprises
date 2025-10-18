@@ -171,7 +171,6 @@ const ProductCarousel = () => {
 
   // ===== RENDER =====
   return (
-        {/* ===== SECTION HEADER ===== */}
     <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container max-w-7xl mx-auto px-8">
         <div className="text-center mb-12">
@@ -188,7 +187,6 @@ const ProductCarousel = () => {
           </p>
         </div>
 
-        {/* ===== CATEGORY BUTTONS ===== */}
         <div className="flex flex-wrap gap-3 justify-center mb-8 pb-8 border-b-2 border-gray-200">
           {categories.map((category, index) => (
             <button
@@ -208,16 +206,13 @@ const ProductCarousel = () => {
           ))}
         </div>
 
-        {/* ===== CATEGORY DESCRIPTION ===== */}
         <div className="mb-12 text-center">
           <p className="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">
             {currentCategory.description}
           </p>
         </div>
 
-        {/* ===== PRODUCTS GRID WITH NAVIGATION ===== */}
         <div className="relative group">
-          {/* LEFT NAVIGATION ARROW */}
           <button
             onClick={prevProduct}
             disabled={carouselPos === 0}
@@ -227,7 +222,6 @@ const ProductCarousel = () => {
             <ChevronLeft size={24} />
           </button>
 
-          {/* PRODUCTS GRID */}
           <div className="grid grid-cols-4 gap-6 px-4">
             {visibleProducts.map((product, idx) => (
               <div
@@ -236,7 +230,6 @@ const ProductCarousel = () => {
                 onMouseLeave={() => setHoveredProduct(null)}
                 className="group/card relative bg-white rounded-xl border-2 border-gray-200 hover:border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1"
               >
-                {/* IMAGE CONTAINER */}
                 <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 h-56 overflow-hidden">
                   <img
                     src={product.image}
@@ -244,33 +237,26 @@ const ProductCarousel = () => {
                     className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-500"
                   />
 
-                  {/* BADGE */}
                   {product.badge && (
                     <div className="absolute top-3 right-3 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-md">
                       {product.badge}
                     </div>
                   )}
 
-                  {/* OVERLAY ON HOVER */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
                 </div>
 
-                {/* PRODUCT INFO */}
                 <div className="p-5">
-                  {/* PRODUCT NAME */}
                   <h3 className="text-sm font-bold text-gray-900 line-clamp-2 group-hover/card:text-yellow-600 transition-colors mb-2">
                     {product.name}
                   </h3>
 
-                  {/* PRODUCT SPECS */}
                   <div className="inline-block text-xs text-gray-500 font-medium mb-3">
                     {product.specs}
                   </div>
 
-                  {/* DIVIDER */}
                   <div className="h-px bg-gray-200 mb-3 group-hover/card:bg-yellow-300 transition-colors" />
 
-                  {/* ACTION BUTTONS - APPEAR ON HOVER */}
                   <div className="flex items-center justify-between opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
                     <button
                       className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700 font-semibold text-xs transition-colors"
@@ -296,13 +282,11 @@ const ProductCarousel = () => {
                   </div>
                 </div>
 
-                {/* CORNER ACCENT */}
                 <div className="absolute -bottom-1 -right-1 w-12 h-12 bg-yellow-50 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 -z-10" />
               </div>
             ))}
           </div>
 
-          {/* RIGHT NAVIGATION ARROW */}
           <button
             onClick={nextProduct}
             disabled={carouselPos >= maxPos}
@@ -313,7 +297,6 @@ const ProductCarousel = () => {
           </button>
         </div>
 
-        {/* ===== PROGRESS INDICATOR ===== */}
         <div className="mt-10 text-center">
           <div className="inline-block">
             <p className="text-gray-700 font-semibold mb-3">
@@ -321,7 +304,6 @@ const ProductCarousel = () => {
               {Math.min(carouselPos + productsPerView, totalProducts)} of{" "}
               {totalProducts} products
             </p>
-            {/* PROGRESS BAR */}
             <div className="w-48 h-2 bg-gray-200 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 transition-all duration-300 rounded-full"
