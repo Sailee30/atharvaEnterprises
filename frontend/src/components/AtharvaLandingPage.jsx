@@ -64,7 +64,7 @@ const AtharvaLandingPage = () => {
     {
       id: 5,
       name: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780782/33216_dnf3nh.jpgg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781966/1_bfbuip.jpg",
       color: "bg-red-50",
     },
   ];
@@ -105,7 +105,7 @@ const AtharvaLandingPage = () => {
       id: 5,
       name: "WELDY Professional Heat Gun",
       category: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781976/2_jiecum.jpg",
       isNew: false,
     },
   ];
