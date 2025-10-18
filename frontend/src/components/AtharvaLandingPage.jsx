@@ -29,7 +29,7 @@ const AtharvaLandingPage = () => {
     {
       id: 5,
       name: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760789569/WhatsApp_Image_2025-10-18_at_5.05.29_AM_x499vg.jpg",
     },
   ];
 
