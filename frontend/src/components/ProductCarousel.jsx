@@ -175,9 +175,6 @@ const ProductCarousel = () => {
       <div className="container max-w-7xl mx-auto px-8">
         <div className="text-center mb-12">
           <div className="inline-block mb-4">
-            <span className="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold uppercase tracking-wider">
-              Product Lineup
-            </span>
           </div>
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
             Our Product Categories
