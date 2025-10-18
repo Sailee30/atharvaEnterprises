@@ -9,7 +9,7 @@ const Facilities = () => {
           {/* Left Column - Image */}
           <div className="relative overflow-hidden min-h-[250px] rounded-lg">
             <img 
-              src="{atharvaImage}"
+              src={atharvaImage}
               alt="Atharva Enterprises Journey"
               className="w-full h-full object-cover rounded-lg"
             />
