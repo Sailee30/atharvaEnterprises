@@ -145,14 +145,23 @@ const AtharvaLandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ===== HERO SECTION - FEATURED PRODUCT SLIDER ===== */}
-      <section className="relative w-full bg-white overflow-hidden">
-        <div className="relative h-screen flex items-center">
+{/* ===== HERO SECTION - FEATURED PRODUCT SLIDER ===== */}
+<section className="relative w-full bg-white overflow-hidden">
+  <div className="relative h-screen flex items-center overflow-hidden">
+    {/* Sliding Container */}
+    <div
+      className="w-full h-full flex transition-transform duration-700"
+      style={{
+        transform: `translateX(-${heroIndex * 100}%)`,
+      }}
+    >
+      {heroImages.map((hero) => (
+        <div key={hero.id} className="w-full h-full flex-shrink-0 flex items-center">
           {/* Hero Content - Left Side */}
           <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
             <div className="max-w-2xl">
               <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                {heroImages[heroIndex].name}
+                {hero.name}
               </h1>
               <p className="text-xl text-gray-600 mb-8">
                 Professional-grade industrial solutions designed for performance and reliability
@@ -161,52 +170,55 @@ const AtharvaLandingPage = () => {
                 <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                   Explore Products
                 </button>
+                <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
+                  Request Demo
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Hero Product Image - Right Side (Overlapping) */}
+          {/* Hero Product Image - Right Side */}
           <div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-center">
             <img
-              src={heroImages[heroIndex].image}
-              alt={heroImages[heroIndex].name}
-              className="max-h-full max-w-full object-contain transition-all duration-500"
-              style={{
-                transform: `translateX(${(heroIndex) * 100}%)`,
-              }}
+              src={hero.image}
+              alt={hero.name}
+              className="max-h-full max-w-full object-contain"
             />
           </div>
-
-          {/* Hero Navigation Arrows */}
-          <button
-            onClick={prevHero}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
-          >
-            <ChevronLeft size={32} />
-          </button>
-          <button
-            onClick={nextHero}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
-          >
-            <ChevronRight size={32} />
-          </button>
-
-          {/* Hero Navigation Dots */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-            {heroImages.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setHeroIndex(idx)}
-                className={`h-3 rounded-full transition-all ${
-                  heroIndex === idx
-                    ? "w-10 bg-yellow-500"
-                    : "w-3 bg-white/50 hover:bg-white/70"
-                }`}
-              />
-            ))}
-          </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Navigation Arrows */}
+    <button
+      onClick={prevHero}
+      className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
+    >
+      <ChevronLeft size={32} />
+    </button>
+    <button
+      onClick={nextHero}
+      className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
+    >
+      <ChevronRight size={32} />
+    </button>
+
+    {/* Navigation Dots */}
+    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {heroImages.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => setHeroIndex(idx)}
+          className={`h-3 rounded-full transition-all ${
+            heroIndex === idx
+              ? "w-10 bg-yellow-500"
+              : "w-3 bg-white/50 hover:bg-white/70"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ===== CATEGORY EXPLORATION SECTION ===== */}
       <section className="py-20 px-8 bg-white">
