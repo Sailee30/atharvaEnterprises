@@ -184,16 +184,16 @@ const AtharvaLandingPage = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
+{/* Navigation Arrows - Positioned outside main content */}
           <button
             onClick={prevHero}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-gray-900 hover:bg-yellow-500 text-white p-4 rounded-full transition-all"
+            className="absolute left-8 bottom-20 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronLeft size={32} />
           </button>
           <button
             onClick={nextHero}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-gray-900 hover:bg-yellow-500 text-white p-4 rounded-full transition-all"
+            className="absolute right-8 bottom-20 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronRight size={32} />
           </button>
