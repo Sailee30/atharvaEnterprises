@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import HeroSection from "../components/HeroSection";
+import ProductCarousel from "../components/ProductCarousel";  
 import Facilities from "../components/Facilities";
 import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
@@ -7,7 +8,6 @@ import CTA from "../components/CTA";
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate page loading for smoother transitions
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -16,15 +16,11 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Main Content */}
       <main className="flex-grow space-y-16">
-        {/* Hero Section with Slider */}
         <HeroSection />
-        {/* About & Facilities Section */}
+        <ProductCarousel />  
         <Facilities />
-        {/* Testimonials Section */}
         <Testimonials />
-        {/* Call to Action - Sales Section */}
         <CTA />
       </main>
     </div>
