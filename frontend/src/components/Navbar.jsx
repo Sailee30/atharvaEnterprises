@@ -93,33 +93,24 @@ const Navbar = () => {
     setExpandedMobileSubCategory(expandedMobileSubCategory === subCategory ? null : subCategory);
   };
 
-  const handleCategoryHover = (category) => {
-    setActiveMainCategory(category);
-    setActiveSubCategory(null); // Reset subcategory when main category changes
+  const handleCategoryClick = (type, category) => {
+    const slug = categoryToSlug(category);
+    
+    if (type === 'main') {
+      // Navigate to subcategories page for this main category
+      navigate(`/subcategories/${slug}`);
+    } else if (type === 'sub') {
+      // Navigate to sub-subcategories page for this subcategory
+      navigate(`/subsubcategories/${slug}`);
+    } else if (type === 'subsub') {
+      // Navigate to products page filtered by sub-subcategory
+      navigate(`/category/subsub/${slug}`);
+    }
+    
+    setIsProductsOpen(false);
+    setIsAllCategoriesOpen(false);
+    setMobileMenuOpen(false);
   };
-
-  const handleSubCategoryHover = (subCategory) => {
-    setActiveSubCategory(subCategory);
-  };
-
- const handleCategoryClick = (type, category) => {
-  const slug = categoryToSlug(category);
-  
-  if (type === 'main') {
-    // Navigate to subcategories page for this main category
-    navigate(`/subcategories/${slug}`);
-  } else if (type === 'sub') {
-    // Navigate to sub-subcategories page for this subcategory
-    navigate(`/subsubcategories/${slug}`);
-  } else if (type === 'subsub') {
-    // Navigate to products page filtered by sub-subcategory
-    navigate(`/category/subsub/${slug}`);
-  }
-  
-  setIsProductsOpen(false);
-  setIsAllCategoriesOpen(false);
-  setMobileMenuOpen(false);
-};
 
   return (
     <nav
@@ -160,7 +151,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/about-us"
+              to="/about"
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               About Us
@@ -188,35 +179,35 @@ const Navbar = () => {
               </button>
 
               {isProductsOpen && (
-  <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
-    <div className="p-6">
-      <h3 className="font-bold text-lg mb-4 text-slate-800">
-        Product Categories
-      </h3>
-      <ul className="space-y-2">
-        <li>
-          <Link
-            to="/products"
-            className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
-            onClick={() => setIsProductsOpen(false)}
-          >
-            All Products
-          </Link>
-        </li>
-        {mainCategories.map((mainCategory, index) => (
-          <li key={index}>
-            <button
-              className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
-              onClick={() => handleCategoryClick('main', mainCategory)}
-            >
-              {mainCategory}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
+                  <div className="p-6">
+                    <h3 className="font-bold text-lg mb-4 text-slate-800">
+                      Product Categories
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          to="/products"
+                          className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
+                          onClick={() => setIsProductsOpen(false)}
+                        >
+                          All Products
+                        </Link>
+                      </li>
+                      {mainCategories.map((mainCategory, index) => (
+                        <li key={index}>
+                          <button
+                            className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
+                            onClick={() => handleCategoryClick('main', mainCategory)}
+                          >
+                            {mainCategory}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* All Categories Dropdown - Enhanced for 3-Level */}
@@ -240,35 +231,35 @@ const Navbar = () => {
               </button>
 
               {isAllCategoriesOpen && (
-  <div className="absolute left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
-    <div className="p-6">
-      <h3 className="font-bold text-lg mb-4 text-slate-800">
-        All Categories
-      </h3>
-      <ul className="space-y-2">
-        <li>
-          <Link
-            to="/products"
-            className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
-            onClick={() => setIsAllCategoriesOpen(false)}
-          >
-            All Products
-          </Link>
-        </li>
-        {mainCategories.map((mainCategory, index) => (
-          <li key={index}>
-            <button
-              className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
-              onClick={() => handleCategoryClick('main', mainCategory)}
-            >
-              {mainCategory}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+                <div className="absolute left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl z-50 border border-slate-200/60 overflow-hidden">
+                  <div className="p-6">
+                    <h3 className="font-bold text-lg mb-4 text-slate-800">
+                      All Categories
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          to="/products"
+                          className="block w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-yellow-50 hover:text-yellow-700 font-medium border border-transparent hover:border-yellow-200/50"
+                          onClick={() => setIsAllCategoriesOpen(false)}
+                        >
+                          All Products
+                        </Link>
+                      </li>
+                      {mainCategories.map((mainCategory, index) => (
+                        <li key={index}>
+                          <button
+                            className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 font-medium border border-transparent hover:bg-gradient-to-r hover:from-yellow-100 hover:to-yellow-50 hover:text-yellow-700 hover:border-yellow-200/50"
+                            onClick={() => handleCategoryClick('main', mainCategory)}
+                          >
+                            {mainCategory}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
 
             <Link
@@ -280,7 +271,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/contact-us"
+              to="/contact"
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-all duration-300 relative group py-2"
             >
               Contact Us
@@ -384,7 +375,7 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/about-us"
+                to="/about"
                 className="block py-3 px-4 text-yellow-700 hover:text-yellow-600 hover:bg-yellow-50 rounded-xl font-semibold transition-all duration-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -441,7 +432,7 @@ const Navbar = () => {
                             >
                               View All {mainCategory}
                             </button>
-                            {categoryStructure[mainCategory].map((subCategory, i) => (
+                            {Object.keys(categoryStructure[mainCategory]).map((subCategory, i) => (
                               <button
                                 key={i}
                                 className="block w-full text-left py-2 px-3 text-xs text-slate-500 hover:text-yellow-700 hover:bg-yellow-50 rounded-md font-medium transition-all duration-300"
@@ -467,7 +458,7 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/contact-us"
+                to="/contact"
                 className="block py-3 px-4 text-slate-700 hover:text-yellow-600 hover:bg-yellow-50 rounded-xl font-semibold transition-all duration-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
