@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import HeroSection from "../components/HeroSection";
-import AtharvaLandingPage from "../components/AtharvaLandingPage";  // ← ADD THIS
+import AtharvaLandingPage from "../components/AtharvaLandingPage";  
 import Facilities from "../components/Facilities";
 import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
@@ -16,8 +15,7 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow space-y-16">
-        <HeroSection />
-        <AtharvaLandingPage />  {/* ← ADD THIS */}
+        <AtharvaLandingPage />  
         <Facilities />
         <Testimonials />
         <CTA />
