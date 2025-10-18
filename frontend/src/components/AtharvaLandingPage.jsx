@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const AtharvaLandingPage = () => {
   // ============================================
   // HERO SECTION IMAGES - Rotating featured
-  // CHANGE THESE URLs FOR HERO SECTION
   // ============================================
   const heroImages = [
     {
@@ -35,8 +34,7 @@ const AtharvaLandingPage = () => {
   ];
 
   // ============================================
-  // CATEGORY SECTION IMAGES - Carousel display
-  // CHANGE THESE URLs FOR CATEGORY SECTION
+  // CATEGORY SECTION IMAGES
   // ============================================
   const categories = [
     {
@@ -73,7 +71,6 @@ const AtharvaLandingPage = () => {
 
   // ============================================
   // NEW ARRIVAL SECTION PRODUCTS
-  // CHANGE THESE URLs FOR NEW ARRIVAL SECTION
   // ============================================
   const featuredProducts = [
     {
@@ -117,14 +114,13 @@ const AtharvaLandingPage = () => {
   const [categoryScrollPos, setCategoryScrollPos] = useState(0);
 
   // Auto-rotate hero slideshow
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000); // Change image every 3 seconds
+    }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
-  // Hero slider functions
   const nextHero = () => {
     setHeroIndex((prev) => (prev + 1) % heroImages.length);
   };
@@ -133,7 +129,6 @@ const AtharvaLandingPage = () => {
     setHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
   };
 
-  // Category scroll functions
   const scrollCategories = (direction) => {
     const scrollAmount = 300;
     if (direction === "left") {
@@ -145,80 +140,80 @@ const AtharvaLandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-{/* ===== HERO SECTION - FEATURED PRODUCT SLIDER ===== */}
-<section className="relative w-full bg-white overflow-hidden">
-  <div className="relative h-screen flex items-center overflow-hidden">
-    {/* Sliding Container */}
-    <div
-      className="w-full h-full flex transition-transform duration-700"
-      style={{
-        transform: `translateX(-${heroIndex * 100}%)`,
-      }}
-    >
-      {heroImages.map((hero) => (
-        <div key={hero.id} className="w-full h-full flex-shrink-0 flex items-center">
-          {/* Hero Content - Left Side */}
-          <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-            <div className="max-w-2xl">
-              <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                {hero.name}
-              </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Professional-grade industrial solutions designed for performance and reliability
-              </p>
-              <div className="flex gap-4">
-                <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
-                  Explore Products
-                </button>
-                <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
-                  Request Demo
-                </button>
-              </div>
+      {/* ===== HERO SECTION - SLIDING SLIDESHOW ===== */}
+      <section className="relative w-full bg-white overflow-hidden">
+        <div className="relative h-screen flex items-center">
+          {/* Sliding Container */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <div
+              className="flex h-full transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(-${heroIndex * 100}%)`,
+              }}
+            >
+              {heroImages.map((hero) => (
+                <div
+                  key={hero.id}
+                  className="w-full h-full flex-shrink-0 flex items-center bg-white"
+                >
+                  {/* Left Content */}
+                  <div className="w-1/2 px-12 z-10">
+                    <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                      {hero.name}
+                    </h1>
+                    <p className="text-xl text-gray-600 mb-8">
+                      Professional-grade industrial solutions designed for performance and reliability
+                    </p>
+                    <div className="flex gap-4">
+                      <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
+                        Explore Products
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right Image */}
+                  <div className="w-1/2 h-full flex items-center justify-center bg-gray-50">
+                    <img
+                      src={hero.image}
+                      alt={hero.name}
+                      className="max-h-full max-w-full object-contain p-8"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Hero Product Image - Right Side */}
-          <div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-center">
-            <img
-              src={hero.image}
-              alt={hero.name}
-              className="max-h-full max-w-full object-contain"
-            />
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevHero}
+            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-gray-900 hover:bg-yellow-500 text-white p-4 rounded-full transition-all"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          <button
+            onClick={nextHero}
+            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-gray-900 hover:bg-yellow-500 text-white p-4 rounded-full transition-all"
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          {/* Navigation Dots */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+            {heroImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setHeroIndex(idx)}
+                className={`h-3 rounded-full transition-all ${
+                  heroIndex === idx
+                    ? "w-10 bg-yellow-500"
+                    : "w-3 bg-gray-400 hover:bg-gray-600"
+                }`}
+              />
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-
-    {/* Navigation Arrows */}
-    <button
-      onClick={prevHero}
-      className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
-    >
-      <ChevronLeft size={32} />
-    </button>
-    <button
-      onClick={nextHero}
-      className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-all backdrop-blur"
-    >
-      <ChevronRight size={32} />
-    </button>
-
-    {/* Navigation Dots */}
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-      {heroImages.map((_, idx) => (
-        <button
-          key={idx}
-          onClick={() => setHeroIndex(idx)}
-          className={`h-3 rounded-full transition-all ${
-            heroIndex === idx
-              ? "w-10 bg-yellow-500"
-              : "w-3 bg-white/50 hover:bg-white/70"
-          }`}
-        />
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ===== CATEGORY EXPLORATION SECTION ===== */}
       <section className="py-20 px-8 bg-white">
@@ -279,7 +274,7 @@ const AtharvaLandingPage = () => {
         </div>
       </section>
 
-      {/* ===== FEATURED PRODUCTS / NEW ARRIVALS SECTION ===== */}
+      {/* ===== NEW ARRIVAL PRODUCTS ===== */}
       <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
@@ -352,8 +347,6 @@ const AtharvaLandingPage = () => {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };
