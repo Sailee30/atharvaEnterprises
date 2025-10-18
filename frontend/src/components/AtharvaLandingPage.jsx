@@ -170,7 +170,7 @@ const AtharvaLandingPage = () => {
             <img
               src={heroImages[heroIndex].image}
               alt={heroImages[heroIndex].name}
-              className="max-h-full max-w-full object-contain transition-all duration-700"
+              className="max-h-full max-w-full object-contain transition-all duration-500"
               style={{
                 transform: `translateX(${(heroIndex) * 100}%)`,
               }}
