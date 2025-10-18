@@ -7,11 +7,11 @@ const Facilities = () => {
       <div className="container max-w-5xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Image */}
-          <div className="relative overflow-hidden h-56 w-96 rounded-lg">
+          <div className="relative overflow-hidden h-96 w-full bg-gray-100 rounded-lg flex items-center justify-center">
             <img 
               src={atharvaImage}
               alt="Atharva Enterprises Journey"
-              className="w-full h-full object-cover object-center rounded-lg"
+              className="h-80 w-auto object-contain"
             />
           </div>
           
