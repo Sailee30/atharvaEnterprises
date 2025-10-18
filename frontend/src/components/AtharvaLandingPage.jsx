@@ -69,47 +69,6 @@ const AtharvaLandingPage = () => {
     },
   ];
 
-  // ============================================
-  // NEW ARRIVAL SECTION PRODUCTS
-  // ============================================
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "WELDY HG Series Hot Air Guns",
-      category: "Industrial Assembly Tools & Systems",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772740/AT_iosrp2.jpg",
-      isNew: true,
-    },
-    {
-      id: 2,
-      name: "NILFISK Professional Cleaners",
-      category: "Industrial Cleaning Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/CS_gexgbw.jpg",
-      isNew: true,
-    },
-    {
-      id: 3,
-      name: "ARO Chemical Pumps",
-      category: "Industrial Fluid Handling Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/FH_hngq5i.webp",
-      isNew: false,
-    },
-    {
-      id: 4,
-      name: "Heavy-Duty Chain Hoist",
-      category: "Industrial Lifting Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772505/LS_qkdfmr.webp",
-      isNew: true,
-    },
-    {
-      id: 5,
-      name: "WELDY Professional Heat Gun",
-      category: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
-      isNew: false,
-    },
-  ];
-
   const [heroIndex, setHeroIndex] = useState(0);
   const [categoryScrollPos, setCategoryScrollPos] = useState(0);
 
@@ -167,9 +126,6 @@ const AtharvaLandingPage = () => {
                     <div className="flex gap-4">
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                         Explore Products
-                      </button>
-                      <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
-                        Request Demo
                       </button>
                     </div>
                   </div>
