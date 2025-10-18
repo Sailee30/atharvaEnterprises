@@ -77,35 +77,35 @@ const AtharvaLandingPage = () => {
       id: 1,
       name: "WELDY HG Series Hot Air Guns",
       category: "Industrial Assembly Tools & Systems",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780861/2-pro-metallic_o5b6lh.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772740/AT_iosrp2.jpg",
       isNew: true,
     },
     {
       id: 2,
       name: "NILFISK Professional Cleaners",
       category: "Industrial Cleaning Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760690006/atharva_products/tmp-2-661760690005813_fz55sp.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/CS_gexgbw.jpg",
       isNew: true,
     },
     {
       id: 3,
       name: "ARO Chemical Pumps",
       category: "Industrial Fluid Handling Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781454/af0409ax3_uq0sox.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/FH_hngq5i.webp",
       isNew: false,
     },
     {
       id: 4,
       name: "Heavy-Duty Chain Hoist",
       category: "Industrial Lifting Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760780406/electric-winch-fulcrum-20-ton_hero_v1yo4w.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772505/LS_qkdfmr.webp",
       isNew: true,
     },
     {
       id: 5,
       name: "WELDY Professional Heat Gun",
       category: "Industrial Plasto Weld & Heating Solutions",
-      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760781976/2_jiecum.jpg",
+      image: "https://res.cloudinary.com/da9saax3a/image/upload/v1760772504/HS_mlqsqu.jpg",
       isNew: false,
     },
   ];
@@ -168,6 +168,9 @@ const AtharvaLandingPage = () => {
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
                         Explore Products
                       </button>
+                      <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold py-4 px-10 rounded-lg transition-all">
+                        Request Demo
+                      </button>
                     </div>
                   </div>
 
@@ -184,16 +187,16 @@ const AtharvaLandingPage = () => {
             </div>
           </div>
 
-{/* Navigation Arrows - Positioned outside main content */}
+          {/* Navigation Arrows */}
           <button
             onClick={prevHero}
-            className="absolute left-8 bottom-20 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
+            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-yellow-500/70 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronLeft size={32} />
           </button>
           <button
             onClick={nextHero}
-            className="absolute right-8 bottom-20 z-20 bg-white/30 hover:bg-yellow-500 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
+            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-yellow-500/70 text-white p-4 rounded-full transition-all backdrop-blur-md border border-white/30"
           >
             <ChevronRight size={32} />
           </button>
@@ -274,79 +277,7 @@ const AtharvaLandingPage = () => {
         </div>
       </section>
 
-      {/* ===== NEW ARRIVAL PRODUCTS ===== */}
-      <section className="py-20 px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
-            New Arrival Products
-          </h2>
-          <p className="text-center text-gray-600 mb-12">
-            Check out our latest industrial solutions
-          </p>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {featuredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
-              >
-                {/* Product Image */}
-                <div className="relative bg-gray-100 h-64 overflow-hidden flex items-center justify-center">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
-                  {product.isNew && (
-                    <div className="absolute top-4 right-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
-                      NEW
-                    </div>
-                  )}
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6">
-                  <p className="text-xs text-gray-500 mb-2">{product.category}</p>
-                  <h3 className="text-lg font-bold text-gray-900 mb-4 line-clamp-2">
-                    {product.name}
-                  </h3>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-2">
-                    <button className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-4 rounded-lg transition-all">
-                      View More
-                    </button>
-                    <button className="flex-1 border border-gray-300 hover:bg-gray-100 text-gray-900 font-semibold py-2 px-4 rounded-lg transition-all">
-                      Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CTA SECTION ===== */}
-      <section className="py-20 px-8 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Operations?
-          </h2>
-          <p className="text-xl text-gray-300 mb-10">
-            Discover our complete industrial solutions tailored to your specific needs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-12 rounded-lg transition-all">
-              View All Products
-            </button>
-            <button className="border-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-900 text-yellow-500 font-bold py-4 px-12 rounded-lg transition-all">
-              Contact Sales
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
