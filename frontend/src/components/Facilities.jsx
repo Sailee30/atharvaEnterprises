@@ -9,13 +9,12 @@ const Facilities = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Left Column - Marquee */}
             <div className="relative overflow-hidden min-h-[250px] rounded-lg">
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-              <div 
-                className="absolute inset-0 bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65bb6feb8d54a6bc2dfca9f6_about-image.jpg')"
-                }}
-              ></div>
+              <img 
+                src="https://cdn.prod.website-files.com/65b9cce908217ff5cd624b00/65bb6feb8d54a6bc2dfca9f6_about-image.jpg"
+                alt="Atharva Enterprises Journey"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
               <div className="absolute bottom-0 left-0 right-0 py-3 overflow-hidden">
                 <div className="whitespace-nowrap animate-marquee flex">
                   {[...Array(7)].map((_, index) => (
